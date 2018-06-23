@@ -1,0 +1,33 @@
+{
+  "name": "gideon",
+  "version": "2.0.0",
+  "description": "Discord bot made by KolkiesDev and Koen02",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/koens-shack/Gideon.git"
+  },
+  "author": {
+    "name": "Koen van Wijngaarden",
+    "url": "https://koen02.nl"
+  },
+  "contributors": [
+    {
+      "name": "Stijn van der Kolk",
+      "email": "kolkies@kolkiesdev.nl",
+      "url": "https://kolkiesdev.nl"
+    }
+  ],
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://gitlab.com/koens-shack/Gideon/issues"
+  },
+  "homepage": "https://gitlab.com/koens-shack/Gideon#README",
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js#master",
+    "dotenv": "^6.0.0"
+  }
+}
