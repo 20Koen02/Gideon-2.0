@@ -1,12 +1,7 @@
 const url = require("url");
-const path = require("path");
-
-const Discord = require("discord.js");
 
 const express = require("express");
 const app = express();
-const moment = require('moment');
-require('moment-duration-format');
 
 const passport = require('passport');
 const session = require('express-session');
@@ -15,7 +10,6 @@ const Strategy = require('passport-discord').Strategy;
 
 const helmet = require('helmet');
 
-const md = require('marked');
 module.exports = async (client) => {
   // These are... internal things related to passport. Honestly I have no clue either.
   // Just leave 'em there.
@@ -80,16 +74,6 @@ module.exports = async (client) => {
     extended: true
   }));
 
-  /* 
-  Authentication Checks. For each page where the user should be logged in, double-checks
-  whether the login is valid and the session is still active.
-  */
-  function checkAuth(req, res, next) {
-    if (req.isAuthenticated()) return next();
-    req.session.backURL = req.url;
-    res.redirect('/login');
-  }
-
   /** REGULAR INFORMATION PAGES */
 
   // Index page. If the user is authenticated, it shows their info
@@ -139,4 +123,5 @@ module.exports = async (client) => {
       res.redirect('/'); //Inside a callback… bulletproof!
     });
   });
+  client.site = app.listen(client.config.dashboard.port);
 };
