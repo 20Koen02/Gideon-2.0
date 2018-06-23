@@ -1,0 +1,75 @@
+const { Client } = require("discord.js");
+const CommandStore = require("./CommandStore.js");
+const EventStore = require("./EventStore.js");
+const LanguageStore = require("./LanguageStore.js");
+const GideonConsole = require("./GideonConsole.js");
+const settingsHandler = require(`${process.cwd()}/util/settingsHandler.js`);
+
+class GideonClient extends Client {
+    constructor(options) {
+        super(options);
+
+        this.config = require("../config.js");
+        this.console = new GideonConsole(this);
+        this.commands = new CommandStore(this);
+        this.events = new EventStore(this);
+        this.languages = new LanguageStore(this);
+        this.levelCache = {};
+        this.methods = {
+            util: require("../util/util.js"),
+            errors: require("../util/CustomError")
+        };
+        this.db = new settingsHandler(this);
+        this.ready = false;
+        this.on("ready", this._ready.bind(this));
+    }
+
+    async login(token) {
+        await this.init();
+        return super.login(token);
+    }
+
+    _ready() {
+        this.ready = true;
+        this.emit("gideonReady");
+    }
+
+    get ping() {
+        return this.pings.reduce((prev, p) => prev + p, 0) / this.pings.length;
+    }
+
+    get status() {
+        return this.ws.connection ? this.ws.connection.status : null;
+    }
+
+    permlevel(message) {
+        let permlvl = 0;
+
+        const permOrder = this.config.permLevels.slice(0).sort((prev, val) => prev.level < val.level ? 1 : -1);
+
+        while (permOrder.length) {
+            const currentLevel = permOrder.shift();
+            if (message.guild && currentLevel.guildOnly) continue;
+            if (currentLevel.check(message)) {
+                permlvl = currentLevel.level;
+                break;
+            }
+        }
+        return permlvl;
+    }
+
+
+    async init() {
+        const [commands, events, languages] = await Promise.all([this.commands.loadFiles(), this.events.loadFiles(), this.languages.loadFiles()]);
+        this.console.log(`Loaded a total of ${commands} commands`);
+        this.console.log(`Loaded a total of ${events} events`);
+        this.console.log(`Loaded a total of ${languages} languages`);
+
+        for (let i = 0; i < this.config.permLevels.length; i++) {
+            const thisLevel = this.config.permLevels[i];
+            this.levelCache[thisLevel.name] = thisLevel.level;
+        }
+    }
+}
+
+module.exports = GideonClient;
