@@ -20,7 +20,6 @@ class Calc extends Command {
             }
             const mathEmbed = new MessageEmbed()
                 .setColor(message.guild.setting.embedcolor)
-                .setFooter('Aangevraagd door: ' + message.author.username, message.author.avatarURL())
                 .setDescription(`\`${args.join(" ")} = ${math.eval(args.join(" "))}\``);
             message.channel.send({
                 embed: mathEmbed
