@@ -1,5 +1,8 @@
 const Command = require("../../structures/Command.js");
-const { MessageEmbed } = require("discord.js");
+const {
+    MessageEmbed
+} = require("discord.js");
+const math = require("mathjs");
 
 class Calc extends Command {
     constructor(...args) {
@@ -11,15 +14,18 @@ class Calc extends Command {
     }
 
     async run(message, args) {
-        if (args.length >= 3 || args.toLowerCase() == "pi") {
-            try {
-              if (`${math.eval(args.string)}`.length > 400) {
+        try {
+            if (`${math.eval(args.join(" "))}`.length > 400) {
                 throw new Error();
-              }
-              const mathEmbed = new MessageEmbed().setColor(message.guild.setting.embedcolor).setFooter('Aangevraagd door: ' + message.author.username, message.author.avatarURL).setDescription(`\`${args.string} = ${math.eval(args.string)}\``);
-              message.channel.send({embed:mathEmbed});
-            } catch (err) {} //eslint-disable-line no-empty
-          }
+            }
+            const mathEmbed = new MessageEmbed()
+                .setColor(message.guild.setting.embedcolor)
+                .setFooter('Aangevraagd door: ' + message.author.username, message.author.avatarURL())
+                .setDescription(`\`${args.join(" ")} = ${math.eval(args.join(" "))}\``);
+            message.channel.send({
+                embed: mathEmbed
+            });
+        } catch (err) {} //eslint-disable-line no-empty
     }
 }
 

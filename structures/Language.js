@@ -18,7 +18,7 @@ class Event {
    */
   get(term, ...args) {
     if (!this.enabled && this !== this.store.default) return this.store.default.get(term, ...args);
-    const value = this.language[term];
+    const value = this.texts[term];
     switch (typeof value) {
       case 'function':
         return value(...args);
