@@ -6,6 +6,10 @@ const MonitorStore = require("./MonitorStore.js");
 const GideonConsole = require("./GideonConsole.js");
 const settingsHandler = require(`${process.cwd()}/util/settingsHandler.js`);
 
+// Lib
+const Miscs = require('../lib/Miscs');
+const API = require('../lib/API');
+
 class GideonClient extends Client {
     constructor(options) {
         super(options);
@@ -20,6 +24,11 @@ class GideonClient extends Client {
         this.methods = {
             util: require("../util/util.js"),
             errors: require("../util/CustomError")
+        };
+
+        this.helper = { // eslint-disable-line
+            Miscs: new Miscs(this),
+            API: new API(this)
         };
         this.db = new settingsHandler(this);
         this.ready = false;

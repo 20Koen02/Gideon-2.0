@@ -6,6 +6,9 @@ module.exports = class enUSLanguage extends Language {
         super(...args);
 
         this.texts = {
+            //Weather
+            WEATHER_LANGUAGE: "en",
+
             //Urban
             URBAN_DEFINITION: (defenition) => `Definition of: *${defenition}*`,
             URBAN_EXAMPLE: "Example",

@@ -1,7 +1,7 @@
 {
   "name": "gideon",
   "version": "2.0.0",
-  "description": "Discord bot made by KolkiesDev and Koen02",
+  "description": "Gideon by Koen02",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,6 +12,7 @@
   },
   "author": {
     "name": "Koen van Wijngaarden",
+    "email": "kvanwijn@online.nl",
     "url": "https://koen02.nl"
   },
   "contributors": [
