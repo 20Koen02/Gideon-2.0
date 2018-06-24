@@ -12,34 +12,15 @@ module.exports = class enUSLanguage extends Language {
             //Urban
             URBAN_DEFINITION: (defenition) => `Definition of: *${defenition}*`,
             URBAN_EXAMPLE: "Example",
-            URBAN_WORD_NOT_FOUND: ":x: I can't find that word in the Urban Dictionary!",
+            URBAN_WORD_NOT_FOUND: "❌ I can't find that word in the Urban Dictionary!",
 
-            // Music stuffs
-            VOICE_NO_CHANNEL_USER: "You are not connected in a voice channel.",
-            VOICE_NO_CHANNEL_BOT: "I am not connected in a voice channel.",
-            VOICE_NOT_SAME_CHANNEL: "You must be in the same voice channel as me.",
-            VOICE_SEARCH_TERM: "You must provide a search term.",
-            VOICE_NOT_FOUND: (string) => `No result found for **${string}**`,
-            VOICE_CHOOSE_TRACK: "Choose the track you want to play, react with `❌` to cancel the process.\n`NOTE`: __You have 15 seconds to make your decision.__\n",
-            VOICE_DISCARD: "Its completely fine if you dont want to listen to music...",
-            VOICE_ADDED: (song, user) => `🎧 Added **${song}** as requested by ${user}`,
-            VOICE_NOT_CHOOSEN: (user) => `${user}, No song is choosen within the specified time.`,
-            VOICE_AUTOPLAY_ENABLE: "Autoplay has been enabled.",
-            VOICE_AUTOPLAY_DISABLE: "Autoplay has been disabled.",
-            VOICE_CONNECTED: (channel) => `Successfully joined the voice channel ${channel}`,
-            VOICE_DISCONNECTED: (channel) => `Successfully left the voice channel ${channel}`,
-            VOICE_ALREADY_PAUSED: "The stream is already paused.",
-            VOICE_PAUSED: "⏸ Paused",
-            VOICE_FIRST_ADD: (prefix) => `Add some songs to the queue first with \`${prefix}add\``,
-            VOICE_ALREADY_PLAYING: "Already Playing",
-            VOICE_QUEUE_OVER: "⏹ We\"ve run out of songs! Better queue up some more tunes.",
-            VOICE_PLAYING: (song, user) => `🎧 Playing: **${song}** as requested by: ${user}`,
-            VOICE_NOT_PLAYING: (status) => `I am not playing a song. Current status: \`${status}\``,
-            VOICE_QUEUE_NO_SONG: "There is no song in the queue.",
-            VOICE_NOT_PAUSED: "The stream is not paused.",
-            VOICE_RESUMED: "▶ Resumed",
-            VOICE_REPEAT_ENABLE: "Music will now be repeated.",
-            VOICE_REPEAT_DISABLE: "Music wont be repeated now.",
+            // Music 
+            USER_NOT_IN_VOICE: "❌ You are not in a voice channel!",
+            CLIENT_NO_PERMS_CONNECT: "❌ I do not have permissions to connect to your channel!",
+            CLIENT_NO_PERMS_SPEAK: "❌ I do not have permissions to speak in your channel!",
+            MUSIC_ADD_PLAYLIST: "✅ All songs from the playlist are added to the queue:",
+            MUSIC_TOO_LONG_NORMALUSER: "❌ Song is too long! Max length is 15 minutes",
+            MUSIC_NO_SONG_FOUND: "❌ I can not find that song"
         };
     }
 

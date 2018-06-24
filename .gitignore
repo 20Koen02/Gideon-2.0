@@ -76,5 +76,5 @@ typings/
 config.js
 
 # Data files
-data
+data/dashboard-session
 .vs
