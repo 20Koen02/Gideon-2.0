@@ -20,20 +20,20 @@ class Urban extends Command {
                 if (def.example != "") {
                     const defEmbed = new MessageEmbed()
                         .setColor(message.guild.setting.embedcolor)
-                        .addField(`Definition of: *${capitalize(def.word)}*`, `${capitalize(def.definition)}`)
-                        .addField(`Example:`, `*${capitalize(def.example)}*`);
+                        .addField(message.getText("URBAN_DEFINITION", capitalize(def.word)), `${capitalize(def.definition)}`)
+                        .addField(message.getText("URBAN_EXAMPLE"), `*${capitalize(def.example)}*`);
                     return message.channel.send({ embed: defEmbed });
                 } else {
                     const defXEmbed = new MessageEmbed()
                         .setColor(message.guild.setting.embedcolor)
-                        .addField(`Definition of: *${capitalize(def.word)}*`, `${capitalize(def.definition)}`);
+                        .addField(message.getText("URBAN_DEFINITION", capitalize(def.word)), `${capitalize(def.definition)}`);
                     return message.channel.send({ embed: defXEmbed });
                 }
             })
             .catch(e => {
                 const noDefEmbed = new MessageEmbed()
                     .setColor(message.guild.setting.badembedcolor)
-                    .setDescription(`:x: I can't find that word in the Urban Dictionary!`);
+                    .setDescription(message.getText("URBAN_WORD_NOT_FOUND"));
                 message.channel.send({ embed: noDefEmbed });
             })
 

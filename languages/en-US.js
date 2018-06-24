@@ -7,7 +7,7 @@ module.exports = class enUSLanguage extends Language {
 
         this.texts = {
             //Urban
-            URBAN_DEFINITION: "Definition of:",
+            URBAN_DEFINITION: (defenition) => `Definition of: *${defenition}*`,
             URBAN_EXAMPLE: "Example",
             URBAN_WORD_NOT_FOUND: ":x: I can't find that word in the Urban Dictionary!",
 
