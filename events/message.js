@@ -1,5 +1,8 @@
 const Event = require("../structures/Event.js");
-const { Permissions, Collection } = require("discord.js");
+const {
+    Permissions,
+    Collection
+} = require("discord.js");
 const moment = require("moment");
 require("moment-duration-format");
 
@@ -38,7 +41,7 @@ module.exports = class extends Event {
         const level = this.client.permlevel(message);
         const userPermLevel = this.client.config.permLevels.find(perm => perm.level === level);
         message.author.permLevel = level;
-
+        this.client.monitors.run(message);
         const prefix = new RegExp(`^<@!?${this.client.user.id}> |^${this.client.methods.util.regExpEsc(message.PREFIX)}`).exec(message.content);
         if (!prefix) return;
         const args = message.content.slice(prefix[0].length).trim().split(/ +/g);

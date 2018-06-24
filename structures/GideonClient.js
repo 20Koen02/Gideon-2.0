@@ -2,6 +2,7 @@ const { Client } = require("discord.js");
 const CommandStore = require("./CommandStore.js");
 const EventStore = require("./EventStore.js");
 const LanguageStore = require("./LanguageStore.js");
+const MonitorStore = require("./MonitorStore.js");
 const GideonConsole = require("./GideonConsole.js");
 const settingsHandler = require(`${process.cwd()}/util/settingsHandler.js`);
 
@@ -14,6 +15,7 @@ class GideonClient extends Client {
         this.commands = new CommandStore(this);
         this.events = new EventStore(this);
         this.languages = new LanguageStore(this);
+        this.monitors = new MonitorStore(this);
         this.levelCache = {};
         this.methods = {
             util: require("../util/util.js"),
@@ -60,10 +62,11 @@ class GideonClient extends Client {
 
 
     async init() {
-        const [commands, events, languages] = await Promise.all([this.commands.loadFiles(), this.events.loadFiles(), this.languages.loadFiles()]);
+        const [commands, events, languages, monitors] = await Promise.all([this.commands.loadFiles(), this.events.loadFiles(), this.languages.loadFiles(), this.monitors.loadFiles()]);
         this.console.log(`Loaded a total of ${commands} commands`);
         this.console.log(`Loaded a total of ${events} events`);
         this.console.log(`Loaded a total of ${languages} languages`);
+        this.console.log(`Loaded a total of ${monitors} monitors`);
 
         for (let i = 0; i < this.config.permLevels.length; i++) {
             const thisLevel = this.config.permLevels[i];
