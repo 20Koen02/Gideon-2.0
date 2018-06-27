@@ -1,4 +1,4 @@
-const { Client } = require("discord.js");
+const { Client, Util } = require("discord.js");
 const CommandStore = require("./CommandStore.js");
 const EventStore = require("./EventStore.js");
 const LanguageStore = require("./LanguageStore.js");
@@ -28,7 +28,8 @@ class GideonClient extends Client {
 
         this.helper = { // eslint-disable-line
             Miscs: new Miscs(this),
-            API: new API(this)
+            API: new API(this),
+            Util: Util
         };
         this.db = new settingsHandler(this);
         this.ready = false;

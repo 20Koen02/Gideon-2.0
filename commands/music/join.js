@@ -16,7 +16,7 @@ class VoiceJoin extends Command {
         const { music } = message.guild;
         await music.join(voiceChannel);
 
-        return message.channel.send(message.getText('VOICE_CONNECTED', voiceChannel));
+        return message.channel.send(message.getText('VOICE_CONNECTED'));
     }
 }
 

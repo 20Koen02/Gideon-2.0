@@ -12,6 +12,6 @@ module.exports = class extends Event {
         this.client.user.setActivity(`@${this.client.user.username} help`);
 
         this.client.console.log(`${this.client.user.tag}, ready to serve ${this.client.users.size} users in ${this.client.guilds.size} servers.`);
-            require('../util/dashboard.js')(this.client);
+            //require('../util/dashboard.js')(this.client);
     }
 };

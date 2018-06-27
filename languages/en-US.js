@@ -20,7 +20,9 @@ module.exports = class enUSLanguage extends Language {
             CLIENT_NO_PERMS_SPEAK: "❌ I do not have permissions to speak in your channel!",
             MUSIC_ADD_PLAYLIST: "✅ All songs from the playlist are added to the queue:",
             MUSIC_TOO_LONG_NORMALUSER: "❌ Song is too long! Max length is 15 minutes",
-            MUSIC_NO_SONG_FOUND: "❌ I can not find that song"
+            MUSIC_NO_SONG_FOUND: "❌ I can not find that song",
+            VOICE_CONNECTED: "✅ Succesfully joined your channel!",
+            MUSIC_ADDED: "✅ Succesfully added song!"
         };
     }
 

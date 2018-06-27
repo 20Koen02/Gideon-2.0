@@ -82,6 +82,13 @@ module.exports = async (client) => {
     if(!req.isAuthenticated()) return res.redirect("/login");
     res.send(req.user);
   });
+  
+
+  app.get("/:guildid/music", (req, res) => {
+    const guild = client.guilds.get(req.params.guildid);
+    res.send(guild.music.queue);
+
+  });
 
   /** PAGE ACTIONS RELATED TO SESSIONS */
 

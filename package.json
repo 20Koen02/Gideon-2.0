@@ -28,6 +28,7 @@
   },
   "homepage": "https://gitlab.com/koens-shack/Gideon#README",
   "dependencies": {
+    "canvas-constructor": "^1.0.1",
     "console": "^0.7.2",
     "discord.js": "github:discordjs/discord.js#85738b68849b6092b8f43a044937dc8a508b7536",
     "dotenv": "^6.0.0",
@@ -42,6 +43,7 @@
     "moment": "^2.22.2",
     "moment-duration-format": "^2.2.2",
     "ms": "^2.1.1",
+    "node-opus": "^0.3.0",
     "passport": "^0.4.0",
     "passport-discord": "^0.1.3",
     "simple-youtube-api": "^5.0.2",
