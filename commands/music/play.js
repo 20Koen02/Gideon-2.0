@@ -14,6 +14,9 @@ class PlayMusic extends Command {
         const {
             music
         } = message.guild;
+        if (!song.join(" ")) return message.channel.send({
+            embed: this.embeds(message, "NO_ARGUMENTS")
+        })
         if (!message.member.voiceChannel) return message.channel.send({
             embed: this.embeds(message, "USER_NOT_IN_VOICE")
         });
@@ -67,6 +70,10 @@ class PlayMusic extends Command {
             case "USER_NOT_IN_VOICE":
                 embed.setColor(0xff0000)
                     .setDescription(message.getText("USER_NOT_IN_VOICE"));
+                return embed;
+            case "NO_ARGUMENTS":
+                embed.setColor(0xff0000)
+                    .setDescription(message.getText("NO_ARGUMENTS"));
                 return embed;
         }
     }
