@@ -9,7 +9,8 @@ class Weather extends Command {
         super(...args, {
             name: "weather",
             usage: "weather",
-            description: "Shows the weather"
+            description: "Shows the weather",
+            cooldown: 5
         });
     }
 

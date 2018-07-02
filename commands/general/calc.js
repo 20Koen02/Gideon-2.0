@@ -9,7 +9,8 @@ class Calc extends Command {
         super(...args, {
             name: "calc",
             usage: "calc",
-            description: "Calculate your favorite equations"
+            description: "Calculate your favorite equations",
+            cooldown: 5
         });
     }
 

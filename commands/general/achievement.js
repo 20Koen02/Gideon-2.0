@@ -7,7 +7,7 @@ class Achievement extends Command {
             name: "achievement",
             usage: "achievement",
             description: "Generates a minecraft achievement image. Separate with `|`",
-            cooldown: 10
+            cooldown: 5
         });
     }
 

@@ -8,7 +8,8 @@ class Emoji extends Command {
         super(...args, {
             name: "emoji",
             usage: "emoji",
-            description: "Turns text into emoji"
+            description: "Turns text into emoji",
+            cooldown: 5
         });
     }
 

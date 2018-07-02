@@ -8,7 +8,8 @@ class Dice extends Command {
         super(...args, {
             name: "dice",
             usage: "dice",
-            description: "Rolls dices."
+            description: "Rolls dices.",
+            cooldown: 5
         });
     }
 

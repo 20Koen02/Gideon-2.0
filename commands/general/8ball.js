@@ -6,7 +6,8 @@ class EightBall extends Command {
         super(...args, {
             name: "8ball",
             usage: "8ball",
-            description: "Gives you a random fortune"
+            description: "Gives you a random fortune",
+            cooldown: 5
         });
     }
 

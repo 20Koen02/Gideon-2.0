@@ -6,7 +6,8 @@ class Ping extends Command {
         super(...args, {
             name: "ping",
             usage: "ping",
-            description: "Pong."
+            description: "Pong.",
+            cooldown: 5
         });
     }
 

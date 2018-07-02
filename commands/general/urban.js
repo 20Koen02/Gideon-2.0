@@ -9,7 +9,8 @@ class Urban extends Command {
         super(...args, {
             name: "urban",
             usage: "urban",
-            description: "Urban Dictionary"
+            description: "Urban Dictionary",
+            cooldown: 5
         });
     }
 
