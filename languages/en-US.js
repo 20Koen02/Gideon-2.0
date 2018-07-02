@@ -9,9 +9,40 @@ module.exports = class enUSLanguage extends Language {
             //Weather
             WEATHER_LANGUAGE: "en",
 
+            //8ball
+            FORTUNES: [
+                "🎱 **⇾** ✅ It is certain.",
+                "🎱 **⇾** ✅ It is decidedly so.",
+                "🎱 **⇾** ✅ Without a doubt.",
+                "🎱 **⇾** ✅ Yes - definitely.",
+                "🎱 **⇾** ✅ You may rely on it.",
+                "🎱 **⇾** ✅ As I see it, yes.",
+                "🎱 **⇾** ✅ Most likely.",
+                "🎱 **⇾** ✅ Outlook good.",
+                "🎱 **⇾** ✅ Yes.",
+                "🎱 **⇾** ✅ Signs point to yes.", 
+                "🎱 **⇾** ❓ Reply hazy try again.",
+                "🎱 **⇾** ❓ Ask again later.",
+                "🎱 **⇾** ❓ Better not tell you now.",
+                "🎱 **⇾** ❓ Cannot predict now.",
+                "🎱 **⇾** ❓ Concentrate and ask again.",
+                "🎱 **⇾** ❌ Don't count on it.",
+                "🎱 **⇾** ❌ My reply is no.",
+                "🎱 **⇾** ❌ My sources say no.",
+                "🎱 **⇾** ❌ Outlook not so good.",
+                "🎱 **⇾** ❌ Very doubtful."
+            ],
+
+            // Emoji
+            MAX_CHARS: "The maximal amount of characters is 25.",
+            MIN_CHARS: "Please provide text to turn into emoji",
+
+            //Ping
+            PING_FETCH: "Fetching ping...",
+
             //Urban
             URBAN_DEFINITION: (defenition) => `Definition of: *${defenition}*`,
-            URBAN_EXAMPLE: "Example",
+            URBAN_EXAMPLE: "Example:",
             URBAN_WORD_NOT_FOUND: "❌ I can't find that word in the Urban Dictionary!",
 
             // Music 
@@ -26,5 +57,4 @@ module.exports = class enUSLanguage extends Language {
             NO_ARGUMENTS: "❌ Please give me some arguments"
         };
     }
-
 };

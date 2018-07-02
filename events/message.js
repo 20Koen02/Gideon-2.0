@@ -51,7 +51,9 @@ module.exports = class extends Event {
 
         if (typeof rateLimit === "string") {
             this.client.console.log(`\u001b[43;30m[${userPermLevel.name}]\u001b[49;39m \u001b[44m${message.author.username} (${message.author.id})\u001b[49m got ratelimited while running command ${cmd.name}`);
-            return message.channel.send(`Please wait ${rateLimit.toPlural()} to run this command.`); // return stop command from executing
+            const msg = await message.channel.send(`Please wait ${rateLimit.toPlural()} to run this command.`); // return stop command from executing
+            message.delete({ timeout: 2000 });
+            return msg.delete({ timeout: 4000 });
         }
 
         if (cmd.guildOnly && !message.guild) return message.channel.send("This command is unavailable via private message. Please run this command in a guild.");
@@ -89,7 +91,6 @@ module.exports = class extends Event {
 
     ratelimit(message, cmd) {
         if (message.author.permLevel > 4) return false;
-
         const cooldown = cmd.cooldown * 1000;
         const ratelimits = this.ratelimits.get(message.author.id) || {}; // get the ENMAP first.
         if (!ratelimits[cmd.name]) ratelimits[cmd.name] = Date.now() - cooldown; // see if the command has been run before if not, add the ratelimit

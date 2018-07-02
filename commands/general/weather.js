@@ -1,6 +1,6 @@
 const Command = require("../../structures/Command.js");
 const {
-    MessageEmbed
+    MessageAttachment
 } = require("discord.js");
 const snekfetch = require("snekfetch");
 
@@ -15,11 +15,16 @@ class Weather extends Command {
 
     async run(message, args) {
         if (args.length === 0) {
-            const url = `http://wttr.in/gouda_0tqp_lang=${message.getText("WEATHER_LANGUAGE")}.png`;
-            return snekfetch.get(url).then(r => message.channel.send("", { files: [{ attachment: r.body }] }));
+            const {
+                body
+            } = await snekfetch.get(`https://wttr.in/gouda_0tqp_lang=${message.getText("WEATHER_LANGUAGE")}.png`);
+            await message.channel.send(new MessageAttachment(body, "weather-gouda.png"));
+        } else {
+            const {
+                body
+            } = await snekfetch.get(`https://wttr.in/${args.join(" ").replace(' ', '%20')}_0tqp_lang=${message.getText("WEATHER_LANGUAGE")}.png`);
+            await message.channel.send(new MessageAttachment(body, `weather-${args.join(" ")}.png`));
         }
-        const url = `http://wttr.in/${args.join(" ").replace(' ', '%20')}_0tqp_lang=${message.getText("WEATHER_LANGUAGE")}.png`;
-        snekfetch.get(url).then(r => message.channel.send("", { files: [{ attachment: r.body }] }));
     }
 }
 

@@ -1,13 +1,13 @@
 const Command = require("../../structures/Command.js");
-const snekfetch = require("snekfetch");
-const { MessageEmbed } = require("discord.js");
+const { MessageAttachment } = require("discord.js");
 
 class Achievement extends Command {
     constructor(...args) {
         super(...args, {
             name: "achievement",
             usage: "achievement",
-            description: "Generates a minecraft achievement image. Separate with `|`"
+            description: "Generates a minecraft achievement image. Separate with `|`",
+            cooldown: 10
         });
     }
 
@@ -16,14 +16,17 @@ class Achievement extends Command {
         if(!contents) {
           [title, contents] = ["Achievement Get!", title];
         }
-  
-        let rnd = Math.floor((Math.random() * 39) + 1);
-  
-        if(title.length > 22 || contents.length > 22) {
-          return message.reply("The maximum length of the title and description is 22 characters.");
+        
+        //cuts off part of content when over 21 characters
+        if(contents.length > 21) {
+            contents = contents.split("").slice(0, 21).join("");
         }
-        const url = `https://www.minecraftskinstealer.com/achievement/a.php?i=${rnd}&h=${encodeURIComponent(title)}&t=${encodeURIComponent(contents)}`;
-        snekfetch.get(url).then(r=>message.channel.send("", {files:[{attachment: r.body}]}));
+        if(title.length > 21) {
+            title = title.split("").slice(0, 21).join("");
+        }
+
+        const { body } = await this.client.helper.API.getAchievement(encodeURIComponent(title), encodeURIComponent(contents), Math.floor((Math.random() * 39) + 1));
+        message.channel.send(new MessageAttachment(body, "achievement.png"));
     }
 }
 

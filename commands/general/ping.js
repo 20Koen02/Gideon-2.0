@@ -6,12 +6,12 @@ class Ping extends Command {
         super(...args, {
             name: "ping",
             usage: "ping",
-            description: "Let's do a ping."
+            description: "Pong."
         });
     }
 
     async run(message) {
-      const msg = await message.channel.send('Ping ophalen...');
+      const msg = await message.channel.send(message.getText("URBAN_EXAMPLE"));
       const embed = new MessageEmbed().setColor(message.guild.setting.embedcolor).setDescription(`:clock1: ${msg.createdTimestamp - message.createdTimestamp} ms\n:floppy_disk: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(0)} mb`);
       await msg.edit({ embed: embed }); 
     }

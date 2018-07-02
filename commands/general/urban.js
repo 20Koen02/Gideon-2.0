@@ -30,12 +30,12 @@ class Urban extends Command {
                     return message.channel.send({ embed: defXEmbed });
                 }
             })
-            .catch(e => {
+            .catch(e => { // eslint-disable-line no-unused-vars
                 const noDefEmbed = new MessageEmbed()
                     .setColor(message.guild.setting.badembedcolor)
                     .setDescription(message.getText("URBAN_WORD_NOT_FOUND"));
                 message.channel.send({ embed: noDefEmbed });
-            })
+            });
 
     }
 }
