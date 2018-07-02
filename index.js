@@ -12,7 +12,7 @@ const client = new GideonClient({
     messageCacheMaxSize: 100,
     messageCacheLifetime: 240,
     messageSweepInterval: 300,
-    shardCount: "auto"
+    shardCount: 3
 });
 
 client.login(process.env.DISCORD);
