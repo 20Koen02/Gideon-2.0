@@ -9,6 +9,12 @@ module.exports = class enUSLanguage extends Language {
             //Weather
             WEATHER_LANGUAGE: "en",
 
+            //Flip
+            FLIP : [
+                "Heads",
+                "Tails"
+            ],
+
             //8ball
             FORTUNES: [
                 "🎱 **⇾** ✅ It is certain.",
