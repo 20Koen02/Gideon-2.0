@@ -23,19 +23,23 @@ class Ping extends Command {
     }
 
     async run(message) {
-        const msg = await message.channel.send(message.getText("PING_FETCH"));
-        if ((msg.createdTimestamp - message.createdTimestamp) > 9999) {
+        const msgone = await message.channel.send(message.getText("PING_FETCH"));
+        
+        const msgtwo = await message.channel.send(message.getText("PING_PROCESSING"))
+
+        if ((msgtwo.createdTimestamp - msgone.createdTimestamp) > 9999) {
             return message.channel.send(":x: Could not fetch ping!")
         }
         if ((process.memoryUsage().heapUsed / 1024 / 1024).toFixed(0)) {
             
         }
-        const result = await this.ping(msg, message);
-        msg.delete()
+        const result = await this.ping(msgone, msgtwo);
+        msgone.delete();
         await message.channel.send(new MessageAttachment(result, 'ping.png'));
+        msgtwo.delete();
     }
 
-    async ping(msg, message) {
+    async ping(msgone, msgtwo) {
 
         
         let clock = await fsn.readFile('./assets/ping/clock.png');
@@ -65,7 +69,7 @@ class Ping extends Command {
 
         .setColor("#ffffff")
         .setTextFont('15px Ubuntu')
-        .addText(`${msg.createdTimestamp - message.createdTimestamp}`, 50, 33)
+        .addText(`${msgtwo.createdTimestamp - msgone.createdTimestamp}`, 50, 33)
         .addText(`ms`, 50, 48)
 
         .addText(`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(0)}`, 145, 33)

@@ -39,6 +39,7 @@ module.exports = class enUSLanguage extends Language {
 
             //Ping
             PING_FETCH: "Fetching ping...",
+            PING_PROCESSING: "Fetched ping. Processing...",
 
             //Urban
             URBAN_DEFINITION: (defenition) => `Definition of: *${defenition}*`,
