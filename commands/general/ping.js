@@ -45,9 +45,6 @@ class Ping extends Command {
         let clock = await fsn.readFile('./assets/ping/clock.png');
         let floppy = await fsn.readFile('./assets/ping/floppy.png');
 
-        //msg.createdTimestamp - message.createdTimestamp
-        //(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(0)
-
         return new Canvas(200, 70)  
         .setColor("#2F3136")
         .addRect(0, 0, 200, 70)
