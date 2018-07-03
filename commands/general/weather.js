@@ -1,12 +1,16 @@
-
 const Command = require("../../structures/Command.js");
 const {
     MessageAttachment
 } = require("discord.js");
 const snekfetch = require("snekfetch");
-const { Canvas } = require('canvas-constructor');
+const {
+    Canvas
+} = require('canvas-constructor');
 const fsn = require('fs-nextra');
-const { resolve, join } = require("path")
+const {
+    resolve,
+    join
+} = require("path")
 
 
 
@@ -21,12 +25,21 @@ class Weather extends Command {
     }
 
     async run(message, args) {
-        if (!args.join(' ')) return message.channel.send('You must provide a valid city!');
+        if (!args.join(' ')) return message.channel.send(':x: You must provide a valid city!');
         const geturl = `http://api.openweathermap.org/data/2.5/weather?q=${args.join(' ')}&units=metric`;
-		const { body: data } = await snekfetch.get(geturl)
-            .query({ appid: process.env.OWM });
-        const result = await this.weather(data);
-        await message.channel.send(new MessageAttachment(result, 'weather.png'));
+        try {
+            const {
+                body: data
+            } = await snekfetch.get(geturl)
+                .query({
+                    appid: process.env.OWM
+                });
+            const result = await this.weather(data);
+            await message.channel.send(new MessageAttachment(result, 'weather.png'));
+        } catch (e) {
+            return message.channel.send(":x: You must provide a valid city!")
+        }
+
     }
 
     async weather(data) {
@@ -53,8 +66,8 @@ class Weather extends Command {
         }
 
 
-		return new Canvas(600, 300)
-			.setColor("#2F3136")
+        return new Canvas(600, 300)
+            .setColor("#2F3136")
             .addRect(0, 0, 600, 500)
 
             .setColor("#242528")
@@ -92,7 +105,7 @@ class Weather extends Command {
             .restore()
 
             .toBuffer();
-	}
+    }
 }
 
 module.exports = Weather;
