@@ -1,4 +1,3 @@
-require("dotenv").config();
 require("./util/Prototypes.js");
 require("./extenders/Message.js");
 require("./extenders/Guild.js");
@@ -11,8 +10,7 @@ const client = new GideonClient({
     disableEveryone: true,
     messageCacheMaxSize: 100,
     messageCacheLifetime: 240,
-    messageSweepInterval: 300,
-    shardCount: 3
+    messageSweepInterval: 300
 });
 
 client.login(process.env.DISCORD);
