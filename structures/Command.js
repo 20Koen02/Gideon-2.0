@@ -57,6 +57,29 @@ class Command {
   reload() {
     return this.store.load(this.file.path);
   }
+  	/**
+	 * Get avatar for a raw user input.
+	 * @param {string} message The d.js message object. Needed by verifyUser function.
+	 * @param {string} user user which is to be verified and fetched.
+	 * @param {string} options The options for  the user avatar.
+	 * @param {string} options.format The format of the avatar to be fetched.
+	 * @param {number} options.size The size of the avatat to be fetched.
+	 * @returns {Promise<string>} The Avatar URL of the verified user.
+	 */
+	async getUserAvatar(message, user, options = { format: 'png', size: 128 }) {
+		if (typeof options !== 'object') throw new Error('Request options must be an object');
+		if (!options.hasOwnProperty('format')) options.format = 'png';
+		if (!options.hasOwnProperty('size')) options.size = 128;
+		const verifiedUser = await this.client.helper.Miscs.verifyUser(message, user);
+		return verifiedUser.displayAvatarURL({ format: options.format, size: options.size });
+	}
+
+	async getImage(msg, options = {}) {
+		const imgRegex = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|webp|jpeg|png)/i;
+		if (msg.attachments.size > 0 && imgRegex.test(msg.attachments.first().url)) return imgRegex.exec(msg.attachments.first().url)[0].replace(/.webp$/g, '.png');
+		else if (imgRegex.test(msg.content)) return imgRegex.exec(msg.content)[0].replace(/.webp$/g, '.png');
+		else return await this.getUserAvatar(msg, msg.args.join(' ') || msg.author, options);
+	}
 
 }
 module.exports = Command;
