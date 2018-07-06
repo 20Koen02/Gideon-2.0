@@ -1,4 +1,4 @@
-const { Client, Util } = require("discord.js");
+const { Client, Util, Permissions } = require("discord.js");
 const CommandStore = require("./CommandStore.js");
 const EventStore = require("./EventStore.js");
 const LanguageStore = require("./LanguageStore.js");
@@ -53,6 +53,10 @@ class GideonClient extends Client {
     get status() {
         return this.ws.connection ? this.ws.connection.status : null;
     }
+    generateInvite() {
+		const permissions = Permissions.resolve(this.commands.reduce((a, b) => a.add(b.botPerms), new Permissions(['VIEW_CHANNEL', 'SEND_MESSAGES'])));
+		return `https://discordapp.com/oauth2/authorize?client_id=${this.user.id}&permissions=${permissions}&scope=bot`;
+	}
 
     permlevel(message) {
         let permlvl = 0;

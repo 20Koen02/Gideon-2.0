@@ -31,7 +31,7 @@
     "canvas": "github:Automattic/node-canvas#92b192447e9b9ae98da0f801e4e34afdd1dc1ef8",
     "canvas-constructor": "^1.0.1",
     "console": "^0.7.2",
-    "discord.js": "github:discordjs/discord.js",
+    "discord.js": "github:discordjs/discord.js#d97af9d2e0a8c4cc3cd18b7b93ba6b93fe3772f6",
     "dotenv": "^6.0.0",
     "ejs": "^2.6.1",
     "express": "^4.16.3",

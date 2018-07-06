@@ -1,4 +1,5 @@
 const Event = require("../structures/Event.js");
+const WebAPI = require(`${process.cwd()}/lib/WebAPI`);
 module.exports = class extends Event {
 
     async run() {
@@ -13,5 +14,12 @@ module.exports = class extends Event {
 
         this.client.console.log(`${this.client.user.tag}, ready to serve ${this.client.users.size} users in ${this.client.guilds.size} servers.`);
             //require('../util/dashboard.js')(this.client);
+            if (this.client.shard.id === 0) {
+                try{
+                    this.client.API = new WebAPI(this.client);
+                } catch(error) {
+                    console.log(error);
+                }
+            }
     }
 };
