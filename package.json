@@ -1,0 +1,39 @@
+{
+  "name": "gideon",
+  "version": "2.0.0",
+  "description": "Gideon by Koen02",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/koens-shack/Gideon.git"
+  },
+  "author": {
+    "name": "Koen van Wijngaarden",
+    "email": "kvanwijn@online.nl",
+    "url": "https://koen02.nl"
+  },
+  "contributors": [
+    {
+      "name": "Stijn van der Kolk",
+      "email": "kolkies@kolkiesdev.nl",
+      "url": "https://kolkiesdev.nl"
+    }
+  ],
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://gitlab.com/koens-shack/Gideon/issues"
+  },
+  "homepage": "https://gitlab.com/koens-shack/Gideon#README",
+  "dependencies": {
+    "canvas": "github:Automattic/node-canvas#92b192447e9b9ae98da0f801e4e34afdd1dc1ef8",
+    "canvas-constructor": "^1.1.2",
+    "discord.js": "github:discordjs/discord.js#master",
+    "klasa": "github:dirigeants/klasa#master",
+    "klasa-dashboard-hooks": "github:dirigeants/klasa-dashboard-hooks",
+    "mathjs": "^5.2.0",
+    "mysql2": "^1.6.1"
+  }
+}
