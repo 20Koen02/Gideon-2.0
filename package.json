@@ -32,11 +32,18 @@
     "canvas-constructor": "^1.1.2",
     "discord.js": "github:discordjs/discord.js#master",
     "dotenv": "^6.0.0",
+    "form-data": "^2.3.2",
+    "http": "0.0.0",
     "https": "^1.0.0",
+    "iso8601-duration": "^1.1.6",
     "klasa": "github:dirigeants/klasa#master",
     "klasa-dashboard-hooks": "github:dirigeants/klasa-dashboard-hooks",
     "mathjs": "^5.2.0",
     "mysql2": "^1.6.1",
-    "snekfetch": "^4.0.4"
+    "node-fetch": "^2.2.0",
+    "querystring": "^0.2.0",
+    "snekfetch": "^4.0.4",
+    "url": "^0.11.0",
+    "ytdl-core": "^0.26.1"
   }
 }
