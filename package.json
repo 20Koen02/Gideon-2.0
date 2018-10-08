@@ -31,9 +31,12 @@
     "canvas": "github:Automattic/node-canvas#92b192447e9b9ae98da0f801e4e34afdd1dc1ef8",
     "canvas-constructor": "^1.1.2",
     "discord.js": "github:discordjs/discord.js#master",
+    "dotenv": "^6.0.0",
+    "https": "^1.0.0",
     "klasa": "github:dirigeants/klasa#master",
     "klasa-dashboard-hooks": "github:dirigeants/klasa-dashboard-hooks",
     "mathjs": "^5.2.0",
-    "mysql2": "^1.6.1"
+    "mysql2": "^1.6.1",
+    "snekfetch": "^4.0.4"
   }
 }
