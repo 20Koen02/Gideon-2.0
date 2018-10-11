@@ -41,6 +41,7 @@
     "mathjs": "^5.2.0",
     "mysql2": "^1.6.1",
     "node-fetch": "^2.2.0",
+    "node-opus": "^0.3.0",
     "perf_hooks": "0.0.1",
     "querystring": "^0.2.0",
     "snekfetch": "^4.0.4",
