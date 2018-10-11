@@ -1,7 +1,7 @@
 const { Command } = require('klasa');
 const { getDuration } = require('../../lib/Util');
 
-class AddMusicCommand extends Command {
+class PlayCommand extends Command {
 
 	constructor(...args) {
 		super(...args, {
@@ -21,7 +21,7 @@ class AddMusicCommand extends Command {
 
 		for (let i = 0; i < searchResult.length; i++) {
 			const songInfo = searchResult[i];
-			songChoices.push(`**${i + 1}.** ${songInfo.title} - (**${getDuration(songInfo.duration * 1000)}**)`);
+			songChoices.push(`**${i + 1}.** ${songInfo.title} - (**${getDuration(songInfo.length * 1000)}**)`);
 		}
 		await msg.channel.send(songChoices.join('\n'));
 
@@ -37,17 +37,19 @@ class AddMusicCommand extends Command {
 			const choices = await msg.channel.awaitMessages(filter, { time: 15000, max: 1, errors: ['time'] });
 			if (choices.first().content.toLowerCase() === 'cancel') return await msg.send('Adding song discarded...');
 			const choice = parseInt(choices.first().content.toLowerCase());
-			return await this.addSong(msg, searchResult[choice - 1].id);
+			const song = await this.addSong(msg, searchResult[choice - 1].id);
+			if(msg.guild.music.status == "paused" || msg.guild.music.status == "playing") return msg.send(`I added song **${song.title}** to the queue!`);
+			await msg.guild.music.play();
+			return msg.send(`I am now going to play ${song.title}`);
 		} catch (err) {
+			console.log(err);
 			return await msg.send('Not choosen');
 		}
 	}
 
 	async addSong(msg, song, type) {
 		const addedSong = await msg.guild.music.add(msg.author, song, { force: true, type });
-		return await msg.send(`Added ${addedSong.title} from ${addedSong.source}`);
-		// TO-BE-DONE If the song is already in recently played, ask user for verification if really want to add again.
-		// Also fix the lines above with better messages :P
+		return addedSong;
 	}
 
 	fetchFromURL(url) {
@@ -58,4 +60,4 @@ class AddMusicCommand extends Command {
 
 }
 
-module.exports = AddMusicCommand;
+module.exports = PlayCommand;
