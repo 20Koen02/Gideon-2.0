@@ -7,7 +7,7 @@ module.exports = class enUSLanguage extends Language {
 
         this.texts = {
             //Weather
-            WEATHER_LANGUAGE: "en",
+            VALID_CITY: ":x: You must provide a valid city!",
 
             //Flip
             FLIP : [
@@ -44,8 +44,8 @@ module.exports = class enUSLanguage extends Language {
             MIN_CHARS: "Please provide text to turn into emoji",
 
             //Ping
-            PING_FETCH: "Fetching ping...",
-            PING_PROCESSING: "Fetched ping. Processing...",
+            PING_FETCH: "Fetching...",
+            PING_PROCESSING: "Processing...",
 
             //Urban
             URBAN_DEFINITION: (defenition) => `Definition of: *${defenition}*`,
@@ -57,7 +57,7 @@ module.exports = class enUSLanguage extends Language {
             CLIENT_NO_PERMS_CONNECT: "❌ I do not have permissions to connect to your channel!",
             CLIENT_NO_PERMS_SPEAK: "❌ I do not have permissions to speak in your channel!",
             MUSIC_ADD_PLAYLIST: "✅ All songs from the playlist are added to the queue:",
-            MUSIC_TOO_LONG_NORMALUSER: "❌ Song is too long! Max length is 15 minutes",
+            MUSIC_TOO_LONG_NORMALUSER: "❌ Song is too long! The maximum length is 15 minutes",
             MUSIC_NO_SONG_FOUND: "❌ I can not find that song",
             VOICE_CONNECTED: "✅ Succesfully joined your channel!",
             MUSIC_ADDED: "✅ Succesfully added song!",

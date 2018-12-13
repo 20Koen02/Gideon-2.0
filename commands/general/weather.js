@@ -25,7 +25,7 @@ class Weather extends Command {
     }
 
     async run(message, args) {
-        if (!args.join(' ')) return message.channel.send(':x: You must provide a valid city!');
+        if (!args.join(' ')) return message.channel.send(message.getText("VALID_CITY"));
         const geturl = `http://api.openweathermap.org/data/2.5/weather?q=${args.join(' ')}&units=metric`;
         try {
             const {
@@ -37,7 +37,7 @@ class Weather extends Command {
             const result = await this.weather(data);
             await message.channel.send(new MessageAttachment(result, 'weather.png'));
         } catch (e) {
-            return message.channel.send(":x: You must provide a valid city!")
+            return message.channel.send(message.getText("VALID_CITY"));
         }
 
     }
