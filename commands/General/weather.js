@@ -23,6 +23,7 @@ module.exports = class extends Command {
 
 	async run(message, [city]) {
         const geturl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric`;
+        try {
             const {
                 body: data
             } = await snekfetch.get(geturl)
