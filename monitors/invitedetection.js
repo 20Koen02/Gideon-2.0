@@ -12,9 +12,9 @@ module.exports = class extends Monitor {
 	}
 
 	async run(msg) {
-		if (!msg.guild || !msg.guild.settings.antiinvite) return console.log("Hi");
-		if (await msg.hasAtLeastPermissionLevel(6)) return console.log("test");
-		if (!/(https?:\/\/)?(www\.)?(discord\.(gg|li|me|io)|discordapp\.com\/invite)\/.+/.test(msg.content)) return console.log("help");
+		if (!msg.guild || !msg.guild.settings.antiinvite) return;
+		if (await msg.hasAtLeastPermissionLevel(6)) return;
+		if (!/(https?:\/\/)?(www\.)?(discord\.(gg|li|me|io)|discordapp\.com\/invite)\/.+/.test(msg.content)) return;
 		return msg.delete()
 			.catch(err => {
         this.client.emit('log', err, 'error');
