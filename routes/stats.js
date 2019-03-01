@@ -16,7 +16,7 @@ module.exports = class extends Route {
 			uptime: Duration.toNow(Date.now() - (process.uptime() * 1000)),
 			latency: this.client.ws.ping.toFixed(0),
 			memory: process.memoryUsage().heapUsed / 1024 / 1024,
-			votes: 100,
+			votes: 0,
 			...this.client.application
 		}));
 	}

@@ -7,6 +7,7 @@ const {
     Canvas
 } = require("canvas-constructor");
 const fsn = require("fs-nextra");
+const { keys: { owmkey } } = require('../../config');
 
 
 
@@ -28,7 +29,7 @@ module.exports = class extends Command {
                 body: data
             } = await snekfetch.get(geturl)
                 .query({
-                    appid: process.env.OWM
+                    appid: owmkey
                 });
             const result = await this.weather(data);
             await message.channel.send(new MessageAttachment(result, "weather.png"));
