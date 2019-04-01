@@ -4,7 +4,7 @@
 	"description": "Gideon by Koen02",
 	"main": "index.js",
 	"scripts": {
-		"install": "npm i -g node-opus ffmpeg-binaries@3.2.2-3 && npm link ffmpeg-binaries && npm link node-opus"
+		"install": ""
 	},
 	"repository": {
 		"type": "git",
@@ -31,7 +31,6 @@
 		"canvas": "github:Automattic/node-canvas#92b192447e9b9ae98da0f801e4e34afdd1dc1ef8",
 		"canvas-constructor": "^3.0.1",
 		"discord.js": "github:discordjs/discord.js#master",
-		"ffmpeg-binaries": "^3.2.2-3",
 		"form-data": "^2.3.3",
 		"iso8601-duration": "^1.2.0",
 		"klasa": "github:dirigeants/klasa#master",
@@ -46,6 +45,7 @@
 		"turl": "^1.1.2",
 		"urban.js": "^2.4.3",
 		"url": "^0.11.0",
+		"ytdl-core": "^0.29.1",
 		"ytdl-core-discord": "^1.0.3"
 	},
 	"devDependencies": {
