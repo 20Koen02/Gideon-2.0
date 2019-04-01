@@ -1,24 +1,25 @@
 const { Command } = require('klasa');
-const { shorten } = require("../../lib/Shorten");
-const { MessageEmbed } = require("discord.js");
+const turl = require('turl');
 
 module.exports = class extends Command {
-
 	constructor(...args) {
 		super(...args, {
-            cooldown: 5,
-			description: "Shorten an url"
+			cooldown: 5,
+			description: 'Shorten an url',
+			usage: '<text:...string>'
 		});
 	}
 
 	async run(message, args) {
-        shorten(args[0], (res) => {
-            const shortEmbed = new MessageEmbed()
-                .setColor("RANDOM")
-                .addField("Short URL:", res);
-            return message.channel.send({ embed: shortEmbed });
-        });
-
+		turl
+			.shorten(args[0])
+			.then((res) => {
+				const shortEmbed = this.client.helpers.Miscs.getEmbed({ color: message.guild.settings.embedcolor, footer: false });
+				shortEmbed.addField('Short URL:', res);
+				return message.channel.send({ embed: shortEmbed });
+			})
+			.catch((err) => {
+				console.log(err);
+			});
 	}
-
 };

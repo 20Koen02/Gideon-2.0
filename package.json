@@ -1,54 +1,54 @@
 {
-  "name": "gideon",
-  "version": "2.0.0",
-  "description": "Gideon by Koen02",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://gitlab.com/koens-shack/Gideon.git"
-  },
-  "author": {
-    "name": "Koen van Wijngaarden",
-    "email": "kvanwijn@online.nl",
-    "url": "https://koen02.nl"
-  },
-  "contributors": [
-    {
-      "name": "Stijn van der Kolk",
-      "email": "kolkies@kolkiesdev.nl",
-      "url": "https://kolkiesdev.nl"
-    }
-  ],
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://gitlab.com/koens-shack/Gideon/issues"
-  },
-  "homepage": "https://gitlab.com/koens-shack/Gideon#README",
-  "dependencies": {
-    "canvas": "github:Automattic/node-canvas#92b192447e9b9ae98da0f801e4e34afdd1dc1ef8",
-    "canvas-constructor": "^1.1.2",
-    "discord.js": "github:discordjs/discord.js#master",
-    "dotenv": "^6.0.0",
-    "eslint": "^5.16.0",
-    "form-data": "^2.3.2",
-    "http": "0.0.0",
-    "https": "^1.0.0",
-    "iso8601-duration": "^1.1.6",
-    "klasa": "github:dirigeants/klasa#master",
-    "klasa-dashboard-hooks": "github:dirigeants/klasa-dashboard-hooks",
-    "mathjs": "^5.2.0",
-    "mysql2": "^1.6.1",
-    "node-fetch": "^2.2.0",
-    "node-opus": "^0.3.0",
-    "querystring": "^0.2.0",
-    "snekfetch": "^4.0.4",
-    "trello": "^0.9.1",
-    "urban.js": "^2.4.3",
-    "url": "^0.11.0",
-    "ytdl-core": "^0.29.1",
-    "ytdl-core-discord": "^1.0.3"
-  }
+	"name": "gideon",
+	"version": "2.0.0",
+	"description": "Gideon by Koen02",
+	"main": "index.js",
+	"scripts": {
+		"install": "npm i -g node-opus ffmpeg-binaries@3.2.2-3 && npm link ffmpeg-binaries && npm link node-opus"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://gitlab.com/koens-shack/Gideon.git"
+	},
+	"author": {
+		"name": "Koen van Wijngaarden",
+		"email": "kvanwijn@online.nl",
+		"url": "https://koen02.nl"
+	},
+	"contributors": [
+		{
+			"name": "Stijn van der Kolk",
+			"email": "kolkies@kolkiesdev.nl",
+			"url": "https://kolkiesdev.nl"
+		}
+	],
+	"license": "Apache-2.0",
+	"bugs": {
+		"url": "https://gitlab.com/koens-shack/Gideon/issues"
+	},
+	"homepage": "https://gitlab.com/koens-shack/Gideon#README",
+	"dependencies": {
+		"canvas": "github:Automattic/node-canvas#92b192447e9b9ae98da0f801e4e34afdd1dc1ef8",
+		"canvas-constructor": "^3.0.1",
+		"discord.js": "github:discordjs/discord.js#master",
+		"ffmpeg-binaries": "^3.2.2-3",
+		"form-data": "^2.3.3",
+		"iso8601-duration": "^1.2.0",
+		"klasa": "github:dirigeants/klasa#master",
+		"klasa-dashboard-hooks": "github:dirigeants/klasa-dashboard-hooks",
+		"mathjs": "^5.8.0",
+		"mysql2": "^1.6.5",
+		"node-fetch": "^2.3.0",
+		"node-opus": "^0.3.1",
+		"querystring": "^0.2.0",
+		"snekfetch": "^4.0.4",
+		"trello": "^0.9.1",
+		"turl": "^1.1.2",
+		"urban.js": "^2.4.3",
+		"url": "^0.11.0",
+		"ytdl-core-discord": "^1.0.3"
+	},
+	"devDependencies": {
+		"eslint": "^5.16.0"
+	}
 }

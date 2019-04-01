@@ -1,12 +1,11 @@
 const { Command, util: { isFunction } } = require('klasa');
 
 module.exports = class extends Command {
-
 	constructor(...args) {
 		super(...args, {
-			aliases: ['commands'],
+			aliases: [ 'commands' ],
 			guarded: true,
-			description: language => language.get('COMMAND_HELP_DESCRIPTION'),
+			description: (language) => language.get('COMMAND_HELP_DESCRIPTION'),
 			usage: '(Command:command)'
 		});
 
@@ -16,28 +15,30 @@ module.exports = class extends Command {
 		});
 	}
 
-	async run(msg, [cmnd]) {
-		const embed = this.client.helpers.Miscs.getEmbed({ footer: false });
+	async run(msg, [ cmnd ]) {
+		const embed = this.client.helpers.Miscs.getEmbed({ color: msg.guild.settings.embedcolor });
 
 		if (cmnd) {
-			embed.setTitle(`${cmnd.name} command`)
-				.setDescription([
-					`_**Help**_ | __**${cmnd.name}**__`,
-					isFunction(cmnd.description) ? cmnd.description(msg.language) : cmnd.description,
-					``,
-					'_**Command Usage**_',
-					`\`${msg.guildSettings.prefix}${cmnd.usage}\``,
-					cmnd.aliases.length ? `\n_**Aliases**_\n${cmnd.aliases.map(cmd => `${cmd}`).join(', ')}\n` : ''
-				].join('\n'));
+			embed
+				.setTitle(`${cmnd.name} command`)
+				.setDescription(
+					[
+						`_**Help**_ | __**${cmnd.name}**__`,
+						isFunction(cmnd.description) ? cmnd.description(msg.language) : cmnd.description,
+						``,
+						'_**Command Usage**_',
+						`\`${msg.guildSettings.prefix}${cmnd.usage}\``,
+						cmnd.aliases.length ? `\n_**Aliases**_\n${cmnd.aliases.map((cmd) => `${cmd}`).join(', ')}\n` : ''
+					].join('\n')
+				);
 			return msg.sendEmbed(embed);
 		}
 
 		const help = await this.buildHelp(msg);
 
-		embed.setTitle(`${this.client.user.username}'s commands`)
-			.setDescription(`Type \`${msg.guildSettings.prefix}help <commandName>\` for detailed information about a command.`);
+		embed.setTitle(`${this.client.user.username}'s commands`).setDescription(`Type \`${msg.guildSettings.prefix}help <commandName>\` for detailed information about a command.`);
 		for (const cat of Object.keys(help)) {
-			embed.addField(`→ ${cat} [${help[cat].length}]`, help[cat].sort().map(cmd => `\`${cmd}\``).join(', '));
+			embed.addField(`**→ ${cat} [${help[cat].length}]**`, help[cat].sort().map((cmd) => `\`${cmd}\``).join(', '));
 		}
 		return msg.sendEmbed(embed);
 	}
@@ -45,17 +46,19 @@ module.exports = class extends Command {
 	async buildHelp(message) {
 		const help = {};
 
-		const filteredList = this.client.commands.filter(cmd => !cmd.hidden);
+		const filteredList = this.client.commands.filter((cmd) => !cmd.hidden);
 
-		await Promise.all(filteredList.map((command) =>
-			this.client.inhibitors.run(message, command, true)
-				.then(() => {
-					if (!help.hasOwnProperty(command.category)) help[command.category] = [];
-					help[command.category].push(command.name);
-				})
-				.catch(() => null)
-		));
+		await Promise.all(
+			filteredList.map((command) =>
+				this.client.inhibitors
+					.run(message, command, true)
+					.then(() => {
+						if (!help.hasOwnProperty(command.category)) help[command.category] = [];
+						help[command.category].push(command.name);
+					})
+					.catch(() => null)
+			)
+		);
 		return help;
 	}
-
 };
