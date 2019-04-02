@@ -1,16 +1,13 @@
 const { Language, util } = require('klasa');
 
 module.exports = class extends Language {
-
 	constructor(...args) {
 		super(...args);
 		this.language = {
 			DEFAULT: (key) => `${key} has not been localized for en-US yet.`,
 			DEFAULT_LANGUAGE: 'Default Language',
-			PREFIX_REMINDER: (prefix = `@${this.client.user.tag}`) => `The prefix${Array.isArray(prefix) ?
-				`es for this guild are: ${prefix.map(pre => `\`${pre}\``).join(', ')}` :
-				` in this guild is set to: \`${prefix}\``
-			}`,
+			PREFIX_REMINDER: (prefix = `@${this.client.user.tag}`) =>
+				`The prefix${Array.isArray(prefix) ? `es for this guild are: ${prefix.map((pre) => `\`${pre}\``).join(', ')}` : ` in this guild is set to: \`${prefix}\``}`,
 			SETTING_GATEWAY_EXPECTS_GUILD: 'The parameter <Guild> expects either a Guild or a Guild Object.',
 			SETTING_GATEWAY_VALUE_FOR_KEY_NOEXT: (data, key) => `The value ${data} for the key ${key} does not exist.`,
 			SETTING_GATEWAY_VALUE_FOR_KEY_ALREXT: (data, key) => `The value ${data} for the key ${key} already exists.`,
@@ -49,8 +46,10 @@ module.exports = class extends Language {
 			COMMANDMESSAGE_MISSING_REQUIRED: (name) => `${name} is a required argument.`,
 			COMMANDMESSAGE_MISSING_OPTIONALS: (possibles) => `Missing a required option: (${possibles})`,
 			COMMANDMESSAGE_NOMATCH: (possibles) => `Your option didn't match any of the possibilities: (${possibles})`,
-			MONITOR_COMMAND_HANDLER_REPROMPT: (tag, error, time) => `${tag} | **${error}** | You have **${time}** seconds to respond to this prompt with a valid argument. Type **"ABORT"** to abort this prompt.`, // eslint-disable-line max-len
-			MONITOR_COMMAND_HANDLER_REPEATING_REPROMPT: (tag, name, time) => `${tag} | **${name}** is a repeating argument | You have **${time}** seconds to respond to this prompt with additional valid arguments. Type **"CANCEL"** to cancel this prompt.`, // eslint-disable-line max-len
+			MONITOR_COMMAND_HANDLER_REPROMPT: (tag, error, time) =>
+				`${tag} | **${error}** | You have **${time}** seconds to respond to this prompt with a valid argument. Type **"ABORT"** to abort this prompt.`, // eslint-disable-line max-len
+			MONITOR_COMMAND_HANDLER_REPEATING_REPROMPT: (tag, name, time) =>
+				`${tag} | **${name}** is a repeating argument | You have **${time}** seconds to respond to this prompt with additional valid arguments. Type **"CANCEL"** to cancel this prompt.`, // eslint-disable-line max-len
 			MONITOR_COMMAND_HANDLER_ABORTED: 'Aborted',
 			INHIBITOR_COOLDOWN: (remaining) => `You have just used this command. You can use this command again in ${remaining} second${remaining === 1 ? '' : 's'}.`,
 			INHIBITOR_DISABLED: 'This command is currently disabled.',
@@ -61,12 +60,15 @@ module.exports = class extends Language {
 			INHIBITOR_RUNIN: (types) => `This command is only available in ${types} channels.`,
 			INHIBITOR_RUNIN_NONE: (name) => `The ${name} command is not configured to run in any channel.`,
 			COMMAND_BLACKLIST_DESCRIPTION: 'Blacklists or un-blacklists users and guilds from the bot.',
-			COMMAND_BLACKLIST_SUCCESS: (usersAdded, usersRemoved, guildsAdded, guildsRemoved) => [
-				usersAdded.length ? `**Users Added**\n${util.codeBlock('', usersAdded.join(', '))}` : '',
-				usersRemoved.length ? `**Users Removed**\n${util.codeBlock('', usersRemoved.join(', '))}` : '',
-				guildsAdded.length ? `**Guilds Added**\n${util.codeBlock('', guildsAdded.join(', '))}` : '',
-				guildsRemoved.length ? `**Guilds Removed**\n${util.codeBlock('', guildsRemoved.join(', '))}` : ''
-			].filter(val => val !== '').join('\n'),
+			COMMAND_BLACKLIST_SUCCESS: (usersAdded, usersRemoved, guildsAdded, guildsRemoved) =>
+				[
+					usersAdded.length ? `**Users Added**\n${util.codeBlock('', usersAdded.join(', '))}` : '',
+					usersRemoved.length ? `**Users Removed**\n${util.codeBlock('', usersRemoved.join(', '))}` : '',
+					guildsAdded.length ? `**Guilds Added**\n${util.codeBlock('', guildsAdded.join(', '))}` : '',
+					guildsRemoved.length ? `**Guilds Removed**\n${util.codeBlock('', guildsRemoved.join(', '))}` : ''
+				]
+					.filter((val) => val !== '')
+					.join('\n'),
 			COMMAND_EVAL_DESCRIPTION: 'Evaluates arbitrary Javascript. Reserved for bot owner.',
 			COMMAND_EVAL_EXTENDEDHELP: [
 				'The eval command evaluates code as-in, any error thrown from it will be handled.',
@@ -75,16 +77,17 @@ module.exports = class extends Language {
 				"The --depth flag accepts a number, for example, --depth=2, to customize util.inspect's depth.",
 				'The --async flag will wrap the code into an async function where you can enjoy the use of await, however, if you want to return something, you will need the return keyword.',
 				'The --showHidden flag will enable the showHidden option in util.inspect.',
-				'If the output is too large, it\'ll send the output as a file, or in the console if the bot does not have the ATTACH_FILES permission.'
+				"If the output is too large, it'll send the output as a file, or in the console if the bot does not have the ATTACH_FILES permission."
 			].join('\n'),
 			COMMAND_EVAL_TIMEOUT: (seconds) => `TIMEOUT: Took longer than ${seconds} seconds.`,
 			COMMAND_EVAL_ERROR: (time, output, type) => `**Error**:${output}\n**Type**:${type}\n${time}`,
 			COMMAND_EVAL_OUTPUT: (time, output, type) => `**Output**:${output}\n**Type**:${type}\n${time}`,
 			COMMAND_EVAL_OUTPUT_CONSOLE: (time, type) => `Sent the result to console.\n**Type**:${type}\n${time}`,
 			COMMAND_EVAL_OUTPUT_FILE: (time, type) => `Sent the result as a file.\n**Type**:${type}\n${time}`,
-			COMMAND_EVAL_OUTPUT_HASTEBIN: (time, url, type) => `Sent the result to hastebin: ${url}\n**Type**:${type}\n${time}\n`,			COMMAND_UNLOAD: (type, name) => `✅ Unloaded ${type}: ${name}`,
+			COMMAND_EVAL_OUTPUT_HASTEBIN: (time, url, type) => `Sent the result to hastebin: ${url}\n**Type**:${type}\n${time}\n`,
+			COMMAND_UNLOAD: (type, name) => `✅ Unloaded ${type}: ${name}`,
 			COMMAND_UNLOAD_DESCRIPTION: 'Unloads the klasa piece.',
-			COMMAND_UNLOAD_WARN: 'You probably don\'t want to unload that, since you wouldn\'t be able to run any command to enable it again',
+			COMMAND_UNLOAD_WARN: "You probably don't want to unload that, since you wouldn't be able to run any command to enable it again",
 			COMMAND_TRANSFER_ERROR: '❌ That file has been transfered already or never existed.',
 			COMMAND_TRANSFER_SUCCESS: (type, name) => `✅ Successfully transferred ${type}: ${name}.`,
 			COMMAND_TRANSFER_FAILED: (type, name) => `Transfer of ${type}: ${name} to Client has failed. Please check your Console.`,
@@ -102,34 +105,25 @@ module.exports = class extends Language {
 			COMMAND_LOAD_DESCRIPTION: 'Load a piece from your bot.',
 			COMMAND_PING: 'Ping?',
 			COMMAND_PING_DESCRIPTION: 'Runs a connection test to Discord.',
-			COMMAND_PINGPONG: (diff, ping) => `Pong! (Roundtrip took: ${diff}ms. Heartbeat: ${ping}ms.)`,
-			COMMAND_INVITE: () => [
-				`To add ${this.client.user.username} to your discord guild:`,
-				this.client.invite,
-				util.codeBlock('', [
-					'The above link is generated requesting the minimum permissions required to use every command currently.',
-					'I know not all permissions are right for every guild, so don\'t be afraid to uncheck any of the boxes.',
-					'If you try to use a command that requires more permissions than the bot is granted, it will let you know.'
-				].join(' '))
-			],
+			COMMAND_INVITE: (invite) => `Use this link to add **${this.client.user.username}** to your discord guild:\n<${invite}>`,
 			COMMAND_INVITE_DESCRIPTION: 'Displays the join guild link of the bot.',
 			COMMAND_INFO_DESCRIPTION: 'Provides some information about this bot.',
 			COMMAND_HELP_DESCRIPTION: 'Display help for a command.',
 			COMMAND_HELP_NO_EXTENDED: 'No extended help available.',
 			COMMAND_HELP_DM: '📥 | The list of commands you have access to has been sent to your DMs.',
-			COMMAND_HELP_NODM: '❌ | You have DMs disabled, I couldn\'t send you the commands in DMs.',
+			COMMAND_HELP_NODM: "❌ | You have DMs disabled, I couldn't send you the commands in DMs.",
 			COMMAND_HELP_USAGE: (usage) => `Usage :: ${usage}`,
 			COMMAND_HELP_EXTENDED: 'Extended Help ::',
 			COMMAND_ENABLE: (type, name) => `+ Successfully enabled ${type}: ${name}`,
 			COMMAND_ENABLE_DESCRIPTION: 'Re-enables or temporarily enables a command/inhibitor/monitor/finalizer. Default state restored on reboot.',
 			COMMAND_DISABLE: (type, name) => `+ Successfully disabled ${type}: ${name}`,
 			COMMAND_DISABLE_DESCRIPTION: 'Re-disables or temporarily disables a command/inhibitor/monitor/finalizer/event. Default state restored on reboot.',
-			COMMAND_DISABLE_WARN: 'You probably don\'t want to disable that, since you wouldn\'t be able to run any command to enable it again',
+			COMMAND_DISABLE_WARN: "You probably don't want to disable that, since you wouldn't be able to run any command to enable it again",
 			COMMAND_CONF_NOKEY: 'You must provide a key',
 			COMMAND_CONF_NOVALUE: 'You must provide a value',
 			COMMAND_CONF_GUARDED: (name) => `${util.toTitleCase(name)} may not be disabled.`,
 			COMMAND_CONF_UPDATED: (key, response) => `Successfully updated the key **${key}**: \`${response}\``,
-			COMMAND_CONF_KEY_NOT_ARRAY: 'This key is not array type. Use the action \'reset\' instead.',
+			COMMAND_CONF_KEY_NOT_ARRAY: "This key is not array type. Use the action 'reset' instead.",
 			COMMAND_CONF_GET_NOEXT: (key) => `The key **${key}** does not seem to exist.`,
 			COMMAND_CONF_GET: (key, value) => `The value for the key **${key}** is: \`${value}\``,
 			COMMAND_CONF_RESET: (key, response) => `The key **${key}** has been reset to: \`${response}\``,
@@ -149,74 +143,67 @@ module.exports = class extends Language {
 				`• Klasa      :: v${klasaVersion}`,
 				`• Discord.js :: v${discordVersion}`,
 				`• Node.js    :: ${processVersion}`,
-				this.client.options.shardCount ?
-					`• Shard      :: ${((message.guild ? message.guild.shardID : message.channel.shardID) || this.client.options.shardId) + 1} / ${this.client.options.shardCount}` :
-					''
+				this.client.options.shardCount ? `• Shard      :: ${(message.guild ? message.guild.shardID : message.channel.shardID) + 1} / ${this.client.options.shardCount}` : ''
 			],
 			COMMAND_STATS_DESCRIPTION: 'Provides some details about the bot and stats.',
 			MESSAGE_PROMPT_TIMEOUT: 'The prompt has timed out.',
 
-			WEATHER_LANGUAGE: "en",
-			VALID_CITY: ":x: You must provide a valid city!",
+			WEATHER_LANGUAGE: 'en',
+			VALID_CITY: ':x: You must provide a valid city!',
 
-            //Flip
-            FLIP : [
-                "Heads",
-                "Tails"
-            ],
+			//Flip
+			FLIP: [ 'Heads', 'Tails' ],
 
-            //8ball
-            FORTUNES: [
-                "🎱 **⇾** ✅ It is certain.",
-                "🎱 **⇾** ✅ It is decidedly so.",
-                "🎱 **⇾** ✅ Without a doubt.",
-                "🎱 **⇾** ✅ Yes - definitely.",
-                "🎱 **⇾** ✅ You may rely on it.",
-                "🎱 **⇾** ✅ As I see it, yes.",
-                "🎱 **⇾** ✅ Most likely.",
-                "🎱 **⇾** ✅ Outlook good.",
-                "🎱 **⇾** ✅ Yes.",
-                "🎱 **⇾** ✅ Signs point to yes.", 
-                "🎱 **⇾** ❓ Reply hazy try again.",
-                "🎱 **⇾** ❓ Ask again later.",
-                "🎱 **⇾** ❓ Better not tell you now.",
-                "🎱 **⇾** ❓ Cannot predict now.",
-                "🎱 **⇾** ❓ Concentrate and ask again.",
-                "🎱 **⇾** ❌ Don't count on it.",
-                "🎱 **⇾** ❌ My reply is no.",
-                "🎱 **⇾** ❌ My sources say no.",
-                "🎱 **⇾** ❌ Outlook not so good.",
-                "🎱 **⇾** ❌ Very doubtful."
-            ],
+			//8ball
+			FORTUNES: [
+				'🎱 **⇾** ✅ It is certain.',
+				'🎱 **⇾** ✅ It is decidedly so.',
+				'🎱 **⇾** ✅ Without a doubt.',
+				'🎱 **⇾** ✅ Yes - definitely.',
+				'🎱 **⇾** ✅ You may rely on it.',
+				'🎱 **⇾** ✅ As I see it, yes.',
+				'🎱 **⇾** ✅ Most likely.',
+				'🎱 **⇾** ✅ Outlook good.',
+				'🎱 **⇾** ✅ Yes.',
+				'🎱 **⇾** ✅ Signs point to yes.',
+				'🎱 **⇾** ❓ Reply hazy try again.',
+				'🎱 **⇾** ❓ Ask again later.',
+				'🎱 **⇾** ❓ Better not tell you now.',
+				'🎱 **⇾** ❓ Cannot predict now.',
+				'🎱 **⇾** ❓ Concentrate and ask again.',
+				"🎱 **⇾** ❌ Don't count on it.",
+				'🎱 **⇾** ❌ My reply is no.',
+				'🎱 **⇾** ❌ My sources say no.',
+				'🎱 **⇾** ❌ Outlook not so good.',
+				'🎱 **⇾** ❌ Very doubtful.'
+			],
 
-            // Emoji
-            MAX_CHARS: "The maximal amount of characters is 25.",
-            MIN_CHARS: "Please provide text to turn into emoji",
+			// Emoji
+			MAX_CHARS: 'The maximal amount of characters is 25.',
+			MIN_CHARS: 'Please provide text to turn into emoji',
 
+			PING_FETCH: 'Fetching ping...',
+			PING_PROCESSING: 'Processing image...',
 
-            PING_FETCH: "Fetching...",
-            PING_PROCESSING: "Processing...",
+			//Urban
+			URBAN_DEFINITION: (defenition) => `Definition of: *${defenition}*`,
+			URBAN_EXAMPLE: 'Example:',
+			URBAN_WORD_NOT_FOUND: "❌ I can't find that word in the Urban Dictionary!",
 
-            //Urban
-            URBAN_DEFINITION: (defenition) => `Definition of: *${defenition}*`,
-            URBAN_EXAMPLE: "Example:",
-            URBAN_WORD_NOT_FOUND: "❌ I can't find that word in the Urban Dictionary!",
-
-            // Music 
-            USER_NOT_IN_VOICE: "❌ You are not in a voice channel!",
-            CLIENT_NO_PERMS_CONNECT: "❌ I do not have permissions to connect to your channel!",
-            CLIENT_NO_PERMS_SPEAK: "❌ I do not have permissions to speak in your channel!",
-            MUSIC_ADD_PLAYLIST: "✅ All songs from the playlist are added to the queue:",
-            MUSIC_TOO_LONG_NORMALUSER: "❌ Song is too long! The maximum length is 15 minutes",
-            MUSIC_NO_SONG_FOUND: "❌ I can not find that song",
-            VOICE_CONNECTED: "✅ Succesfully joined your channel!",
-            MUSIC_ADDED: "✅ Succesfully added song!",
-            NO_ARGUMENTS: "❌ Please give me some arguments"
+			// Music
+			USER_NOT_IN_VOICE: '❌ You are not in a voice channel!',
+			CLIENT_NO_PERMS_CONNECT: '❌ I do not have permissions to connect to your channel!',
+			CLIENT_NO_PERMS_SPEAK: '❌ I do not have permissions to speak in your channel!',
+			MUSIC_ADD_PLAYLIST: '✅ All songs from the playlist are added to the queue:',
+			MUSIC_TOO_LONG_NORMALUSER: '❌ Song is too long! The maximum length is 15 minutes',
+			MUSIC_NO_SONG_FOUND: '❌ I can not find that song',
+			VOICE_CONNECTED: '✅ Succesfully joined your channel!',
+			MUSIC_ADDED: '✅ Succesfully added song!',
+			NO_ARGUMENTS: '❌ Please give me some arguments'
 		};
 	}
 
 	async init() {
 		await super.init();
 	}
-
 };

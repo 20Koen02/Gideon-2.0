@@ -77,7 +77,7 @@ module.exports = class extends Command {
 			.addText(`Temperature: ${Math.round(data.main.temp)} °C (${data.main.temp_min} - ${data.main.temp_max})`, 45, 165)
 			.addText(`Humidity: ${data.main.humidity}%`, 45, 195)
 			.addText(`Wind: ${Math.round(data.wind.speed * 3.6)} km/h`, 45, 225)
-			.addText(`Wind Direction: ${data.wind.deg}°`, 45, 255)
+			.addText(`Wind Direction: ${Math.round(data.wind.deg)}°`, 45, 255)
 			.save()
 			.translate(290, 247)
 			.rotate(data.wind.deg * Math.PI / 180)
