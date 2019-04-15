@@ -102,6 +102,7 @@ module.exports = class extends Command {
         });
 
         animeEmbed.setTitle(results[0].attributes.canonicalTitle);
+        animeEmbed.setURL(`https://kitsu.io/anime/${results[0].id}`);
         if (results[0].attributes.posterImage.small) animeEmbed.setThumbnail(results[0].attributes.posterImage.small);
         animeEmbed.setDescription(description);
 
