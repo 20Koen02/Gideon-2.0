@@ -19,11 +19,21 @@ module.exports = class extends Command {
 		if (results[0].attributes.nsfw == true) return message.channel.send("NSFW anime searches are disabled.");
 
 		let description = ``;
+		let poster, cover;
+
 		let time = (results[0].attributes.episodeCount * results[0].attributes.episodeLength / 60).toFixed(2).toString().split('.');
 		let hours = time[0];
 		let minutes = time[1] / 100 * 60;
-		let poster = await turl.shorten(results[0].attributes.posterImage.original);
-		let cover = await turl.shorten(results[0].attributes.coverImage.original);
+
+
+
+		if (results[0].attributes.posterImage.original) {
+			poster = await turl.shorten(results[0].attributes.posterImage.original);
+		}
+		if (results[0].attributes.coverImage.original) {
+			cover = await turl.shorten(results[0].attributes.coverImage.original);
+		}
+
 
 		if (results[0].attributes.titles.en_jp) {
 			description += `• **Romanized:** ${results[0].attributes.titles.en_jp}\n`;
@@ -84,7 +94,10 @@ module.exports = class extends Command {
 
 
 		const animeEmbed = this.client.helpers.Miscs.getEmbed({ color: message.guild.settings.embedcolor, footer: false });
-		animeEmbed.setTitle(results[0].attributes.canonicalTitle).setThumbnail(results[0].attributes.posterImage.small).setDescription(description);
+
+		animeEmbed.setTitle(results[0].attributes.canonicalTitle);
+		if (results[0].attributes.posterImage.small) animeEmbed.setThumbnail(results[0].attributes.posterImage.small);
+		animeEmbed.setDescription(description);
 
 		message.channel.send({
 			embed: animeEmbed
