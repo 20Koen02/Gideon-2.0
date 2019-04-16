@@ -4,7 +4,7 @@ const snekfetch = require("snekfetch");
 const { Canvas } = require("canvas-constructor");
 const fsn = require("fs-nextra");
 const {
-    keys: { owm }
+    keys: { owmkey }
 } = require("../../config");
 
 module.exports = class extends Command {
@@ -20,7 +20,7 @@ module.exports = class extends Command {
         const geturl = `http://api.openweathermap.org/data/2.5/weather`;
         try {
             const { body: data } = await snekfetch.get(geturl).query({
-                appid: owm,
+                appid: owmkey,
                 q: city,
                 units: "metric"
             });

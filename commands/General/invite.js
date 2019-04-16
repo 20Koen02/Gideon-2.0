@@ -10,7 +10,6 @@ module.exports = class extends Command {
     }
 
     async run(message) {
-        console.log(this.client.invite);
         return message.channel.send(message.language.get("COMMAND_INVITE", this.client.invite));
     }
 

@@ -61,6 +61,10 @@ module.exports = class extends Command {
             description += `• **Status:** Currently Airing\n`;
         }
 
+        if (results[0].attributes.episodeCount) {
+            description += `• **Episodes:** ${results[0].attributes.episodeCount}\n`;
+        }
+
         if (results[0].attributes.episodeLength && results[0].attributes.episodeCount && !isNaN(minutes)) {
             description += `• **Length:** ${hours} hours and ${minutes} minutes (${
                 results[0].attributes.episodeLength
@@ -111,3 +115,9 @@ module.exports = class extends Command {
         });
     }
 };
+
+/* 
+.anime One Punch Man 2
+.anime Fullmetal Alchemist: Brotherhood
+.anime One Piece
+*/

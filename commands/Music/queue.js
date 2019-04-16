@@ -1,34 +1,30 @@
 const { Command } = require("klasa");
-const { getDuration } = require("../../lib/Util");
+const {
+    util: { getDuration }
+} = require("../../lib/Music");
 
-class QueueCommand extends Command {
+module.exports = class extends Command {
     constructor(...args) {
-        super(...args, {
-            runIn: ["text"],
-            description: "Have a look at all the music in the queue."
-        });
+        super(...args, { description: "Check the queue list." });
     }
 
     async run(msg) {
-        const { queue } = msg.guild.music;
-        if (queue.length < 1) return msg.send("There is no music in the queue");
-
-        const queueList = [];
+        const { next, queue, autoplay } = msg.guild.music;
+        const output = [];
         for (let i = 0; i < Math.min(queue.length, 10); i++) {
-            const song = queue[i];
-            queueList.push(
-                [
-                    `[__\`${String(i + 1).padStart(2, 0)}\`__] *${song.title.replace(/\*/g, "\\*")}* request by **${song
-                        .requester.tag || song.requester}**`,
-                    `   └── <${song.url}> (${getDuration(song.duration * 1000)})`
-                ].join("\n")
-            );
+            output[i] = [
+                `[__\`${String(i + 1).padStart(2, 0)}\`__] *${queue[i].title.replace(
+                    /\*/g,
+                    "\\*"
+                )}* requested by **${queue[i].requester.tag || queue[i].requester}**`,
+                `   └── <https://youtu.be/${queue[i].url}> (${getDuration(queue[i].seconds * 1000)})`
+            ].join("\n");
         }
+        if (queue.length > 10) output.push(`\nShowing 10 songs of ${queue.length}`);
+        else if (autoplay) output.push(`\n**AutoPlay**: <${next}>`);
 
-        if (queue.length > 10) queueList.push("", `Showing 10 songs of ${queue.length}`);
+        if (!output.join("\n")) return msg.sendMessage("The queue is empty");
 
-        return msg.send(queueList.join("\n"));
+        return msg.sendMessage(output.join("\n"));
     }
-}
-
-module.exports = QueueCommand;
+};
