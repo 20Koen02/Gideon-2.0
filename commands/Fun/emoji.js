@@ -11,13 +11,13 @@ module.exports = class extends Command {
 
     async run(message, [text]) {
         const maxEmbed = this.client.helpers.Miscs.getEmbed({
-            color: message.guild.settings.embedcolor,
+            color: message.guild.settings.appearance.embedcolor,
             footer: false
         });
         maxEmbed.setDescription(message.language.get("MAX_CHARS"));
         if (text.length > 25) return message.channel.send({ embed: maxEmbed });
         const minEmbed = this.client.helpers.Miscs.getEmbed({
-            color: message.guild.settings.embedcolor,
+            color: message.guild.settings.appearance.embedcolor,
             footer: false
         });
         minEmbed.setDescription(message.language.get("MIN_CHARS"));
@@ -26,7 +26,7 @@ module.exports = class extends Command {
         const emojis = input.split(" ").join(":white_small_square:");
         const emojisfinal = emojis.split("::").join(": :");
         const generalEmbed = this.client.helpers.Miscs.getEmbed({
-            color: message.guild.settings.embedcolor,
+            color: message.guild.settings.appearance.embedcolor,
             footer: false
         });
         generalEmbed.setDescription(emojisfinal);

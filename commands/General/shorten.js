@@ -14,8 +14,9 @@ module.exports = class extends Command {
         turl.shorten(args[0])
             .then(res => {
                 const shortEmbed = this.client.helpers.Miscs.getEmbed({
-                    color: message.guild.settings.embedcolor,
-                    footer: false
+                    color: message.guild.settings.appearance.embedcolor,
+                    footer: true,
+                    text: "Powered by: https://tinyurl.com/"
                 });
                 shortEmbed.addField("Short URL:", res);
                 return message.channel.send({ embed: shortEmbed });

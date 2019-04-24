@@ -10,7 +10,7 @@ module.exports = class extends Command {
 
     async run(message) {
         const ballEmbed = this.client.helpers.Miscs.getEmbed({
-            color: message.guild.settings.embedcolor,
+            color: message.guild.settings.appearance.embedcolor,
             footer: false
         });
         ballEmbed.setDescription(

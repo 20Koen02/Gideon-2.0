@@ -15,8 +15,9 @@ module.exports = class extends Command {
             const urban = await urbanjs(args.join(""));
             if (urban.example != "") {
                 const defEmbed = this.client.helpers.Miscs.getEmbed({
-                    color: message.guild.settings.embedcolor,
-                    footer: false
+                    color: message.guild.settings.appearance.embedcolor,
+                    footer: true,
+                    text: "Powered by: https://urbandictionary.com"
                 });
                 defEmbed
                     .addField(
@@ -27,8 +28,9 @@ module.exports = class extends Command {
                 return message.channel.send({ embed: defEmbed });
             } else {
                 const defXEmbed = this.client.helpers.Miscs.getEmbed({
-                    color: message.guild.settings.embedcolor,
-                    footer: false
+                    color: message.guild.settings.appearance.embedcolor,
+                    footer: true,
+                    text: "Powered by: https://urbandictionary.com"
                 });
                 defXEmbed.addField(
                     message.language.get("URBAN_DEFINITION", capitalize(urban.word)),
@@ -39,8 +41,9 @@ module.exports = class extends Command {
         } catch (e) {
             // eslint-disable-line no-unused-vars
             const noDefEmbed = this.client.helpers.Miscs.getEmbed({
-                color: message.guild.settings.embedcolor,
-                footer: false
+                color: message.guild.settings.appearance.embedcolor,
+                footer: true,
+                text: "Powered by: https://urbandictionary.com"
             });
             noDefEmbed.setDescription(message.language.get("URBAN_WORD_NOT_FOUND"));
             message.channel.send({ embed: noDefEmbed });

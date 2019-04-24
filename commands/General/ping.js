@@ -13,7 +13,7 @@ module.exports = class extends Command {
 
     async run(message) {
         // const msg = await message.sendLocale('COMMAND_PING');
-        // const pingEmbed = this.client.helpers.Miscs.getEmbed({ color: message.guild.settings.embedcolor, footer: false });
+        // const pingEmbed = this.client.helpers.Miscs.getEmbed({ color: message.guild.settings.appearance.embedcolor, footer: false });
         // pingEmbed.setDescription(
         // 	`:heartbeat: ${(msg.editedTimestamp || msg.createdTimestamp) - (message.editedTimestamp || message.createdTimestamp)} ms\n:floppy_disk: ${(process.memoryUsage().heapUsed /
         // 		1024 /

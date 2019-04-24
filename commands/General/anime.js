@@ -5,7 +5,7 @@ const turl = require("turl");
 module.exports = class extends Command {
     constructor(...args) {
         super(...args, {
-            description: "Search for anime on MyAnimeList",
+            description: "Search for anime on Kitsu",
             usage: "<anime:string>"
         });
     }
@@ -25,8 +25,8 @@ module.exports = class extends Command {
             .toFixed(2)
             .toString()
             .split(".");
-        let hours = time[0];
-        let minutes = (time[1] / 100) * 60;
+        let hours = Number.parseFloat(time[0]).toFixed(0);
+        let minutes = Number.parseFloat((time[1] / 100) * 60).toFixed(0);
 
         if (results[0].attributes.posterImage.original) {
             poster = await turl.shorten(results[0].attributes.posterImage.original);
@@ -101,8 +101,9 @@ module.exports = class extends Command {
         }
 
         const animeEmbed = this.client.helpers.Miscs.getEmbed({
-            color: message.guild.settings.embedcolor,
-            footer: false
+            color: message.guild.settings.appearance.embedcolor,
+            footer: true,
+            text: "Powered by: https://kitsu.io"
         });
 
         animeEmbed.setTitle(results[0].attributes.canonicalTitle);

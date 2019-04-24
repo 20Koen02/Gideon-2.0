@@ -19,7 +19,7 @@ module.exports = class extends Command {
     }
 
     async run(msg, [cmnd]) {
-        const embed = this.client.helpers.Miscs.getEmbed({ color: msg.guild.settings.embedcolor });
+        const embed = this.client.helpers.Miscs.getEmbed({ color: msg.guild.settings.appearance.embedcolor });
 
         if (cmnd) {
             embed

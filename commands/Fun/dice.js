@@ -19,26 +19,7 @@ module.exports = class extends Command {
 
     async dice(rng) {
         let side;
-        switch (rng) {
-            case 1:
-                side = await fsn.readFile("./assets/dice/2.png");
-                break;
-            case 2:
-                side = await fsn.readFile("./assets/dice/2.png");
-                break;
-            case 3:
-                side = await fsn.readFile("./assets/dice/3.png");
-                break;
-            case 4:
-                side = await fsn.readFile("./assets/dice/4.png");
-                break;
-            case 5:
-                side = await fsn.readFile("./assets/dice/5.png");
-                break;
-            case 6:
-                side = await fsn.readFile("./assets/dice/6.png");
-                break;
-        }
+        side = await fsn.readFile(`./assets/dice/${rng}.png`);
 
         return new Canvas(110, 70)
             .setColor("#2F3136")

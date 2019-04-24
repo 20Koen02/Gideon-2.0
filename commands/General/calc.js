@@ -16,8 +16,9 @@ module.exports = class extends Command {
                 throw new Error();
             }
             const mathEmbed = this.client.helpers.Miscs.getEmbed({
-                color: message.guild.settings.embedcolor,
-                footer: false
+                color: message.guild.settings.appearance.embedcolor,
+                footer: true,
+                text: "Powered by: https://mathjs.org/"
             });
             mathEmbed
                 .addField(":inbox_tray: Expression", `\`\`\`${args.join(" ")}\`\`\``)
@@ -28,8 +29,9 @@ module.exports = class extends Command {
             });
         } catch (err) {
             const failEmbed = this.client.helpers.Miscs.getEmbed({
-                color: message.guild.settings.embedcolor,
-                footer: false
+                color: message.guild.settings.appearance.embedcolor,
+                footer: true,
+                text: "Powered by: https://mathjs.org/"
             });
             failEmbed.setDescription(":x: Invalid input!");
             message.channel.send({
