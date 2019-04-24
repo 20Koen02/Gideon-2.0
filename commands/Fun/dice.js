@@ -14,7 +14,7 @@ module.exports = class extends Command {
     async run(message) {
         var rng = Math.floor(Math.random() * 6) + 1;
         const result = await this.dice(rng);
-        await message.channel.send(new MessageAttachment(result, "dice.png"));
+        await message.send(new MessageAttachment(result, "dice.png"));
     }
 
     async dice(rng) {

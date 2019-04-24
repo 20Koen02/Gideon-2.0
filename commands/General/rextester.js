@@ -85,16 +85,20 @@ module.exports = class extends Command {
             Input: "",
             CompilerArgs: ""
         };
-        request.post({ url: "https://rextester.com/rundotnet/api", form: toCompile, json: true }, function(body) {
+        request.post({ url: "https://rextester.com/rundotnet/api", form: toCompile, json: true }, function(
+            err,
+            httpResponse,
+            body
+        ) {
             if (body.Result) {
-                message.channel.send(`\`\`\`${body.Result}\`\`\``);
+                message.send(`\`\`\`${body.Result}\`\`\``);
             }
 
             if (body.Warnings != null) {
-                message.channel.send(`:warning: Warning:\n\`\`\`${body.Warnings}\`\`\`\n`);
+                message.send(`:warning: Warning:\n\`\`\`${body.Warnings}\`\`\`\n`);
             }
             if (body.Errors != null) {
-                message.channel.send(`:x: Error:\n\`\`\`${body.Errors}\`\`\`\n`);
+                message.send(`:x: Error:\n\`\`\`${body.Errors}\`\`\`\n`);
             }
         });
     }

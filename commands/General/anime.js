@@ -15,8 +15,8 @@ module.exports = class extends Command {
         await kitsu.searchAnime(args[0], 0).then(res => {
             results = res;
         });
-        if (results.length === 0) return message.channel.send(`Failed to find "${args[0]}"`);
-        if (results[0].attributes.nsfw == true) return message.channel.send("NSFW anime searches are disabled.");
+        if (results.length === 0) return message.send(`Failed to find "${args[0]}"`);
+        if (results[0].attributes.nsfw == true) return message.send("NSFW anime searches are disabled.");
 
         let description = ``;
         let poster, cover;
@@ -111,9 +111,7 @@ module.exports = class extends Command {
         if (results[0].attributes.posterImage.small) animeEmbed.setThumbnail(results[0].attributes.posterImage.small);
         animeEmbed.setDescription(description);
 
-        message.channel.send({
-            embed: animeEmbed
-        });
+        message.sendEmbed(animeEmbed);
     }
 };
 

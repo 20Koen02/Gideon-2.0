@@ -24,9 +24,7 @@ module.exports = class extends Command {
                 .addField(":inbox_tray: Expression", `\`\`\`${args.join(" ")}\`\`\``)
                 .addField(":outbox_tray: Answer", `\`\`\`${math.eval(args.join(" "))}\`\`\``);
 
-            message.channel.send({
-                embed: mathEmbed
-            });
+            message.sendEmbed(mathEmbed);
         } catch (err) {
             const failEmbed = this.client.helpers.Miscs.getEmbed({
                 color: message.guild.settings.appearance.embedcolor,
@@ -34,9 +32,7 @@ module.exports = class extends Command {
                 text: "Powered by: https://mathjs.org/"
             });
             failEmbed.setDescription(":x: Invalid input!");
-            message.channel.send({
-                embed: failEmbed
-            });
+            message.sendEmbed(failEmbed);
         }
     }
 };

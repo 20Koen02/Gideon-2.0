@@ -21,7 +21,7 @@ module.exports = class extends Command {
             result = await this.tails();
         }
 
-        await message.channel.send(new MessageAttachment(result, "flip.png"));
+        await message.send(new MessageAttachment(result, "flip.png"));
     }
 
     async heads() {

@@ -25,10 +25,10 @@ module.exports = class extends Command {
                 units: "metric"
             });
             const result = await this.weather(data);
-            await message.channel.send(new MessageAttachment(result, "weather.png"));
+            await message.send(new MessageAttachment(result, "weather.png"));
         } catch (e) {
             console.log(e);
-            return message.channel.send(message.language.get("VALID_CITY"));
+            return message.send(message.language.get("VALID_CITY"));
         }
     }
 

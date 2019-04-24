@@ -36,6 +36,6 @@ module.exports = class extends Command {
             encodeURIComponent(contents),
             Math.floor(Math.random() * 39 + 1)
         );
-        message.channel.send(new MessageAttachment(body, "achievement.png"));
+        message.send(new MessageAttachment(body, "achievement.png"));
     }
 };

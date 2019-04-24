@@ -17,6 +17,6 @@ module.exports = class extends Command {
             message.language.get("FORTUNES")[Math.floor(Math.random() * message.language.get("FORTUNES").length)]
         );
 
-        message.channel.send({ embed: ballEmbed });
+        message.send({ embed: ballEmbed });
     }
 };

@@ -25,7 +25,7 @@ module.exports = class extends Command {
                         `${capitalize(urban.definition)}`
                     )
                     .addField(message.language.get("URBAN_EXAMPLE"), `*${capitalize(urban.example)}*`);
-                return message.channel.send({ embed: defEmbed });
+                return message.send({ embed: defEmbed });
             } else {
                 const defXEmbed = this.client.helpers.Miscs.getEmbed({
                     color: message.guild.settings.appearance.embedcolor,
@@ -36,7 +36,7 @@ module.exports = class extends Command {
                     message.language.get("URBAN_DEFINITION", capitalize(urban.word)),
                     `${capitalize(urban.definition)}`
                 );
-                return message.channel.send({ embed: defXEmbed });
+                return message.send({ embed: defXEmbed });
             }
         } catch (e) {
             // eslint-disable-line no-unused-vars
@@ -46,7 +46,7 @@ module.exports = class extends Command {
                 text: "Powered by: https://urbandictionary.com"
             });
             noDefEmbed.setDescription(message.language.get("URBAN_WORD_NOT_FOUND"));
-            message.channel.send({ embed: noDefEmbed });
+            message.send({ embed: noDefEmbed });
         }
     }
 };

@@ -25,13 +25,13 @@ module.exports = class extends Command {
 
         let ping = msg.createdTimestamp - message.createdTimestamp;
         if (ping > 9999) {
-            return message.channel.send(":x: Timeout!");
+            return message.send(":x: Timeout!");
         }
 
         const processing = await message.sendLocale("PING_PROCESSING");
 
         const result = await this.ping(ping);
-        await message.channel.send(new MessageAttachment(result, "ping.png"));
+        await message.send(new MessageAttachment(result, "ping.png"));
         processing.delete();
     }
 

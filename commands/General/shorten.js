@@ -19,7 +19,7 @@ module.exports = class extends Command {
                     text: "Powered by: https://tinyurl.com/"
                 });
                 shortEmbed.addField("Short URL:", res);
-                return message.channel.send({ embed: shortEmbed });
+                return message.sendEmbed(shortEmbed);
             })
             .catch(err => {
                 console.log(err);

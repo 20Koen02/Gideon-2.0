@@ -10,7 +10,7 @@ module.exports = class extends Command {
     }
 
     async run(message) {
-        return message.channel.send(message.language.get("COMMAND_INVITE", this.client.invite));
+        return message.send(message.language.get("COMMAND_INVITE", this.client.invite));
     }
 
     async init() {

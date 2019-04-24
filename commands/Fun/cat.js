@@ -17,7 +17,7 @@ module.exports = class extends Command {
                 json: true
             },
             function(error, response, body) {
-                if (response.statusCode === 503) return message.channel.send("503: Service Unavailable");
+                if (response.statusCode === 503) return message.send("503: Service Unavailable");
                 if (!error && response.statusCode === 200) {
                     const catEmbed = message.client.helpers.Miscs.getEmbed({
                         color: message.guild.settings.appearance.embedcolor,
@@ -25,7 +25,7 @@ module.exports = class extends Command {
                         footer: true
                     });
                     catEmbed.setTitle(":cat: Cat").setImage(body[0]);
-                    message.channel.send({ embed: catEmbed });
+                    message.sendEmbed(catEmbed);
                 }
             }
         );
