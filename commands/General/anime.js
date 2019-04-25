@@ -119,4 +119,5 @@ module.exports = class extends Command {
 .anime One Punch Man 2
 .anime Fullmetal Alchemist: Brotherhood
 .anime One Piece
+.anime Pokemon
 */

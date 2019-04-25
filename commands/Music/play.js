@@ -38,11 +38,11 @@ class PlayCommand extends Command {
 
         if (!music.queue.length) {
             music.channel = msg.channel;
-            const song = await music.add(msg.author, youtubeURL);
+            const song = await music.add(msg.author, youtubeURL, url);
             msg.sendMessage(`Added **${song.title}** to the queue 🎶`);
             return this.play(music);
         }
-        const song = await music.add(msg.author, youtubeURL);
+        const song = await music.add(msg.author, youtubeURL, url);
 
         return msg.sendMessage(`Added **${song.title}** to the queue 🎶`);
     }
@@ -85,7 +85,7 @@ class PlayCommand extends Command {
                     !(await new Promise(async resolve => {
                         (await music.play())
                             .on("end", () => {
-                                music.skip();
+                                music.skip(false);
                                 resolve(true);
                             })
                             .on("error", err => {

@@ -28,6 +28,7 @@
 	},
 	"homepage": "https://gitlab.com/koens-shack/Gideon#README",
 	"dependencies": {
+		"analyrics": "^1.2.0",
 		"canvas": "github:Automattic/node-canvas#92b192447e9b9ae98da0f801e4e34afdd1dc1ef8",
 		"canvas-constructor": "^3.0.1",
 		"discord.js": "github:discordjs/discord.js#master",
