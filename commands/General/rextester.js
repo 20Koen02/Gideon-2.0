@@ -60,8 +60,8 @@ module.exports = class extends Command {
     }
 
     async run(message, args) {
-        let language = args[0].toLowerCase().trim();
-        let code = args[1].trim();
+        let language = args.join(' ').split('|')[0].toLowerCase().trim();
+        let code = args.join(' ').split('|')[1].trim();
 
         if (code.includes("```")) {
             code = code.split("```")[1];
