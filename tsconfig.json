@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "outDir": "./bin",
+    "allowJs": true,
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "target": "es2017",
+    "lib": [
+      "es7"
+    ],
+    "sourceMap": false,
+    "removeComments": false,
+    "experimentalDecorators": true,
+    "types" : [
+      "node",
+      "mongoose"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "bin"
+  ],
+  "include": [
+    "src/**/*"
+  ]
+} 

@@ -80,3 +80,6 @@ data/dashboard-session
 .vs
 
 data/
+
+bin/
+config.ts

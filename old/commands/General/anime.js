@@ -1,5 +1,5 @@
 const { Command } = require("klasa");
-var kitsu = require("node-kitsu");
+const kitsu = require("node-kitsu");
 const turl = require("turl");
 
 module.exports = class extends Command {
@@ -38,7 +38,7 @@ module.exports = class extends Command {
         if (results[0].attributes.titles.en_jp) {
             description += `• **Romanized:** ${results[0].attributes.titles.en_jp}\n`;
         }
-
+        
         if (results[0].attributes.titles.ja_jp) {
             description += `• **Japanese:** ${results[0].attributes.titles.ja_jp}\n`;
         }

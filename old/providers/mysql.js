@@ -17,7 +17,7 @@ const TIMEPARSERS = {
 module.exports = class extends SQLProvider {
 
 	constructor(...args) {
-		super(...args);
+		super(...args, { enabled: false });
 		this.qb = new QueryBuilder({
 			any: { type: 'JSON', resolver: (input) => sanitizeObject(input) },
 			boolean: { type: 'BIT(1)', resolver: (input) => input ? '1' : '0' },
