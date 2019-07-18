@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "typeRoots": ["./typings"],
     "outDir": "./bin",
     "allowJs": true,
     "noImplicitAny": true,
@@ -14,14 +15,18 @@
     "experimentalDecorators": true,
     "types" : [
       "node",
-      "mongoose"
-    ]
+      "mongoose",
+      "discord.js"
+    ],
+    "resolveJsonModule": true,
+    "baseUrl": "."
   },
   "exclude": [
     "node_modules",
     "bin"
   ],
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "src/i18n/*.json"
   ]
 } 

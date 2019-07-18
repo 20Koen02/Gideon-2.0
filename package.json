@@ -4,6 +4,7 @@
 	"description": "Gideon by Koen02",
 	"main": "bin/index.js",
 	"repository": "git@gitlab.com:ShackDevs/Gideon.git",
+	"typings": "typings/index.d.ts",
 	"author": {
 		"name": "Koen van Wijngaarden",
 		"email": "kvanwijn@online.nl",
@@ -24,11 +25,15 @@
 		"typescript": "^3.5.3"
 	},
 	"dependencies": {
+		"@types/intl-messageformat": "^3.0.0",
 		"canvas": "Automattic/node-canvas#92b192447e9b9ae98da0f801e4e34afdd1dc1ef8",
 		"canvas-constructor": "^3.1.0",
 		"discord.js": "discordjs/discord.js",
+		"fs-nextra": "^0.4.5",
+		"intl-messageformat": "^5.1.0",
 		"klasa": "dirigeants/klasa",
 		"mathjs": "^6.0.3",
+		"mongoose": "^5.6.4",
 		"node-fetch": "^2.6.0"
 	}
 }
