@@ -1,7 +1,7 @@
-export class Language {
-  strings: any;
+export class Language<LanguageStrings> {
   lang: string;
-  constructor(lang:string, strings:any) {
+  strings: LanguageStrings;
+  constructor(lang:string, strings:LanguageStrings) {
     this.strings = strings;
     this.lang = lang
   }

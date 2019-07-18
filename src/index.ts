@@ -15,5 +15,5 @@ export class GideonClient extends KlasaClient {
 
 const c = new GideonClient(KlasaConfig);
 new GideonDatabase(c, { url: mongodb.url });
-new GideonLanguage(c).loadAll();
+new GideonLanguage(c);
 c.login(token);

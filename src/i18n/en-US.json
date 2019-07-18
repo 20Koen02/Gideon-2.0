@@ -1,3 +1,39 @@
 {
-  "hi": "true"
+  "weather_language": "en",
+  "valid_city": ":x: You must provide a valid city!",
+
+  "flip": ["Heads", "Tails"],
+
+  "fortunes": [
+    "🎱 **⇾** ✅ It is certain.",
+    "🎱 **⇾** ✅ It is decidedly so.",
+    "🎱 **⇾** ✅ Without a doubt.",
+    "🎱 **⇾** ✅ Yes - definitely.",
+    "🎱 **⇾** ✅ You may rely on it.",
+    "🎱 **⇾** ✅ As I see it, yes.",
+    "🎱 **⇾** ✅ Most likely.",
+    "🎱 **⇾** ✅ Outlook good.",
+    "🎱 **⇾** ✅ Yes.",
+    "🎱 **⇾** ✅ Signs point to yes.",
+    "🎱 **⇾** ❓ Reply hazy try again.",
+    "🎱 **⇾** ❓ Ask again later.",
+    "🎱 **⇾** ❓ Better not tell you now.",
+    "🎱 **⇾** ❓ Cannot predict now.",
+    "🎱 **⇾** ❓ Concentrate and ask again.",
+    "🎱 **⇾** ❌ Don't count on it.",
+    "🎱 **⇾** ❌ My reply is no.",
+    "🎱 **⇾** ❌ My sources say no.",
+    "🎱 **⇾** ❌ Outlook not so good.",
+    "🎱 **⇾** ❌ Very doubtful."
+  ],
+
+  "max_chars": "The maximal amount of characters is 25.",
+  "min_chars": "Please provide text to turn into emoji",
+
+  "ping_fetch": "Fetching ping...",
+  "ping_processing": "Processing image...",
+
+  "urban_defenition": "Definition of: *{defenition}*",
+  "urban_example": "Example:",
+  "urban_word_not_found": "❌ I can't find that word in the Urban Dictionary!"
 }
