@@ -35,5 +35,12 @@
 
   "urban_defenition": "Definition of: *{defenition}*",
   "urban_example": "Example:",
-  "urban_word_not_found": "❌ I can't find that word in the Urban Dictionary!"
+  "urban_word_not_found": "❌ I can't find that word in the Urban Dictionary!",
+
+  "command_eval_timeout": "TIMEOUT: Took longer than {seconds} seconds.",
+	"command_eval_error": "**Error**:{output}\n**Type**:{type}\n{time}",
+	"command_eval_output": "**Output**:{output}\n**Type**:{type}\n{time}",
+	"command_eval_output_console": "Sent the result to console.\n**Type**:{type}\n{time}",
+	"command_eval_output_file": "Sent the result as a file.\n**Type**:{type}\n{time}",
+	"command_eval_output_hastebin": "Sent the result to hastebin: {url}\n**Type**:{type}\n{time}\n"
 }

@@ -6,20 +6,31 @@ export class GideonClient extends Client {
   i18n?: i18n;
 }
 
+export interface BotConfig {
+  defaultLang: string; 
+}
+
+/* Start i18n */
 export interface i18n {
-  [s: string]: any;
+  [s: string]: ILanguage<i18nStrings>;
   "en-US"?: ILanguage<i18nStrings>;
+  "nl-NL"?: ILanguage<i18nStrings>;
 }
 
 export interface ILanguage<LanguageStrings> {
   strings: LanguageStrings;
   lang: string;
+
+  get(term: string, format?: Record<string, string | number | boolean>): string | string[];
+  getDefault(term: string, format?: Record<string, string | number | boolean>): string | string[];
 }
 
 export interface i18nStrings {
+  [s: string]: string | string[];
   weather_language: string;
   valid_city: string;
-  fortunes: FortuneStrings;
+  flip: string[];
+  fortunes: string[];
   max_chars: string;
   min_chars: string;
   ping_fetch: string;
@@ -29,38 +40,48 @@ export interface i18nStrings {
   urban_word_not_found: string;
 }
 
+/* End i18n */
+
+/* Start Models */
 export interface IGideonGuild extends Document {
   guildid: string;
+  language: string;
 }
 
 export interface IModel<MongooseModel extends Document> extends Model<MongooseModel> {
   findOrCreate(query:object): Promise<MongooseModel>
 }
 
+/* End Models */
+
 declare module "*.json" {
   const value: any;
   export default value;
 }
 
-export interface FortuneStrings {
-  0:"🎱 **⇾** ✅ It is certain.",
-  1:"🎱 **⇾** ✅ It is decidedly so.",
-  2:"🎱 **⇾** ✅ Without a doubt.",
-  3:"🎱 **⇾** ✅ Yes - definitely.",
-  4:"🎱 **⇾** ✅ You may rely on it.",
-  5:"🎱 **⇾** ✅ As I see it, yes.",
-  6:"🎱 **⇾** ✅ Most likely.",
-  7:"🎱 **⇾** ✅ Outlook good.",
-  8:"🎱 **⇾** ✅ Yes.",
-  9:"🎱 **⇾** ✅ Signs point to yes.",
-  10:"🎱 **⇾** ❓ Reply hazy try again.",
-  11:"🎱 **⇾** ❓ Ask again later.",
-  12:"🎱 **⇾** ❓ Better not tell you now.",
-  13:"🎱 **⇾** ❓ Cannot predict now.",
-  14:"🎱 **⇾** ❓ Concentrate and ask again.",
-  15:"🎱 **⇾** ❌ Don't count on it.",
-  16:"🎱 **⇾** ❌ My reply is no.",
-  17:"🎱 **⇾** ❌ My sources say no.",
-  18:"🎱 **⇾** ❌ Outlook not so good.",
-  19:"🎱 **⇾** ❌ Very doubtful."
+/* Discord.js extentions */
+declare module 'discord.js' {
+  export interface Guild {
+    config: any;
+    i18n: ILanguage<i18nStrings>
+	}
+
+	export interface Message {
+    i18n: ILanguage<i18nStrings>
+		translate(key: string, localeArgs?: Record<string, string | number | boolean>, options?: MessageOptions): Promise<Message | Message[]>;
+	}
+
+	export interface User {
+		config: any;
+  }
+  
+  export interface Client {
+    database?: Connection;
+    i18n?: i18n;
+  }
+}
+declare module 'klasa' {
+  export interface KlasaMessage {
+    prompt(text:string, time?:number) : Promise<KlasaMessage>
+	}
 }

@@ -9,3 +9,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 
 - Working on rebuilding the discord bot in typescript
+
+## 21-7-2019
+
+### Changed
+
+- Database system and language system are in the making, I always forget to make changes to this file 🤦‍

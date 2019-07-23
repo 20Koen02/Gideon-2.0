@@ -1,1 +1,46 @@
-{}
+{
+  "weather_language": "nl",
+  "valid_city": ":x: Je moet een geldige stad opgeven!",
+
+  "flip": ["Kop", "Munt"],
+
+  "fortunes": [
+    "🎱 **⇾** ✅ Het is zeker.",
+    "🎱 **⇾** ✅ Het is beslist zo.",
+    "🎱 **⇾** ✅ Zonder twijfel.",
+    "🎱 **⇾** ✅ Zeer zeker.",
+    "🎱 **⇾** ✅ Je kunt erop vertrouwen.",
+    "🎱 **⇾** ✅ Volgens mij wel.",
+    "🎱 **⇾** ✅ Zeer waarschijnlijk.",
+    "🎱 **⇾** ✅ Goed vooruitzicht.",
+    "🎱 **⇾** ✅ Ja.",
+    "🎱 **⇾** ✅ Tekenen wijzen op ja.",
+    "🎱 **⇾** ❓ Reactie is wazig, probeer opnieuw.",
+    "🎱 **⇾** ❓ Vraag later opnieuw.",
+    "🎱 **⇾** ❓ Beter je nu niet te zeggen.",
+    "🎱 **⇾** ❓ Niet nu te voorspellen.",
+    "🎱 **⇾** ❓ Concentreer je en vraag opnieuw.",
+    "🎱 **⇾** ❌ Reken er niet op.",
+    "🎱 **⇾** ❌ Mijn antwoord is nee.",
+    "🎱 **⇾** ❌ Mijn bronnen zeggen nee.",
+    "🎱 **⇾** ❌ Vooruitzicht is niet zo goed.",
+    "🎱 **⇾** ❌ Zeer twijfelachtig."
+  ],
+
+  "max_chars": "Het maximale aantal tekens is 25.",
+  "min_chars": "Geef tekst op om in emoji te veranderen",
+
+  "ping_fetch": "Ping ophalen...",
+  "ping_processing": "Afbeelding verwerken...",
+
+  "urban_defenition": "Definitie van: *{defenition}*",
+  "urban_example": "Voorbeeld:",
+  "urban_word_not_found": "❌ Ik kan dat woord niet vinden in de Urban Dictionary!",
+
+  "command_eval_timeout": "TIMEOUT: Duurde langer dan {seconds} seconden.",
+  "command_eval_error": "**Error**:{output}\n**Type**:{type}\n{time}",
+  "command_eval_output": "**Output**:{output}\n**Type**:{type}\n{time}",
+  "command_eval_output_console": "De resultaten zijn naar de console verzonden.\n**Type**:{type}\n{time}",
+  "command_eval_output_file": "De resultaten zijn opgeslagen in een bestand .\n**Type**:{type}\n{time}",
+  "command_eval_output_hastebin": "De resultaten zijn naar hastebin verzonden: {url}\n**Type**:{type}\n{time}\n"
+}

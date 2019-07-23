@@ -2,7 +2,8 @@ import { Schema, model } from "mongoose";
 import { IModel, IGideonGuild } from "../../../../typings";
 
 const schema = new Schema({
-	guildid: { type: String }
+	guildid: { type: String },
+	language: { type: String, default: "en-US" }
 });
 
 schema.statics.findOrCreate = async function (query: any) {

@@ -58,3 +58,7 @@ export const token: string = "";
 export const mongodb = {
 	url: ""
 }
+
+export const BotConfig = {
+	defaultLang: ""
+};
