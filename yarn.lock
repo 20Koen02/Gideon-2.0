@@ -21,6 +21,13 @@
   dependencies:
     intl-messageformat "*"
 
+"@types/mathjs@^6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@types/mathjs/-/mathjs-6.0.0.tgz#5f00e276fbcd4d59d3bb54230b775383db4729a3"
+  integrity sha512-5lQUtV1ukuKGTbeFMb3R8Uan3cBcQ8/H6aZfybkcxCx8NmqSOprwU4bAI/RCU1Q+5fHTGU4Ru8FAZOfsqYL03A==
+  dependencies:
+    decimal.js "^10.0.0"
+
 "@types/mongodb@*":
   version "3.1.28"
   resolved "https://registry.yarnpkg.com/@types/mongodb/-/mongodb-3.1.28.tgz#c049cdff343788d77f5cc8c5f2e4af72ba7d047b"
@@ -188,7 +195,7 @@ debug@^3.2.6:
   dependencies:
     ms "^2.1.1"
 
-decimal.js@10.2.0:
+decimal.js@10.2.0, decimal.js@^10.0.0:
   version "10.2.0"
   resolved "https://registry.yarnpkg.com/decimal.js/-/decimal.js-10.2.0.tgz#39466113a9e036111d02f82489b5fd6b0b5ed231"
   integrity sha512-vDPw+rDgn3bZe1+F/pyEwb1oMG2XTlRVgAa6B4KccTEpYgF8w6eQllVbQcfIJnZyvzFtFpxnpGtx8dd7DJp/Rw==

@@ -19,7 +19,6 @@
       "discord.js"
     ],
     "resolveJsonModule": true,
-    "baseUrl": "."
   },
   "exclude": [
     "node_modules",
@@ -27,6 +26,6 @@
   ],
   "include": [
     "src/**/*",
-    "src/i18n/*.json"
+    "src/**/*.json"
   ]
 } 

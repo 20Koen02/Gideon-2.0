@@ -1,14 +1,16 @@
-import { i18nStrings } from "typings";
+import { i18nStrings } from "../../../typings";
 import { readdir, readJSON } from "fs-nextra";
 import { Language } from "./Language";
-import { GideonClient } from "src";
+import { GideonClient } from "../..";
 
-export default class GideonLanguage {
+export class GideonLanguage {
   private bot: GideonClient
   constructor(bot:GideonClient) {
     this.bot = bot;
 
-    this.loadAll();
+    setTimeout(() => {
+      this.loadAll();
+    }, 2000);
   }
 
   async loadAll() {

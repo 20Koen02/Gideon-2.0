@@ -49,14 +49,14 @@ export default class EvalCommand extends Command {
 	async handleMessage(msg: KlasaMessage, options: any, { success, result, time, footer, language }: IHandleMessageOptions): Promise<KlasaMessage | KlasaMessage[] | null> {
 		switch (options.sendAs) {
 			case 'file': {
-				if (msg.channel.attachable) return msg.channel.sendFile(Buffer.from(result), 'output.txt', msg.i18n.getDefault('command_eval_output_file', { time, type: footer }));
+				if (msg.channel.attachable) return msg.channel.sendFile(Buffer.from(result), 'output.txt', msg.i18n.getDefault('cmd_eval_output_file', { time, type: footer }));
 				await this.getTypeOutput(msg, options);
 				return this.handleMessage(msg, options, { success, result, time, footer, language });
 			}
 			case 'haste':
 			case 'hastebin': {
 				if (!options.url) options.url = await this.getHaste(result, language).catch(() => null);
-				if (options.url) return msg.sendMessage(msg.i18n.getDefault('command_eval_output_hastebin', { time, url: options.url, type: footer }));
+				if (options.url) return msg.sendMessage(msg.i18n.getDefault('cmd_eval_output_hastebin', { time, url: options.url, type: footer }));
 				options.hastebinUnavailable = true;
 				await this.getTypeOutput(msg, options);
 				return this.handleMessage(msg, options, { success, result, time, footer, language });
@@ -64,7 +64,7 @@ export default class EvalCommand extends Command {
 			case 'console':
 			case 'log': {
 				this.client.emit('log', result);
-				return msg.sendMessage(msg.i18n.getDefault('command_eval_output_console', { time, type: footer }));
+				return msg.sendMessage(msg.i18n.getDefault('cmd_eval_output_console', { time, type: footer }));
 			}
 			case 'none':
 				return null;
@@ -73,7 +73,7 @@ export default class EvalCommand extends Command {
 					await this.getTypeOutput(msg, options);
 					return this.handleMessage(msg, options, { success, result, time, footer, language });
 				}
-				return msg.sendMessage(msg.i18n.getDefault(success ? 'command_eval_output' : 'command_eval_error',
+				return msg.sendMessage(msg.i18n.getDefault(success ? 'cmd_eval_output' : 'cmd_eval_error',
 					{ time, output: util.codeBlock(language, result), type: footer }));
 			}
 		}
@@ -95,7 +95,7 @@ export default class EvalCommand extends Command {
 		return Promise.race([
 			util.sleep(flagTime).then(() => ({
 				success: false,
-				result: msg.i18n.getDefault('command_eval_timeout', { seconds: flagTime / 1000 }),
+				result: msg.i18n.getDefault('cmd_eval_timeout', { seconds: flagTime / 1000 }),
 				time: '⏱ ...',
 				type: 'EvalTimeoutError'
 			})),

@@ -1,6 +1,6 @@
-import { i18nStrings } from "typings";
+import { i18nStrings } from "../../../typings";
 import IntlMessageFormat from "intl-messageformat";
-import { GideonClient } from "src";
+import { GideonClient } from "../..";
 
 export class Language {
   private client: GideonClient; 
