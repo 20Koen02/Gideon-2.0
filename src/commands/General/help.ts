@@ -1,25 +1,28 @@
-const {
-    Command,
-    util: { isFunction }
-} = require("klasa");
+import { applyOptions } from "../../lib/Util/Util";
+import { CommandOptions, Command } from "klasa";
+import { Embed } from "../../lib/Embed";
+import { KlasaMessage } from "klasa";
+import { GideonCommand } from "../../lib/GideonCommand/GideonCommand";
 
-module.exports = class extends Command {
-    constructor(...args) {
-        super(...args, {
-            aliases: ["commands"],
-            guarded: true,
-            description: language => language.get("COMMAND_HELP_DESCRIPTION"),
-            usage: "(Command:command)"
-        });
+@applyOptions<CommandOptions>({
+  aliases: ["commands"],
+  guarded: true,
+  description: language => language.get("COMMAND_HELP_DESCRIPTION"),
+  desc: lang => lang.get("cmd_help"),
+  usage: "(Command:command)"
+})
 
-        this.createCustomResolver("command", (arg, possible, message) => {
-            if (!arg || arg === "") return undefined;
-            return this.client.arguments.get("command").run(arg, possible, message);
-        });
-    }
+export default class HelpCommand extends GideonCommand {
 
-    async run(msg, [cmnd]) {
-        const embed = this.client.helpers.Miscs.getEmbed({ color: msg.guild.settings.appearance.embedcolor });
+  async init() {
+    this.createCustomResolver("command", (arg, possible, message) => {
+      if (!arg || arg === "") return undefined;
+      return this.client.arguments.get("command").run(arg, possible, message);
+    });
+  }
+
+    async run(msg:KlasaMessage, [cmnd]:[Command]) {
+        const embed = Embed(msg, {});
 
         if (cmnd) {
             embed
@@ -27,10 +30,10 @@ module.exports = class extends Command {
                 .setDescription(
                     [
                         `_**Help**_ | __**${cmnd.name}**__`,
-                        isFunction(cmnd.description) ? cmnd.description(msg.language) : cmnd.description,
+                        cmnd.description,
                         ``,
                         "_**Command Usage**_",
-                        `\`${msg.guildSettings.prefix}${cmnd.usage}\``,
+                        `\`${this.client.options.prefix}${cmnd.usage}\``,
                         cmnd.aliases.length ? `\n_**Aliases**_\n${cmnd.aliases.map(cmd => `${cmd}`).join(", ")}\n` : ""
                     ].join("\n")
                 );
@@ -42,22 +45,22 @@ module.exports = class extends Command {
         embed
             .setTitle(`${this.client.user.username}'s commands`)
             .setDescription(
-                `Type \`${msg.guildSettings.prefix}help <commandName>\` for detailed information about a command.`
+                `Type \`${this.client.options.prefix}help <commandName>\` for detailed information about a command.`
             );
         for (const cat of Object.keys(help)) {
             embed.addField(
                 `**→ ${cat} [${help[cat].length}]**`,
                 help[cat]
                     .sort()
-                    .map(cmd => `\`${cmd}\``)
+                    .map((cmd: string) => `\`${cmd}\``)
                     .join(", ")
             );
         }
         return msg.sendEmbed(embed);
     }
 
-    async buildHelp(message) {
-        const help = {};
+    async buildHelp(message:KlasaMessage) {
+        const help: any = {};
 
         const filteredList = this.client.commands.filter(cmd => !cmd.hidden);
 

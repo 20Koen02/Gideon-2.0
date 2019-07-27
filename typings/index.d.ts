@@ -79,4 +79,8 @@ declare module 'klasa' {
   export interface KlasaClient {
     config: BotConfig
   }
+
+  export interface CommandOptions {
+    desc?: ((i18n: ILanguage<i18nStrings>) => string|string[]);
+  }
 }
