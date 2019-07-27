@@ -28,17 +28,6 @@ export interface ILanguage<LanguageStrings> {
 
 export interface i18nStrings {
   [s: string]: string | string[];
-  // weather_language: string;
-  // valid_city: string;
-  // flip: string[];
-  // fortunes: string[];
-  // max_chars: string;
-  // min_chars: string;
-  // ping_fetch: string;
-  // ping_processing: string;
-  // urban_defenition: string;
-  // urban_example: string;
-  // urban_word_not_found: string;
 }
 
 /* End i18n */

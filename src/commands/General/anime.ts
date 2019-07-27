@@ -3,7 +3,7 @@ import { Command } from "klasa";
 import { applyOptions } from "../../lib/Util/Util";
 import { CommandOptions } from "klasa";
 import { KlasaMessage } from "klasa";
-import * as turl from "../../lib/URLShortner";
+import * as turl from "../../lib/URLShortener";
 import { MessageEmbed } from "discord.js";
 
 @applyOptions<CommandOptions>({
