@@ -1,0 +1,48 @@
+{
+  "cmd_weather_language": "en",
+  "cmd_weather_valid": "You must provide a valid city!",
+
+  "cmd_flip_options": ["Heads", "Tails"],
+
+  "cmd_8ball_fortunes": [
+    "It is certain.",
+    "It is decidedly so.",
+    "Without a doubt.",
+    "Yes - definitely.",
+    "You may rely on it.",
+    "As I see it, yes.",
+    "Most likely.",
+    "Outlook good.",
+    "Yes.",
+    "Signs point to yes.",
+    "Reply hazy try again.",
+    "Ask again later.",
+    "Better not tell you now.",
+    "Cannot predict now.",
+    "Concentrate and ask again.",
+    "Don't count on it.",
+    "My reply is no.",
+    "My sources say no.",
+    "Outlook not so good.",
+    "Very doubtful."
+  ],
+
+  "cmd_emoji_max_chars": "The maximal amount of characters is 25.",
+  "cmd_emoji_chars": "Please provide text to turn into emoji",
+
+  "cmd_ping_fetch": "Fetching ping...",
+  "cmd_ping_processing": "Processing image...",
+
+  "cmd_urban_defenition": "Definition of: *{defenition}*",
+  "cmd_urban_example": "Example:",
+  "cmd_urban_word_not_found": "I can't find that word in the Urban Dictionary!",
+
+  "cmd_eval_timeout": "TIMEOUT: Took longer than {seconds} seconds.",
+	"cmd_eval_error": "**Error**:{output}\n**Type**:{type}\n{time}",
+	"cmd_eval_output": "**Output**:{output}\n**Type**:{type}\n{time}",
+	"cmd_eval_output_console": "Sent the result to console.\n**Type**:{type}\n{time}",
+	"cmd_eval_output_file": "Sent the result as a file.\n**Type**:{type}\n{time}",
+  "cmd_eval_output_hastebin": "Sent the result to hastebin: {url}\n**Type**:{type}\n{time}\n",
+
+  "cmd_help": "test"
+}

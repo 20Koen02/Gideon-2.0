@@ -1,29 +1,13 @@
-require("./util/Prototypes.js");
-require("./extenders/Message.js");
-require("./extenders/Guild.js");
-require("./extenders/DMChannel.js");
-require("./extenders/TextChannel.js");
-const GideonClient = require("./structures/GideonClient.js");
-const errorDirnameRegex = new RegExp(`${__dirname}/`, "g");
+const { Canvas } = require('canvas-constructor');
+const { resolve, join } = require('path');
 
-const client = new GideonClient({
-    disableEveryone: true,
-    messageCacheMaxSize: 100,
-    messageCacheLifetime: 240,
-    messageSweepInterval: 300
-});
+const Client = require('./lib/structures/Client');
+const { keys: { token } } = require('./config');
 
-client.login(process.env.DISCORD);
+Client.use(require('klasa-dashboard-hooks'));
 
-client.on("disconnect", () => client.console.warn("Bot is disconnecting..."))
-    .on("reconnect", () => client.console.log("Bot reconnecting..."))
-    .on("error", err => client.console.error(err))
-    .on("warn", info => client.console.warn(info));
+const client = new Client();
 
-process.on("uncaughtException", err => {
-    const errorMsg = err.stack.replace(errorDirnameRegex, "./");
-    client.console.error(`Uncaught Exception: ${errorMsg}`);
-    process.exit(1);
-});
+client.login(token);
 
-process.on("unhandledRejection", client.console.error);
+Canvas.registerFont(resolve(join(__dirname, './assets/fonts/Ubuntu.ttf')), 'Ubuntu');
