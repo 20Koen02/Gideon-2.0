@@ -37,7 +37,7 @@
   "cmd_urban_example": "Voorbeeld:",
   "cmd_urban_word_not_found": "Ik kan dat woord niet vinden in de Urban Dictionary!",
 
-  "cmd_eval_timeout": "TIMEOUT: Duurde langer dan {seconds} seconden.",
+  "cmd_eval_timeout": "TIMEOUT: Duurde langer dan {seconds, plural, one {1 seconde} other {# seconden}}",
   "cmd_eval_error": "**Error**:{output}\n**Type**:{type}\n{time}",
   "cmd_eval_output": "**Output**:{output}\n**Type**:{type}\n{time}",
   "cmd_eval_output_console": "De resultaten zijn naar de console verzonden.\n**Type**:{type}\n{time}",

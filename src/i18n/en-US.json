@@ -37,7 +37,7 @@
   "cmd_urban_example": "Example:",
   "cmd_urban_word_not_found": "I can't find that word in the Urban Dictionary!",
 
-  "cmd_eval_timeout": "TIMEOUT: Took longer than {seconds} seconds.",
+  "cmd_eval_timeout": "TIMEOUT: Took longer than {seconds, plural, one {1 second} other {# seconds}}",
 	"cmd_eval_error": "**Error**:{output}\n**Type**:{type}\n{time}",
 	"cmd_eval_output": "**Output**:{output}\n**Type**:{type}\n{time}",
 	"cmd_eval_output_console": "Sent the result to console.\n**Type**:{type}\n{time}",
