@@ -22,8 +22,7 @@ export default class PingCommand extends Command {
     
     const processing = await message.send("Processing image...") as KlasaMessage;
 
-    const image = await new PingImage(this.client).getImage(ping);
-    await message.send(new MessageAttachment(image, "ping.png"));
+    await message.send(new MessageAttachment(await new PingImage(message).getImage(ping), "ping.png"));
     await processing.delete();
   }
 };
