@@ -36,6 +36,8 @@ export interface i18nStrings {
 export interface IGideonGuild extends Document {
   guildid: string;
   language: string;
+  dist_measure: string;
+  temp_measure: string;
 }
 
 export interface IModel<MongooseModel extends Document> extends Model<MongooseModel> {
