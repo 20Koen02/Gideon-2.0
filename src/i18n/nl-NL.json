@@ -41,6 +41,6 @@
   "cmd_eval_error": "**Error**:{output}\n**Type**:{type}\n{time}",
   "cmd_eval_output": "**Output**:{output}\n**Type**:{type}\n{time}",
   "cmd_eval_output_console": "De resultaten zijn naar de console verzonden.\n**Type**:{type}\n{time}",
-  "cmd_eval_output_file": "De resultaten zijn opgeslagen in een bestand .\n**Type**:{type}\n{time}",
+  "cmd_eval_output_file": "De resultaten zijn opgeslagen in een bestand.\n**Type**:{type}\n{time}",
   "cmd_eval_output_hastebin": "De resultaten zijn naar hastebin verzonden: {url}\n**Type**:{type}\n{time}\n"
 }
