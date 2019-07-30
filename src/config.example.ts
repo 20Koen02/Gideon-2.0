@@ -2,6 +2,7 @@ import { KlasaClientOptions, PermissionLevels } from "klasa";
 import { Client } from "discord.js";
 
 export const KlasaConfig: KlasaClientOptions = {
+	owners: ["255009837002260482", "209609796704403456"],
   production: false,
   prefix: "",
   regexPrefix: /^(hey )?(gideon)(,|!)/i,

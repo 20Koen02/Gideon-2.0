@@ -18,8 +18,8 @@ export default class WeatherCommand extends Command {
 
 
   async run(message: KlasaMessage, [city]: [string]) {
-    const dist_measure = "mph";
-    const temp_measure = "f";
+    const dist_measure = "kmph";
+    const temp_measure = "c";
  
     try {
       const res = await fetch(

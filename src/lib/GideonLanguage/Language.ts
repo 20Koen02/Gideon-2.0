@@ -18,7 +18,7 @@ export class Language {
   get(term:string, format?:Record<string, string | number | boolean>) {
     let value = this.strings[term.toLowerCase()];
     if(!value) value = this.client.i18n[this.client.config.defaultLang].strings[term.toLowerCase()];
-    if(!value) throw new Error(`Term ${term} wasn't found in both the default language and this language.`);
+    if(!value) throw new Error(`Term ${term} does not exists.`);
     if(Array.isArray(value)) return value;
     const output = this.mf.compile(value)(format);
     return output;

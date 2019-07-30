@@ -48,5 +48,48 @@
   "cmd_weather_temperature": "Temperature",
   "cmd_weather_humidity": "Humidity",
   "cmd_weather_wind": "Wind",
-  "cmd_weather_winddirection": "Wind Direction"
+  "cmd_weather_winddirection": "Wind Direction",
+
+  "cmd_emojify_max_chars": "",
+  "cmd_emojify_min_chars": "",
+
+  "service_unavailable": "503: Service Unavailable",
+
+  "reactionhandler_prompt": "Which page would you like to jump to?",
+	"commandmessage_missing": "Missing one or more required arguments after end of input.",
+	"commandmessage_missing_required": "{name} is a required argument.",
+	"commandmessage_missing_optionals": "Missing a required option: ({possibles})",
+	"commandmessage_nomatch": "Your option didn't match any of the possibilities: ({possibles})",
+	"monitor_command_handler_reprompted": "{tag} | **{error}** | You have **{time}** seconds to respond to this prompt with a valid argument. Type **\"ABORT\"** to abort this prompt.",
+	"monitor_command_handler_repeating_reprompt": "{tag} | **{name}** is a repeating argument | You have **{time}** seconds to respond to this prompt with additional valid arguments. Type **\"CANCEL\"** to cancel this prompt.",
+	"monitor_command_handler_aborted": "Aborted",
+	"inhibitor_cooldown": "You have just used this command. You can use this command again in {remaining, plural, one {1 second} other {# seconds}}.",
+	"inhibitor_disabled": "This command is currently disabled.",
+	"inhibitor_missing_bot_perms": "Insufficient permissions, missing: **{missing}**",
+	"inhibitor_nsfw": "You may not use NSFW commands in this channel.",
+	"inhibitor_permissions": "You do not have permission to use this command.",
+  "inhibitor_runin": "This command is only available in {types} channels.",
+  "inhibitor_runin_none": "The {name} command is not configured to run in any channel.",
+
+  "RESOLVER_INVALID_BOOL": "{name} must be true or false.",
+	"RESOLVER_INVALID_CHANNEL": "{name} must be a channel tag or valid channel id.",
+	"RESOLVER_INVALID_CUSTOM": "{name} must be a valid {type}.",
+	"RESOLVER_INVALID_DATE": "{name} must be a valid date.",
+	"RESOLVER_INVALID_DURATION": "{name} must be a valid duration string.",
+	"RESOLVER_INVALID_EMOJI": "{name} must be a custom emoji tag or valid emoji id.",
+	"RESOLVER_INVALID_FLOAT": "{name} must be a valid number.",
+	"RESOLVER_INVALID_GUILD": "{name} must be a valid guild id.",
+	"RESOLVER_INVALID_INT": "{name} must be an integer.",
+	"RESOLVER_INVALID_LITERAL": "Your option did not match the only possibility: {name}",
+	"RESOLVER_INVALID_MEMBER": "{name} must be a mention or valid user id.",
+	"RESOLVER_INVALID_MESSAGE": "{name} must be a valid message id.",
+	"RESOLVER_INVALID_PIECE": "{name} must be a valid {piece} name.",
+	"RESOLVER_INVALID_REGEX_MATCH": "{name} must follow this regex pattern \"{pattern}\".",
+	"RESOLVER_INVALID_ROLE": "{name} must be a role mention or role id.",
+	"RESOLVER_INVALID_STRING": "{name} must be a valid string.",
+	"RESOLVER_INVALID_TIME": "{name} must be a valid duration or date string.",
+	"RESOLVER_INVALID_URL": "{name} must be a valid url.",
+	"RESOLVER_INVALID_USER": "{name} must be a mention or valid user id."
+
+      
 }
