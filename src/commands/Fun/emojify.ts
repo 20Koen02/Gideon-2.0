@@ -10,8 +10,8 @@ import { Embed } from "../../lib/Embed";
 
 export default class EmojifyCommand extends Command {
   async init() {
-    this.customizeResponse('text', message =>
-    message.i18n.get('cmd_emojify_min_chars') as string);
+    this.customizeResponse("text", message =>
+    message.i18n.get("cmd_emojify_min_chars") as string);
   }
   async run(message:KlasaMessage, [text]:[string]) {
     const embed = Embed(message, {
