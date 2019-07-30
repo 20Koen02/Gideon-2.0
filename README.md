@@ -1,9 +1,8 @@
 <p align="center">
-<img src="https://avatars3.githubusercontent.com/u/53366873?s=400&u=396123f809f248d1f53a2c9d19fc0c5d53dedda5&v=4" alt="OpenJ9 logo" align="middle" />
+<img src="https://github.com/shackdevs/Gideon/blob/master/assets/readme/Full.svg" alt="Gideon Logo" align="middle" width="50%" height="50%" />
 <p>
 
 # Gideon: Discord Bot
-=====================
 
 [<img src="https://img.shields.io/github/issues/shackdevs/Gideon?style=flat-square">](https://github.com/shackdevs/Gideon/issues) <img src="https://img.shields.io/github/forks/shackdevs/Gideon?style=flat-square"> <img src="	https://img.shields.io/github/stars/shackdevs/Gideon?style=flat-square"> [<img src="https://img.shields.io/github/license/shackdevs/Gideon?style=flat-square">](https://github.com/shackdevs/Gideon/blob/master/LICENSE)
 
