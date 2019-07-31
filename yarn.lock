@@ -251,7 +251,7 @@ fs-minipass@^1.2.5:
   dependencies:
     minipass "^2.2.1"
 
-fs-nextra@^0.4.5:
+fs-nextra@^0.4.3, fs-nextra@^0.4.5:
   version "0.4.5"
   resolved "https://registry.yarnpkg.com/fs-nextra/-/fs-nextra-0.4.5.tgz#0f44a00dd6c0547adaf59ce875e59941d0c70664"
   integrity sha512-oY2o6j0izYzJWp2sow21SekkR3qeMZqHV5ZfNFvfKimFU7piw1/AWwiwbcWjuSfwrfCmHyHymWZOyNbKOzew5g==
@@ -351,11 +351,11 @@ kareem@2.3.0:
   resolved "https://registry.yarnpkg.com/kareem/-/kareem-2.3.0.tgz#ef33c42e9024dce511eeaf440cd684f3af1fc769"
   integrity sha512-6hHxsp9e6zQU8nXsP+02HGWXwTkOEw6IROhF2ZA28cYbUk4eJ6QbtZvdqZOdD9YPKghG3apk5eOCvs+tLl3lRg==
 
-klasa@dirigeants/klasa:
+klasa@dirigeants/klasa#v1.0.0-alpha:
   version "0.5.0-dev"
-  resolved "https://codeload.github.com/dirigeants/klasa/tar.gz/3360292f349cc791063a6b4dcb709080c486a1d8"
+  resolved "https://codeload.github.com/dirigeants/klasa/tar.gz/f1ddc62d74d4882a681d44a12093c1881e8353e1"
   dependencies:
-    fs-nextra "^0.4.5"
+    fs-nextra "^0.4.3"
 
 lodash@^4.17.11:
   version "4.17.14"
