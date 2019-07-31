@@ -1,11 +1,11 @@
 import { i18nStrings } from "../../../typings";
 import { readdir, readJSON } from "fs-nextra";
 import { Language } from "./Language";
-import { GideonClient } from "../..";
+import { Client } from "discord.js";
 
 export class GideonLanguage {
-  private client: GideonClient
-  constructor(client:GideonClient) {
+  private client: Client
+  constructor(client:Client) {
     this.client = client;
 
     setTimeout(() => {

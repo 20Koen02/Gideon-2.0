@@ -61,5 +61,7 @@ export const mongodb = {
 }
 
 export const BotConfig = {
-	defaultLang: ""
+	defaultLang: "",
+	OpenWeatherMap: "",
+	apiPort: 9925
 };

@@ -5,17 +5,14 @@ import { GideonLanguage } from "./lib/GideonLanguage/GideonLanguage";
 import { i18n, BotConfig as BC } from "../typings";
 import { Canvas } from "canvas-constructor";
 import { join, resolve } from "path";
-
+import { GideonAPI } from "./lib/GideonAPI/GideonAPI";
 
 import "./lib/prototypes/GideonGuild";
 import "./lib/prototypes/GideonMessage";
-import { GideonAPI } from "./lib/GideonAPI/GideonAPI";
 
-
-export class GideonClient extends KlasaClient {
+class GideonClient extends KlasaClient {
   i18n?: i18n;
   config: BC;
-  database?: any;
   constructor(options: KlasaClientOptions) {
     super(options);
     this.i18n = {};

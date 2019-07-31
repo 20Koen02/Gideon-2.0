@@ -1,10 +1,10 @@
 import * as mongoose from "mongoose";
 import { connect as mongoConnect } from "mongoose";
-import { GideonClient } from "../../../typings";
+import { Client } from "discord.js";
 
 export class GideonDatabase {
-  private bot: GideonClient;
-  constructor(bot:GideonClient, { url } : { url:string }) {
+  private client: Client;
+  constructor(client:Client, { url } : { url:string }) {
     setTimeout(() => {
       mongoConnect(url, {
         useNewUrlParser: true,
@@ -12,14 +12,14 @@ export class GideonDatabase {
       });
 
       const db = mongoose.connection;
-      db.on("error", bot.console.error.bind(console, "Connection error:"));
+      db.on("error", (err) => client.console.error(`Connection error: ${err}`));
       db.once("open", () => {
-        bot.console.log("[Database] Connected to Database.");
+        client.console.log("[Database] Connected to Database.");
       });
 
-      this.bot = bot;
+      this.client = client;
 
-      this.bot.database = db;
+      this.client.database = db;
     }, 2000);
   }
 

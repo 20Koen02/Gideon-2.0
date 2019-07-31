@@ -1,13 +1,13 @@
 import { i18nStrings } from "../../../typings";
-import { GideonClient } from "../..";
 import * as MessageFormat from "messageformat";
+import { Client } from "discord.js";
 
 export class Language {
-  private client: GideonClient; 
+  private client: Client; 
   lang: string;
   strings: i18nStrings;
   private mf: MessageFormat;
-  constructor(client: GideonClient, lang:string, strings:i18nStrings) {
+  constructor(client: Client, lang:string, strings:i18nStrings) {
     this.strings = strings;
     this.lang = lang;
     this.client = client;
