@@ -5,6 +5,9 @@
 	"main": "bin/index.js",
 	"repository": "git@gitlab.com:ShackDevs/Gideon.git",
 	"typings": "typings/index.d.ts",
+	"scripts": {
+		"build": "tsc"
+	},
 	"author": {
 		"name": "Koen van Wijngaarden",
 		"email": "kvanwijn@online.nl",
@@ -18,13 +21,6 @@
 		}
 	],
 	"license": "Apache-2.0",
-	"devDependencies": {
-		"@types/mathjs": "^6.0.0",
-		"@types/mongoose": "^5.5.8",
-		"@types/node": "^12.6.2",
-		"@types/ws": "^6.0.1",
-		"typescript": "^3.5.3"
-	},
 	"dependencies": {
 		"@types/node-fetch": "^2.3.7",
 		"canvas": "Automattic/node-canvas#92b192447e9b9ae98da0f801e4e34afdd1dc1ef8",
@@ -37,5 +33,13 @@
 		"messageformat": "^2.3.0",
 		"mongoose": "^5.6.4",
 		"node-fetch": "^2.6.0"
+	},
+	"devDependencies": {
+		"@types/mathjs": "^6.0.0",
+		"@types/module-alias": "^2.0.0",
+		"@types/mongoose": "^5.5.8",
+		"@types/node": "^12.6.2",
+		"@types/ws": "^6.0.1",
+		"typescript": "^3.5.3"
 	}
 }
