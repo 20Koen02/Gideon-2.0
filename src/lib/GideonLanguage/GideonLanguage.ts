@@ -4,9 +4,9 @@ import { Language } from "./Language";
 import { GideonClient } from "../..";
 
 export class GideonLanguage {
-  private bot: GideonClient
-  constructor(bot:GideonClient) {
-    this.bot = bot;
+  private client: GideonClient
+  constructor(client:GideonClient) {
+    this.client = client;
 
     setTimeout(() => {
       this.loadAll();
@@ -19,11 +19,11 @@ export class GideonLanguage {
       for await (const file of files) {
         const lang = await readJSON(`./bin/i18n/${file}`) as i18nStrings;
         const locale = file.split(".json")[0];
-        this.bot.i18n[locale] = new Language(this.bot, locale, lang);
-        this.bot.console.log(`[Languages] Loaded ${locale}.`);
+        this.client.i18n[locale] = new Language(this.client, locale, lang);
+        this.client.console.log(`[Languages] Loaded ${locale}.`);
       }
     } catch(e) {
-      this.bot.console.error("Something happened while loading the languages", e)
+      this.client.console.error("Something happened while loading the languages", e)
     }
   }
 }
