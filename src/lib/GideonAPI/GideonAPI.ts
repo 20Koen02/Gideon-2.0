@@ -1,24 +1,28 @@
 import * as fastify from "fastify";
-import { GideonClient } from "../..";
 import { Server, IncomingMessage, ServerResponse } from "http";
 import { FastifyInstance } from "fastify";
 import { readdir } from "fs-nextra";
+import { Client } from "discord.js";
 
 
 export class GideonAPI {
-  private client: GideonClient;
+  private client: Client;
   server: FastifyInstance<Server, IncomingMessage, ServerResponse>;
   routes: Array<any>
-  constructor(client:GideonClient) {
+  constructor(client:Client) {
     this.client = client;
     this.server = fastify();
     this.routes = [];
+    
+    this.client.apiServer = this.server;
 
-    setTimeout(() => {
-      this.loadAll();
+    setTimeout(async () => {
+      await this.loadAll();
+      await this.server.listen(this.client.config.apiPort, "0.0.0.0", err => {
+        if(err) throw err;
+        this.client.console.log(`[API] Server listening on ${this.client.config.apiPort}.`);
+      });
     }, 2000);
-
-    // @todo Listen server on port given in config
   }
 
   async loadAll() {

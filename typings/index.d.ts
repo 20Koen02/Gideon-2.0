@@ -1,14 +1,12 @@
 import { Document, Model, Connection } from "mongoose";
 import { Client } from "discord.js";
-
-export class GideonClient extends Client {
-  database?: Connection;
-  i18n?: i18n;
-}
+import { FastifyInstance } from "fastify";
+import { Server, IncomingMessage, ServerResponse } from "http";
 
 export interface BotConfig {
   defaultLang: string;
-  OpenWeatherMap: string; 
+  OpenWeatherMap: string;
+  apiPort: number
 }
 
 /* Start i18n */
@@ -71,6 +69,8 @@ declare module 'discord.js' {
   export interface Client {
     database?: Connection;
     i18n?: i18n;
+    config: BotConfig;
+    apiServer?: FastifyInstance<Server, IncomingMessage, ServerResponse>;
   }
 }
 declare module 'klasa' {
