@@ -1,19 +1,17 @@
 import { Argument, Possible, KlasaMessage } from "klasa";
 import { applyOptions } from "../lib/Util/Util";
 import { ArgumentOptions } from "klasa";
-import { parse } from "url";
 
 @applyOptions<ArgumentOptions>({
-	aliases: ["url"]
+	aliases: ["reg, regex"]
 })
 
 export default class extends Argument {
 
 	run(arg:string, possible:Possible, message:KlasaMessage) {
-		const res = parse(arg);
-		const hyperlink = res.protocol && res.hostname ? arg : null;
-		if (hyperlink !== null) return hyperlink;
-		throw message.i18n.get("resolver_invalid_url", { name: possible.name });
+		const results = possible.regex.exec(arg);
+		if (results !== null) return results;
+		throw message.i18n.get("resolver_invalid_regex_match", {name: possible.name, pattern: possible.regex.toString() });
 	}
 
 };
