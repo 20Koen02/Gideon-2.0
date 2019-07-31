@@ -9,6 +9,7 @@ import { join, resolve } from "path";
 
 import "./lib/prototypes/GideonGuild";
 import "./lib/prototypes/GideonMessage";
+import { GideonAPI } from "./lib/GideonAPI/GideonAPI";
 
 
 export class GideonClient extends KlasaClient {
@@ -25,6 +26,7 @@ export class GideonClient extends KlasaClient {
 const client = new GideonClient(KlasaConfig);
 new GideonDatabase(client, { url: mongodb.url });
 new GideonLanguage(client);
+new GideonAPI(client);
 client.login(token);
 
 Canvas.registerFont(resolve(join(__dirname, '../assets/fonts/Ubuntu.ttf')), 'Ubuntu');
