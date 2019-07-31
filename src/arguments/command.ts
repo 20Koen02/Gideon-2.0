@@ -11,7 +11,7 @@ export default class extends Argument {
 	run(arg:string, possible:Possible, message:KlasaMessage) {
 		const command = this.client.commands.get(arg.toLowerCase());
 		if (command) return command;
-		throw message.i18n.get("RESOLVER_INVALID_PIECE", { name: possible.name, piece: "command" });
+		throw message.i18n.get("resolver_invalid_piece", { name: possible.name, piece: "command" });
 	}
 
 };
