@@ -1,5 +1,5 @@
 import { Argument, Possible, KlasaMessage, ArgumentOptions } from "klasa";
-import { applyOptions } from "../lib/Util/Util";
+import { applyOptions } from "@lib/Util/Util";
 const truths = ["1", "true", "+", "t", "yes", "y"];
 const falses = ["0", "false", "-", "f", "no", "n"];
 

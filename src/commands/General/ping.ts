@@ -1,7 +1,7 @@
-import { applyOptions } from "../../lib/Util/Util";
+import { applyOptions } from "@lib/Util/Util";
 import { CommandOptions } from "klasa";
 import { Command, KlasaMessage } from "klasa";
-import { PingImage } from "../../lib/GideonImageGenerator/GideonImages";
+import { PingImage } from "@lib/GideonImageGenerator/GideonImages";
 import { MessageAttachment } from "discord.js";
 
 

@@ -1,6 +1,6 @@
 import { Command, CommandOptions, KlasaMessage } from "klasa";
-import { applyOptions } from "../../lib/Util/Util";
-import { Embed } from "../../lib/Embed";
+import { applyOptions } from "@lib/Util/Util";
+import { Embed } from "@lib/Embed";
 
 @applyOptions<CommandOptions>({
   usage: "<text:...string>",

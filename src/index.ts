@@ -1,3 +1,11 @@
+const TSModuleAlias = require("@momothepug/tsmodule-alias");
+
+TSModuleAlias.use({
+  "@lib/*": `${__dirname}/lib/*`,
+  "@assets/*": "../assets/*",
+  "@src/*": `${__dirname}/*`
+},);
+
 import { KlasaClient, KlasaClientOptions } from "klasa";
 import { KlasaConfig, token, mongodb, BotConfig } from "./config";
 import { GideonDatabase } from "./lib/GideonDatabase/GideonDatabase";

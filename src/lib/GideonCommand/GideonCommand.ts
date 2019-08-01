@@ -1,6 +1,6 @@
 import { Command } from "klasa";
 import { CommandStore, CommandOptions } from "klasa";
-import { ILanguage, i18nStrings } from "../../../typings";
+import { ILanguage, i18nStrings } from "typings";
 import { ExecFileOptionsWithStringEncoding } from "child_process";
 
 export class GideonCommand extends Command {

@@ -1,9 +1,7 @@
-import { applyOptions } from "../../lib/Util/Util";
+import { applyOptions } from "@lib/Util/Util";
 import { CommandOptions, Command, KlasaMessage } from "klasa";
 import { MessageAttachment } from "discord.js";
-import { readFile } from "fs-nextra";
-import { Canvas } from "canvas-constructor";
-import { DiceImage } from "../../lib/GideonImageGenerator/GideonImages";
+import { DiceImage } from "@lib/GideonImageGenerator/GideonImages";
 
 @applyOptions<CommandOptions>({
   cooldown: 5,

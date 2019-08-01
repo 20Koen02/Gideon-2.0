@@ -1,8 +1,7 @@
-import { applyOptions } from "../../lib/Util/Util";
-import { evaluate as eval } from "mathjs";
-
+import { applyOptions } from "@lib/Util/Util";
+import { evaluate } from "mathjs";
 import { CommandOptions, Command, KlasaMessage } from "klasa";
-import { Embed } from "../../lib/Embed";
+import { Embed } from "@lib/Embed";
 
 @applyOptions<CommandOptions>({
   cooldown: 5,
@@ -14,7 +13,7 @@ export default class CalcCommand extends Command {
 
   async run(message: KlasaMessage, args: any[]) {
     try {
-      if (`${eval(args.join(" "))}`.length > 400) {
+      if (`${evaluate(args.join(" "))}`.length > 400) {
         throw new Error();
       }
       const mathEmbed = Embed(message, {
@@ -23,7 +22,7 @@ export default class CalcCommand extends Command {
       });
       mathEmbed
         .addField(":inbox_tray: Expression", `\`\`\`${args.join(" ")}\`\`\``)
-        .addField(":outbox_tray: Answer", `\`\`\`${eval(args.join(" "))}\`\`\``);
+        .addField(":outbox_tray: Answer", `\`\`\`${evaluate(args.join(" "))}\`\`\``);
 
       return message.sendEmbed(mathEmbed);
     } catch (err) {

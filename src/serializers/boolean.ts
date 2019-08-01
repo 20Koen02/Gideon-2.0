@@ -1,5 +1,5 @@
 import { Serializer, SerializerOptions, SchemaPiece } from "klasa";
-import { applyOptions } from "../lib/Util/Util";
+import { applyOptions } from "@lib/Util/Util";
 import { Guild } from "discord.js";
 const truths = ["1", "true", "+", "t", "yes", "y"];
 const falses = ["0", "false", "-", "f", "no", "n"];

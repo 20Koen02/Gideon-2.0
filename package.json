@@ -22,6 +22,7 @@
 	],
 	"license": "Apache-2.0",
 	"dependencies": {
+		"@momothepug/tsmodule-alias": "^1.0.0",
 		"@types/node-fetch": "^2.3.7",
 		"canvas": "Automattic/node-canvas#92b192447e9b9ae98da0f801e4e34afdd1dc1ef8",
 		"canvas-constructor": "^3.1.0",

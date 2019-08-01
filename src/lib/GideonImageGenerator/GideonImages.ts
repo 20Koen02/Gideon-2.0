@@ -1,6 +1,6 @@
 import { Canvas } from "canvas-constructor";
 import { readFile } from "fs-nextra";
-import { Weather } from "../../commands/General/weather";
+import { Weather } from "@src/commands/General/weather";
 import { KlasaMessage } from "klasa";
 import { Client } from "discord.js";
 

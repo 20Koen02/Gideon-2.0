@@ -1,5 +1,5 @@
 import { MultiArgument, ArgumentOptions } from "klasa";
-import { applyOptions } from "../lib/Util/Util";
+import { applyOptions } from "@lib/Util/Util";
 
 @applyOptions<ArgumentOptions>({
 	aliases: ["...argument"]

@@ -1,8 +1,8 @@
-import { applyOptions } from "../../lib/Util/Util";
+import { applyOptions } from "@lib/Util/Util";
 import { Command } from "klasa";
-import * as turl from "../../lib/URLShortener";
+import * as turl from "@lib/URLShortener";
 import { CommandOptions } from "klasa";
-import { Embed } from "../../lib/Embed";
+import { Embed } from "@lib/Embed";
 import { KlasaMessage } from "klasa";
 
 @applyOptions<CommandOptions>({

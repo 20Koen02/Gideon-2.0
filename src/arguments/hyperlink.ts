@@ -1,5 +1,5 @@
 import { Argument, Possible, KlasaMessage } from "klasa";
-import { applyOptions } from "../lib/Util/Util";
+import { applyOptions } from "@lib/Util/Util";
 import { ArgumentOptions } from "klasa";
 import { parse } from "url";
 

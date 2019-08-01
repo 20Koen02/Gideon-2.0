@@ -1,11 +1,8 @@
-import { applyOptions } from "../../lib/Util/Util"
-import { CommandOptions, Command } from "klasa"
-import { Canvas } from "canvas-constructor"
-import { KlasaMessage } from "klasa"
-import { readFile } from "fs-nextra"
+import { applyOptions } from "@lib/Util/Util"
+import { CommandOptions, Command, KlasaMessage } from "klasa";
 import fetch from "node-fetch"
 import { MessageAttachment } from "discord.js";
-import { WeatherImage } from "../../lib/GideonImageGenerator/GideonImages";
+import { WeatherImage } from "@lib/GideonImageGenerator/GideonImages";
 
 @applyOptions<CommandOptions>({
   cooldown: 5,

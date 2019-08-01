@@ -1,4 +1,4 @@
-import { i18nStrings } from "../../../typings";
+import { i18nStrings } from "typings";
 import * as MessageFormat from "messageformat";
 import { Client } from "discord.js";
 

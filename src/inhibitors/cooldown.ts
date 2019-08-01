@@ -1,5 +1,5 @@
 import { Inhibitor } from "klasa";
-import { applyOptions } from "../lib/Util/Util";
+import { applyOptions } from "@lib/Util/Util";
 import { InhibitorOptions } from "klasa";
 import { KlasaMessage, Command } from "klasa";
 

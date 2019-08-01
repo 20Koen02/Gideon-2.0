@@ -1,8 +1,8 @@
-import { applyOptions } from "../../lib/Util/Util";
+import { applyOptions } from "@lib/Util/Util";
 import { CommandOptions, Command } from "klasa";
-import { Embed } from "../../lib/Embed";
+import { Embed } from "@lib/Embed";
 import { KlasaMessage } from "klasa";
-import { GideonCommand } from "../../lib/GideonCommand/GideonCommand";
+import { GideonCommand } from "@lib/GideonCommand/GideonCommand";
 
 @applyOptions<CommandOptions>({
   aliases: ["commands"],

@@ -1,7 +1,7 @@
 import { Command, Stopwatch, Type, util, KlasaMessage, CommandOptions } from "klasa";
 import { inspect } from "util";
 import fetch from "node-fetch";
-import { applyOptions } from "../../lib/Util/Util";
+import { applyOptions } from "@lib/Util/Util";
 
 interface IEvalResult {
   success: boolean;

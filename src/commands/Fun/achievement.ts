@@ -1,4 +1,4 @@
-import { applyOptions } from "../../lib/Util/Util";
+import { applyOptions } from "@lib/Util/Util";
 import { CommandOptions, Command, KlasaMessage } from "klasa";
 import { MessageAttachment } from "discord.js";
 import fetch from "node-fetch";

@@ -2,7 +2,8 @@
   "compilerOptions": {
     "paths": {
       "@lib/*": ["src/lib/*"],
-      "@assets/*": ["assets/*"]
+      "@assets/*": ["assets/*"],
+      "@src/*": ["src/*"]
     },
     "typeRoots": ["./typings"],
     "outDir": "./bin",
@@ -23,7 +24,7 @@
       "mongoose",
       "discord.js"
     ],
-    "resolveJsonModule": true,
+    "resolveJsonModule": true
   },
   "exclude": [
     "node_modules",

@@ -1,5 +1,5 @@
 import { Serializer, SerializerOptions, SchemaPiece } from "klasa";
-import { applyOptions } from "../lib/Util/Util";
+import { applyOptions } from "@lib/Util/Util";
 import { Guild, Channel } from "discord.js";
 
 @applyOptions<SerializerOptions>({

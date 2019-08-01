@@ -1,4 +1,4 @@
-import { i18nStrings } from "../../../typings";
+import { i18nStrings } from "typings";
 import { readdir, readJSON } from "fs-nextra";
 import { Language } from "./Language";
 import { Client } from "discord.js";

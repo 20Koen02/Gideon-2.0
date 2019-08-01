@@ -1,7 +1,7 @@
-import { applyOptions } from "../../lib/Util/Util";
+import { applyOptions } from "@lib/Util/Util";
 import { CommandOptions, Command } from "klasa";
 import { KlasaMessage } from "klasa";
-import { Embed } from "../../lib/Embed";
+import { Embed } from "@lib/Embed";
 import fetch from "node-fetch";
 
 @applyOptions<CommandOptions>({

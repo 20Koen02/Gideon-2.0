@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-import { IModel, IGideonGuild } from "../../../../typings";
+import { IGideonGuild, IModel } from "typings";
 
 const schema = new Schema({
 	guildid: { type: String },

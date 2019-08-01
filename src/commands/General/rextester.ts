@@ -1,4 +1,4 @@
-import { applyOptions } from "../../lib/Util/Util";
+import { applyOptions } from "@lib/Util/Util";
 import { CommandOptions, Command } from "klasa";
 import { KlasaMessage } from "klasa";
 import fetch from "node-fetch";

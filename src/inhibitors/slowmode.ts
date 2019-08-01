@@ -1,5 +1,5 @@
 import { Inhibitor, KlasaMessage, RateLimitManager, InhibitorOptions } from "klasa";
-import { applyOptions } from "../lib/Util/Util";
+import { applyOptions } from "@lib/Util/Util";
 
 @applyOptions<InhibitorOptions>({
   spamProtection: true
