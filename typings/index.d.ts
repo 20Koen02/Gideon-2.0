@@ -2,6 +2,7 @@ import { Document, Model, Connection } from "mongoose";
 import { Client } from "discord.js";
 import { FastifyInstance } from "fastify";
 import { Server, IncomingMessage, ServerResponse } from "http";
+import { PlayerManager } from "discord.js-lavalink";
 
 export interface BotConfig {
   defaultLang: string;
@@ -71,6 +72,7 @@ declare module 'discord.js' {
     i18n?: i18n;
     config: BotConfig;
     apiServer?: FastifyInstance<Server, IncomingMessage, ServerResponse>;
+    player: PlayerManager;
   }
 }
 declare module 'klasa' {

@@ -54,7 +54,7 @@ export const KlasaConfig: KlasaClientOptions = {
     .add(10, (message) => ["255009837002260482", "209609796704403456"].includes(message.author.id) ? true : false)
 };
 
-export const token: string = "";
+export const token = "";
 
 export const mongodb = {
 	url: ""
