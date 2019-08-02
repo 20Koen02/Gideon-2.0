@@ -1,3 +1,10 @@
+import { join, resolve } from "path";
+import { Canvas } from "canvas-constructor";
+import { ShardingManager } from "kurasuta";
+import { KlasaClient } from "klasa";
+import { i18n, BotConfig as BC } from "typings";
+import { BotConfig, token, KlasaConfig } from "./config";
+
 const TSModuleAlias = require("@momothepug/tsmodule-alias");
 
 TSModuleAlias.use({
@@ -6,32 +13,19 @@ TSModuleAlias.use({
   "@src/*": `${__dirname}/*`
 },);
 
-import { KlasaClient, KlasaClientOptions } from "klasa";
-import { KlasaConfig, token, mongodb, BotConfig } from "./config";
-import { GideonDatabase } from "./lib/GideonDatabase/GideonDatabase";
-import { GideonLanguage } from "./lib/GideonLanguage/GideonLanguage";
-import { i18n, BotConfig as BC } from "../typings";
-import { Canvas } from "canvas-constructor";
-import { join, resolve } from "path";
-import { GideonAPI } from "./lib/GideonAPI/GideonAPI";
-
-import "./lib/prototypes/GideonGuild";
-import "./lib/prototypes/GideonMessage";
-
-class GideonClient extends KlasaClient {
-  i18n?: i18n;
-  config: BC;
-  constructor(options: KlasaClientOptions) {
-    super(options);
-    this.i18n = {};
-    this.config = BotConfig;
-  }
-}
-
-const client = new GideonClient(KlasaConfig);
-new GideonDatabase(client, { url: mongodb.url });
-new GideonLanguage(client);
-new GideonAPI(client);
-client.login(token);
-
 Canvas.registerFont(resolve(join(__dirname, '../assets/fonts/Ubuntu.ttf')), 'Ubuntu');
+
+const sharder = new ShardingManager(join(__dirname, "main"), {
+  client: class GideonClient extends KlasaClient {
+    i18n?: i18n;
+    config: BC;
+    constructor() {
+      super(KlasaConfig);
+      this.i18n = {};
+      this.config = BotConfig;
+    }
+  },
+  development: true,
+  token: token
+});
+sharder.spawn();

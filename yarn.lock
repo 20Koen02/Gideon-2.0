@@ -506,6 +506,14 @@ klasa@dirigeants/klasa#v1.0.0-alpha:
   dependencies:
     fs-nextra "^0.4.3"
 
+kurasuta@^0.2.18:
+  version "0.2.18"
+  resolved "https://registry.yarnpkg.com/kurasuta/-/kurasuta-0.2.18.tgz#c7a7fe65c016b669b56f898efece9f1615b43659"
+  integrity sha512-qQtiF6k4iPPqY0lPAFDve8P2qrHxFl8CLft6xVhoLLhHq047USHJDqtID3lN93u4UTg3TJ5yO6MB3WFdxHnhfA==
+  dependencies:
+    node-fetch "^2.3.0"
+    veza "^0.4.0"
+
 light-my-request@^3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/light-my-request/-/light-my-request-3.4.1.tgz#c30087005f6ae64ce5ef92c2484b1ab93c71ad3e"
@@ -1127,6 +1135,11 @@ util-deprecate@^1.0.1, util-deprecate@~1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
+
+veza@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/veza/-/veza-0.4.0.tgz#592d0752bdf29aced29bb49a2966cbf1977ca6f9"
+  integrity sha512-WIxsWppQ0yPv2NyxujZ8WjPl/rkqMIp+QdOkoJyKl2C+PGbiri/gDXumA9HjvRtnCTZJiMt3duhEhM/igLE8SQ==
 
 wide-align@^1.1.0:
   version "1.1.3"
