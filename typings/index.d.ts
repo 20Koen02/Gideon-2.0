@@ -72,7 +72,7 @@ declare module 'discord.js' {
     i18n?: i18n;
     config: BotConfig;
     apiServer?: FastifyInstance<Server, IncomingMessage, ServerResponse>;
-    player: PlayerManager;
+    player?: PlayerManager;
   }
 }
 declare module 'klasa' {
