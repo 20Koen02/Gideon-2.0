@@ -22,7 +22,11 @@
     "types" : [
       "node",
       "mongoose",
-      "discord.js"
+      "discord.js",
+      "klasa",
+      "kurasuta",
+      "canvas-constructor",
+      "discord.js-lavalink"
     ],
     "resolveJsonModule": true
   },
