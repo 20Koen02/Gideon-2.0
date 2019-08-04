@@ -1,8 +1,7 @@
 import { applyOptions } from "@lib/Util/Util";
 import { CommandOptions, Command, KlasaMessage } from "klasa";
-import Song, { LavaLinkTrack } from "@lib/GideonMusic/Song";
+import Song from "@lib/GideonMusic/Song";
 import { Message, TextChannel } from "discord.js";
-import { Embed } from "@lib/Embed";
 import Music from "@lib/GideonMusic/Music";
 import { GideonEmbedManager } from "@lib/GideonEmbedManager/GideonEmbedManager";
 
