@@ -47,6 +47,12 @@
     "cmd_weather_winddirection": "Wind Direction",
     "cmd_emojify_max_chars": "",
     "cmd_emojify_min_chars": "",
+
+    "cmd_music_notplaying": "There is currently no music playing",
+    "cmd_music_loop_max": "The maximum queue size is 1000 songs, therefore we can't loop the queue",
+    "cmd_music_loop_start" : "🎧 {queuetype, select, queue {The whole queue will now repeat} other {Song looping is now {looping, select, enabled {enabled} disabled {disabled} other {undefined}}}}",
+    "cmd_music_no_songs": "There are no songs in the queue",
+
     "service_unavailable": "503: Service Unavailable",
     "reactionhandler_prompt": "Which page would you like to jump to?",
     "commandmessage_missing": "Missing one or more required arguments after end of input.",

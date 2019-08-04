@@ -3,6 +3,9 @@ import { Client } from "discord.js";
 import { FastifyInstance } from "fastify";
 import { Server, IncomingMessage, ServerResponse } from "http";
 import { PlayerManager } from "discord.js-lavalink";
+import MusicManager from "@lib/GideonMusic/MusicManager";
+import Music from "@lib/GideonMusic/Music";
+import { KlasaMessage } from "klasa";
 
 export interface BotConfig {
   defaultLang: string;
@@ -55,12 +58,13 @@ declare module "*.json" {
 declare module 'discord.js' {
   export interface Guild {
     config: any;
-    i18n: ILanguage<i18nStrings>
+    i18n: ILanguage<i18nStrings>;
+    music: Music;
 	}
 
 	export interface Message {
     i18n: ILanguage<i18nStrings>
-		translate(key: string, localeArgs?: Record<string, string | number | boolean>, options?: MessageOptions): Promise<Message | Message[]>;
+		translate(key: string, localeArgs?: Record<string, string | number | boolean>, options?: MessageOptions): Promise<KlasaMessage | KlasaMessage[]>;
 	}
 
 	export interface User {
@@ -73,6 +77,7 @@ declare module 'discord.js' {
     config: BotConfig;
     apiServer?: FastifyInstance<Server, IncomingMessage, ServerResponse>;
     player?: PlayerManager;
+    music: MusicManager;
   }
 }
 declare module 'klasa' {

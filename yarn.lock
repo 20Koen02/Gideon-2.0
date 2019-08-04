@@ -124,6 +124,11 @@ are-we-there-yet@~1.1.2:
     delegates "^1.0.0"
     readable-stream "^2.0.6"
 
+async-limiter@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.1.tgz#dd379e94f0db8310b08291f9d64c3209766617fd"
+  integrity sha512-csOlWGAcRFJaI6m+F2WKdnMKr4HhdhFVBk0H/QbJFMCr+uO2kwohwXQPxw/9OCxp05r5ghVBFSyioixx3gfkNQ==
+
 async-limiter@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.0.tgz#78faed8c3d074ab81f22b4e985d79e8738f720f8"
@@ -273,12 +278,11 @@ detect-libc@^1.0.2:
   resolved "https://registry.yarnpkg.com/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
   integrity sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
 
-discord.js-lavalink@^2.2.3:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/discord.js-lavalink/-/discord.js-lavalink-2.2.3.tgz#be52b6b2d503dbc55284ae162d3aae57abcf6c6a"
-  integrity sha512-HR7LJ8EhJ3iVeRmfjBOdvBA5/eO25ncbnZOn12x0Sj/JVFd0h5ClGi6w4giWPrnw8fDvCVxKl7+c0Y/6tLgBDQ==
+discord.js-lavalink@MrJacz/discord.js-lavalink#v3:
+  version "3.0.0"
+  resolved "https://codeload.github.com/MrJacz/discord.js-lavalink/tar.gz/78546b3291f1bce041e70c7dd7894de58e894aa9"
   dependencies:
-    ws "^6.1.4"
+    ws "^7.0.0"
 
 discord.js@discordjs/discord.js:
   version "12.0.0-dev"
@@ -1160,12 +1164,19 @@ wrappy@1:
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
 
-ws@^6.1.3, ws@^6.1.4:
+ws@^6.1.3:
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/ws/-/ws-6.2.1.tgz#442fdf0a47ed64f59b6a5d8ff130f4748ed524fb"
   integrity sha512-GIyAXC2cB7LjvpgMt9EKS2ldqr0MTrORaleiOno6TweZ6r3TKtoFQWay/2PceJ3RuBasOHzXNn5Lrw1X0bEjqA==
   dependencies:
     async-limiter "~1.0.0"
+
+ws@^7.0.0:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-7.1.1.tgz#f9942dc868b6dffb72c14fd8f2ba05f77a4d5983"
+  integrity sha512-o41D/WmDeca0BqYhsr3nJzQyg9NF5X8l/UdnFNux9cS3lwB+swm8qGWX5rn+aD6xfBU3rGmtHij7g7x6LxFU3A==
+  dependencies:
+    async-limiter "^1.0.0"
 
 yallist@^3.0.0, yallist@^3.0.3:
   version "3.0.3"

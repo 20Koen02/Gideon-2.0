@@ -1,4 +1,5 @@
 import { Structures } from "discord.js";
+import MusicManager from "@lib/GideonMusic/MusicManager";
 
 export default Structures.extend("Guild", Guild => class extends Guild {
   constructor(...args:any[]) {
@@ -9,5 +10,7 @@ export default Structures.extend("Guild", Guild => class extends Guild {
     };
 
     this.i18n = this.client.i18n[this.config.language];
+
+    this.music = this.client.music.add(this);
   }
 });

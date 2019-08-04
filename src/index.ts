@@ -16,15 +16,15 @@ TSModuleAlias.use({
 
 Canvas.registerFont(resolve(join(__dirname, '../assets/fonts/Ubuntu.ttf')), 'Ubuntu');
 
+import MusicManager from "@lib/GideonMusic/MusicManager";
+
 const sharder = new ShardingManager(join(__dirname, "main"), {
   client: class GideonClient extends KlasaClient {
-    i18n?: i18n;
-    config: BC;
-    player?: PlayerManager
     constructor() {
       super(KlasaConfig);
       this.i18n = {};
       this.config = BotConfig;
+      this.music = new MusicManager();
     }
   },
   development: true,
