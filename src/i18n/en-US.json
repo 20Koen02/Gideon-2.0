@@ -83,5 +83,10 @@
     "resolver_invalid_role": "{name} must be a role mention or role id.",
     "resolver_invalid_time": "{name} must be a valid duration or date string.",
     "resolver_invalid_url": "{name} must be a valid url.",
-    "resolver_invalid_user": "{name} must be a mention or valid user id."
+    "resolver_invalid_user": "{name} must be a mention or valid user id.",
+
+    "cmd_loop_desc": "Loop a song so it repeats when it finishes playing.",
+    "cmd_np_desc": "Know which song is currently playing and what is it's progress.",
+    "cmd_play_desc": "Play songs from YouTube and Soundcloud"
+
 }

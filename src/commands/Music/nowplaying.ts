@@ -4,7 +4,7 @@ import { GideonEmbedManager } from "@lib/GideonEmbedManager/GideonEmbedManager";
 
 
 @applyOptions<CommandOptions>({
-  description: "Nowplaying",
+  desc: (i18n) => i18n.get("cmd_np_desc"),
   runIn: ["text"],
   aliases: ["np", "currentlyplaying"]
 })

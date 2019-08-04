@@ -7,7 +7,7 @@ import { GideonEmbedManager } from "@lib/GideonEmbedManager/GideonEmbedManager";
 
 
 @applyOptions<CommandOptions>({
-  description: "Play Music",
+  desc: (i18n) => i18n.get("cmd_play_desc"),
   usage: "<song:song>",
   runIn: ["text"]
 })
