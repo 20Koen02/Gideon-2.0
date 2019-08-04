@@ -9,7 +9,7 @@ import { GideonEmbedManager } from "@lib/GideonEmbedManager/GideonEmbedManager";
   aliases: ["np", "currentlyplaying"]
 })
 
-export default class LoopMusicCommand extends Command {
+export default class NPMusicCommand extends Command {
 
 	async run(message:KlasaMessage) {
     const { music } = message.guild;
