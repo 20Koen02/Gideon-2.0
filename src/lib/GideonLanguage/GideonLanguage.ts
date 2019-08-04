@@ -7,17 +7,13 @@ export class GideonLanguage {
   private client: Client
   constructor(client:Client) {
     this.client = client;
-
-    setTimeout(() => {
-      this.loadAll();
-    }, 2000);
   }
 
   async loadAll() {
     try {
-      const files = await readdir("./bin/i18n");
+      const files = await readdir("./langs");
       for await (const file of files) {
-        const lang = await readJSON(`./bin/i18n/${file}`) as i18nStrings;
+        const lang = await readJSON(`./langs/${file}`) as i18nStrings;
         const locale = file.split(".json")[0];
         this.client.i18n[locale] = new Language(this.client, locale, lang);
         this.client.console.log(`[Languages] Loaded ${locale}.`);

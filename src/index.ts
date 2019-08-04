@@ -3,7 +3,7 @@ import { Canvas } from "canvas-constructor";
 import { ShardingManager } from "kurasuta";
 import { KlasaClient } from "klasa";
 import { i18n, BotConfig as BC } from "typings";
-import { BotConfig, token, KlasaConfig } from "./config";
+import { BotConfig, SecretConfig, KlasaConfig } from "./config";
 import { PlayerManager } from "discord.js-lavalink";
 
 const TSModuleAlias = require("@momothepug/tsmodule-alias");
@@ -28,6 +28,6 @@ const sharder = new ShardingManager(join(__dirname, "main"), {
     }
   },
   development: true,
-  token: token
+  token: SecretConfig.token
 });
 sharder.spawn();

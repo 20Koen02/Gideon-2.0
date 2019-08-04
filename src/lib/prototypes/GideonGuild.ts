@@ -1,5 +1,4 @@
 import { Structures } from "discord.js";
-import MusicManager from "@lib/GideonMusic/MusicManager";
 
 export default Structures.extend("Guild", Guild => class extends Guild {
   constructor(...args:any[]) {

@@ -6,6 +6,7 @@ import { PlayerManager } from "discord.js-lavalink";
 import MusicManager from "@lib/GideonMusic/MusicManager";
 import Music from "@lib/GideonMusic/Music";
 import { KlasaMessage } from "klasa";
+import { i18nManager } from "@lib/GideonLanguage/i18nManager";
 
 export interface BotConfig {
   defaultLang: string;
@@ -78,15 +79,12 @@ declare module 'discord.js' {
     apiServer?: FastifyInstance<Server, IncomingMessage, ServerResponse>;
     player?: PlayerManager;
     music: MusicManager;
+    i18nmanager: i18nManager;
   }
 }
 declare module 'klasa' {
   export interface KlasaMessage {
     prompt(text:string, time?:number) : Promise<KlasaMessage>
-  }
-  
-  export interface KlasaClient {
-    config: BotConfig
   }
 
   export interface CommandOptions {
