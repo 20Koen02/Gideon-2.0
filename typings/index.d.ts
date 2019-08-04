@@ -92,4 +92,8 @@ declare module 'klasa' {
   export interface CommandOptions {
     desc?: ((i18n: ILanguage<i18nStrings>) => string|string[]);
   }
+
+  export interface Command {
+    desc(lang: ILanguage<i18nStrings>): (language?: ILanguage<i18nStrings>) => string
+  }
 }

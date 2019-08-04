@@ -30,7 +30,7 @@ export default class HelpCommand extends GideonCommand {
                 .setDescription(
                     [
                         `_**Help**_ | __**${cmnd.name}**__`,
-                        cmnd.description,
+                        cmnd.desc(msg.guild.i18n),
                         ``,
                         "_**Command Usage**_",
                         `\`${this.client.options.prefix}${cmnd.usage}\``,

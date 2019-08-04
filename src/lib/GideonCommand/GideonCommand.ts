@@ -1,7 +1,6 @@
 import { Command } from "klasa";
 import { CommandStore, CommandOptions } from "klasa";
 import { ILanguage, i18nStrings } from "typings";
-import { ExecFileOptionsWithStringEncoding } from "child_process";
 
 export class GideonCommand extends Command {
   private _desc: (i18n: ILanguage<i18nStrings>) => string | string[];
@@ -10,9 +9,9 @@ export class GideonCommand extends Command {
     this._desc = options.desc
   }
 
-  get desc() {
+  desc(lang:ILanguage<i18nStrings>) {
     this.description = this.desc1();
-    return (language = this.client.i18n[this.client.config.defaultLang]) => this._desc(language);
+    return (language = lang) => this._desc(language) as string;
   }
   private desc1() : string {
     let a: string;
