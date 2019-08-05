@@ -80,3 +80,6 @@ data/
 
 bin/
 config.ts
+
+langs/*
+!langs/en-US.json

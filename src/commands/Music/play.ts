@@ -50,7 +50,7 @@ export default class PlayMusicCommand extends Command {
       music.queue.push(...songs.tracks);
       if (!music.playing) return;
       music.playing = true;
-      return message.sendEmbed(GideonEmbedManager.music().queueEmbed(message, songs.tracks[0], music.queue));
+      return message.sendEmbed(GideonEmbedManager.music().loadedInqueueEmbed(message, songs.tracks[0], music.queue));
     }
   }
 

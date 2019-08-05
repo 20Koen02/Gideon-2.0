@@ -18,6 +18,6 @@ export default class extends BaseCluster {
 
     await this.client.i18nmanager.loadCodes();
     await this.client.i18nmanager.updateAll();
-    await this.client.i18nmanager.loadTranslations().loadAll();
+    await this.client.i18nmanager.loadTranslations();
   }
 }

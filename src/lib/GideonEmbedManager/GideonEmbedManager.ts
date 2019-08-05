@@ -9,7 +9,7 @@ export class GideonEmbedManager {
 }
 
 class GideonMusicEmbed {
-  queueEmbed(message:Message, song:Song, queue:Song[]) {
+  loadedInqueueEmbed(message:Message, song:Song, queue:Song[]) {
     return Embed(message, {})
       .setTitle("🗒 | Song Queued")
       .setTimestamp()
@@ -30,5 +30,20 @@ class GideonMusicEmbed {
         • **Duration:** ${song.friendlyDuration}
         • **Requested By:** ${song.requester}
         • **Link:** ${song.url}`);
+  }
+
+  queueEmbed(message:Message, queue:Song[]) {
+    const queueList = [];
+		for (let i = 0; i < Math.min(queue.length, 10); i++) {
+			const song = queue[i];
+			queueList.push([
+				`**${String(i + 1).padStart(2)}.** **${song.title.replace(/\*/g, '\\*')}** request by **${song.requester.tag || song.requester}**`,
+				`   └── <${song.url}> (${song.friendlyDuration})`
+			].join('\n'));
+    }
+    if (queue.length > 10) queueList.push("", `Showing 10 songs of ${queue.length} on top of the queue.`);
+    return Embed(message, {})
+      .setTitle("Music Queue")
+      .setDescription(queueList.join("\n"));
   }
 }
