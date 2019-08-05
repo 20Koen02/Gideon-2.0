@@ -9,8 +9,8 @@ const i18nfile = "bot.json";
 
 export class i18nManager {
   client: Client;
-  lang_names: {[x:string]:string};
-  lang_codes: {[x:string]:string};
+  lang_names: { [x:string]: string };
+  lang_codes: { [x:string]: string };
   constructor(client:Client) {
     this.client = client;
     this.lang_names = {};
