@@ -7,7 +7,7 @@ import { KlasaMessage } from "klasa";
 
 @applyOptions<CommandOptions>({
   cooldown: 5,
-  description: "Shorten an url",
+  desc: (i18n) => i18n.get("desc_rex"),
   usage: "<text:...string>"
 })
 export default class ShortenCommand extends Command {
@@ -15,7 +15,7 @@ export default class ShortenCommand extends Command {
   async run(message:KlasaMessage, [text]:[string]) {
     const link = await turl.shorten(text).catch(err => {
       console.error(err);
-      return message.send("Error while creating the shortlink, notified the developers");
+      return message.send("Error while creating the shortlink, I notified the developers");
     });
     const shortEmbed = Embed(message, {
       footer: true,

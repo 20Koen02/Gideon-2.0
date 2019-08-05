@@ -6,7 +6,7 @@ import { Embed } from "@lib/Embed";
 @applyOptions<CommandOptions>({
   cooldown: 5,
   usage: "<expression:string>",
-  description: "Calculate your favorite equations"
+  desc: (i18n) => i18n.get("desc_anime")
 })
 
 export default class CalcCommand extends Command {

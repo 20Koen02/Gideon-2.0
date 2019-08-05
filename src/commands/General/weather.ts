@@ -7,7 +7,7 @@ import { WeatherImage } from "@lib/GideonImageGenerator/GideonImages";
 @applyOptions<CommandOptions>({
   cooldown: 5,
   usage: "<city:...string>",
-  description: "Shows the weather for the given city"
+  desc: (i18n) => i18n.get("desc_weather"),
 })
 
 export default class WeatherCommand extends Command {

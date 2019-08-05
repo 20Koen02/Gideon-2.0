@@ -7,7 +7,7 @@ import * as turl from "@lib/URLShortener";
 import { MessageEmbed } from "discord.js";
 
 @applyOptions<CommandOptions>({
-  description: "Search for anime on Kitsu",
+  desc: (i18n) => i18n.get("desc_anime"),
   usage: "<anime:string>"
 })
 

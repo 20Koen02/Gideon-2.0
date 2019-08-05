@@ -6,7 +6,7 @@ import { MessageAttachment } from "discord.js";
 
 
 @applyOptions<CommandOptions>({
-  description: "Ping",
+  desc: (i18n) => i18n.get("desc_ping"),
   guarded: true
 })
 

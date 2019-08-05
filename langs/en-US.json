@@ -27,7 +27,7 @@
         "❌ Outlook not so good.",
         "❌ Very doubtful."
     ],
-    "cmd_emoji_max_chars": "The maximal amount of characters is 25.",
+    "cmd_emoji_max_chars": "Sorry, I cannot emojify more than 25 characters",
     "cmd_emoji_chars": "Please provide text to turn into emoji",
     "cmd_ping_fetch": "Fetching ping...",
     "cmd_ping_processing": "Processing image...",
@@ -48,10 +48,10 @@
     "cmd_emojify_max_chars": "",
     "cmd_emojify_min_chars": "",
 
-    "cmd_music_notplaying": "There is currently no music playing",
+    "cmd_music_notplaying": "I am not playing any music",
     "cmd_music_loop_max": "The maximum queue size is 1000 songs, therefore we can't loop the queue",
     "cmd_music_loop_start" : "🎧 {queuetype, select, queue {The whole queue will now repeat} other {Song looping is now {looping, select, enabled {enabled} disabled {disabled} other {undefined}}}}",
-    "cmd_music_no_songs": "There are no songs in the queue",
+    "cmd_music_no_songs": "The queue is empty",
 
     "service_unavailable": "503: Service Unavailable",
     "reactionhandler_prompt": "Which page would you like to jump to?",
@@ -85,8 +85,18 @@
     "resolver_invalid_url": "{name} must be a valid url.",
     "resolver_invalid_user": "{name} must be a mention or valid user id.",
 
-    "cmd_loop_desc": "Loop a song so it repeats when it finishes playing.",
-    "cmd_np_desc": "Know which song is currently playing and what is it's progress.",
-    "cmd_play_desc": "Play songs from YouTube and Soundcloud"
+    "desc_loop": "Put the current song in a loop",
+    "desc_np": "Information about the song I'm currently playing",
+    "desc_play": "Play songs from YouTube and Soundcloud",
+    "desc_skip": "Skip the current song",
+
+    "desc_anime": "Search for an anime on Kitsu",
+    "desc_calc": "Solve an equation",
+    "desc_help": "List all commands or get info for a specific command",
+    "desc_ping": "Pong",
+    "desc_rex": "Execute any code on Rextester",
+    "desc_shorten": "Shorten any link using Tinyurl",
+    "desc_weather": "Get the current weather of any location using OpenWeatherMap"
+
 
 }

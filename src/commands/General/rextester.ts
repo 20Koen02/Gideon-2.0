@@ -52,7 +52,7 @@ const langs = {
 
 @applyOptions<CommandOptions>({
   aliases: ["rex", "rextest"],
-  description: "Executes any code with rextester",
+  desc: (i18n) => i18n.get("desc_rex"),
   usage: "<language:string> <code:...string>",
   usageDelim: " ",
   cooldown: 5

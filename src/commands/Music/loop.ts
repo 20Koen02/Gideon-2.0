@@ -3,7 +3,7 @@ import { CommandOptions, Command, KlasaMessage } from "klasa";
 
 
 @applyOptions<CommandOptions>({
-  desc: (i18n) => i18n.get("cmd_loop_desc"),
+  desc: (i18n) => i18n.get("desc_loop"),
   usage: "[queue|song]",
   runIn: ["text"]
 })

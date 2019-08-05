@@ -8,7 +8,7 @@ import { GideonCommand } from "@lib/GideonCommand/GideonCommand";
   aliases: ["commands"],
   guarded: true,
   description: language => language.get("COMMAND_HELP_DESCRIPTION"),
-  desc: lang => lang.get("cmd_help"),
+  desc: (i18n) => i18n.get("desc_help"),
   usage: "(Command:command)"
 })
 

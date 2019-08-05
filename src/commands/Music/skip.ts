@@ -3,7 +3,7 @@ import { CommandOptions, Command, KlasaMessage } from "klasa";
 
 
 @applyOptions<CommandOptions>({
-  description: "Skip music",
+  desc: (i18n) => i18n.get("desc_skip"),
   runIn: ["text"]
 })
 
