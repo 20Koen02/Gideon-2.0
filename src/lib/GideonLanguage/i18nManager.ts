@@ -26,7 +26,7 @@ export class i18nManager {
   async update(lang:string) {
     const languageinfo = await this.getLanguageInfo(lang);
     if(languageinfo.files.find(f => f.name == "bot.json").approved == 0) return;
-    this.client.console.log(`Updating ${this.lang_names[lang]} file...`);
+    this.client.console.log(`[Language] Updating ${this.lang_names[lang]} file...`);
     const file = await fetch(`https://api.crowdin.com/api/project/${SecretConfig.crowdin.projectname}/export-file?key=${SecretConfig.crowdin.apiKey}&json&file=${encodeURIComponent(i18nfile)}&language=${lang}`).then(res => res.text());
 
     await writeFile(`./langs/${lang}.json`, file);
