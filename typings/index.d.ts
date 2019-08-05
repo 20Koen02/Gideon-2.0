@@ -17,8 +17,6 @@ export interface BotConfig {
 /* Start i18n */
 export interface i18n {
   [s: string]: ILanguage<i18nStrings>;
-  "en-US"?: ILanguage<i18nStrings>;
-  "nl-NL"?: ILanguage<i18nStrings>;
 }
 
 export interface ILanguage<LanguageStrings> {
@@ -27,6 +25,7 @@ export interface ILanguage<LanguageStrings> {
 
   get(term: string, format?: Record<string, string | number | boolean>): string | string[];
   getDefault(term: string, format?: Record<string, string | number | boolean>): string | string[];
+  updateStrings(): Promise<void>;
 }
 
 export interface i18nStrings {

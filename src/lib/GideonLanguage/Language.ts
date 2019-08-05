@@ -1,6 +1,7 @@
 import { i18nStrings } from "typings";
 import * as MessageFormat from "messageformat";
 import { Client } from "discord.js";
+import { readJSON } from "fs-nextra";
 
 export class Language {
   private client: Client; 
@@ -29,5 +30,11 @@ export class Language {
     if(Array.isArray(value)) return value;
     const output = this.mf.compile(value)(format);
     return output;
+  }
+
+  async updateStrings() {
+    this.strings = {};
+    const json = await readJSON(`./langs/${this.lang}.json`) as i18nStrings;
+    this.strings = json;
   }
 }

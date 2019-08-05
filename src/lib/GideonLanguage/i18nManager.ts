@@ -1,7 +1,9 @@
 import { Client } from "discord.js";
-import { GideonLanguage } from "./GideonLanguage";
 import fetch from "node-fetch";
 import { SecretConfig } from "@src/config";
+import { readdir, writeFile, readJSON } from "fs-nextra";;
+import { i18nStrings } from "typings";
+import { Language } from "./Language";
 
 const i18nfile = "bot.json";
 
@@ -16,15 +18,20 @@ export class i18nManager {
   }
 
   async updateAll() {
-    await Object.keys(this.lang_codes).forEach(async l => {
+    await Object.keys(this.lang_names).forEach(async l => {
       await this.update(l);
     })
   }
 
-  async update(lang:string, retry = true) {
-
-    this.client.console.log(`Updating ${lang} file...`);
+  async update(lang:string) {
+    const languageinfo = await this.getLanguageInfo(lang);
+    if(languageinfo.files.find(f => f.name == "bot.json").approved == 0) return;
+    this.client.console.log(`Updating ${this.lang_names[lang]} file...`);
     const file = await fetch(`https://api.crowdin.com/api/project/${SecretConfig.crowdin.projectname}/export-file?key=${SecretConfig.crowdin.apiKey}&json&file=${encodeURIComponent(i18nfile)}&language=${lang}`).then(res => res.text());
+
+    await writeFile(`./langs/${lang}.json`, file);
+    if(!this.client.i18n[lang]) return this.loadTranslation(`${lang}.json`);
+    return this.client.i18n[lang].updateStrings();
   }
 
   async loadCodes() {
@@ -43,8 +50,20 @@ export class i18nManager {
 
   async upload() {}
 
-  loadTranslations() {
-    return new GideonLanguage(this.client);
+  async loadTranslations() {
+    try {
+      const files = await readdir("./langs");
+      for await (const file of files) this.loadTranslation(file);
+    } catch(e) {
+      this.client.console.error("Something happened while loading the languages", e)
+    }
+  }
+
+  async loadTranslation(file:string) {
+    const lang = await readJSON(`./langs/${file}`) as i18nStrings;
+    const locale = file.split(".json")[0];
+    this.client.i18n[locale] = new Language(this.client, locale, lang);
+    this.client.console.log(`[Languages] Loaded ${locale}.`);
   }
 }
 
