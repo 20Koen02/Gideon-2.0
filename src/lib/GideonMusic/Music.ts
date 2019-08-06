@@ -11,6 +11,7 @@ export default class Music {
   paused: boolean;
   looping: boolean;
   loader: MusicLoader;
+  volume: number;
   constructor(guild:Guild) {
     this.client = guild.client;
     this.guild = guild;
@@ -20,6 +21,7 @@ export default class Music {
     this.playing = false;
     this.paused = false;
     this.looping = false;
+    this.volume = 100;
 
     this.loader = new MusicLoader(this, guild);
   }
@@ -65,6 +67,7 @@ export default class Music {
 
   async setVolume(volume:number) {
     if (this.playing) await this.player.volume(volume);
+    this.volume = volume;
     return volume;
   }
 
