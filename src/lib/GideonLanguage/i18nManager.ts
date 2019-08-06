@@ -1,9 +1,10 @@
 import { Client } from "discord.js";
 import fetch from "node-fetch";
 import { SecretConfig } from "@src/config";
-import { readdir, writeFile, readJSON } from "fs-nextra";;
+import { readdir, writeFile, readJSON, createReadStream } from "fs-nextra";;
 import { i18nStrings } from "typings";
 import { Language } from "./Language";
+import * as FormData from "form-data";
 
 const i18nfile = "bot.json";
 
@@ -46,9 +47,15 @@ export class i18nManager {
      return fetch(`https://api.crowdin.com/api/project/${SecretConfig.crowdin.projectname}/language-status?key=${SecretConfig.crowdin.apiKey}&json&language=${lang}`).then(res => res.json());
    }
 
-  async uploadFile() {}
+  async upload() {
+    const formData = new FormData();
+    formData.append('key', SecretConfig.crowdin.apiKey);
+    formData.append('json', '');
+    formData.append("files[bot.json]", createReadStream("./langs/en-US.json"))
 
-  async upload() {}
+    const res = await fetch(`https://api.crowdin.com/api/project/${SecretConfig.crowdin.projectname}/update-file`, { method: "POST", body: formData });
+    if(res.ok) this.client.console.log("[Languages] Uploaded the translation file");
+  }
 
   async loadTranslations() {
     try {

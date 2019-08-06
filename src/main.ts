@@ -14,10 +14,12 @@ export default class extends BaseCluster {
     new GideonDatabase(this.client, { url: SecretConfig.mongodb.url });
     this.client.i18nmanager = new i18nManager(this.client);
     new GideonAPI(this.client);
-    
 
-    await this.client.i18nmanager.loadCodes();
-    await this.client.i18nmanager.updateAll();
+    if(SecretConfig.crowdin.enabled) {
+      await this.client.i18nmanager.loadCodes();
+      await this.client.i18nmanager.updateAll();
+      await this.client.i18nmanager.upload();
+    }
     await this.client.i18nmanager.loadTranslations();
   }
 }

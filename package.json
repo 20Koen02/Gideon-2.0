@@ -29,6 +29,7 @@
 		"discord.js": "discordjs/discord.js",
 		"discord.js-lavalink": "MrJacz/discord.js-lavalink#v3",
 		"fastify": "^2.7.1",
+		"form-data": "^2.5.0",
 		"fs-nextra": "^0.4.5",
 		"klasa": "dirigeants/klasa#v1.0.0-alpha",
 		"kurasuta": "^0.2.18",
@@ -38,6 +39,7 @@
 		"node-fetch": "^2.6.0"
 	},
 	"devDependencies": {
+		"@types/form-data": "^2.5.0",
 		"@types/mathjs": "^6.0.0",
 		"@types/module-alias": "^2.0.0",
 		"@types/mongoose": "^5.5.8",
