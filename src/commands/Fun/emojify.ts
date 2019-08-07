@@ -13,6 +13,7 @@ export default class EmojifyCommand extends Command {
     this.customizeResponse("text", message =>
     message.i18n.get("cmd_emojify_min_chars") as string);
   }
+  
   async run(message:KlasaMessage, [text]:[string]) {
     const embed = Embed(message, {
       footer: false
