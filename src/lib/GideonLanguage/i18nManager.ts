@@ -1,7 +1,7 @@
 import { Client } from "discord.js";
 import fetch from "node-fetch";
 import { SecretConfig } from "@src/config";
-import { readdir, writeFile, readJSON, createReadStream } from "fs-nextra";;
+import { readdir, writeFile, readFile, readJSON, createReadStream } from "fs-nextra";;
 import { i18nStrings } from "typings";
 import { Language } from "./Language";
 import * as FormData from "form-data";
@@ -48,6 +48,7 @@ export class i18nManager {
    }
 
   async upload() {
+    // if(!this.client.options.production) return;
     const formData = new FormData();
     formData.append('key', SecretConfig.crowdin.apiKey);
     formData.append('json', '');
