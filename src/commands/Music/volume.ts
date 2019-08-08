@@ -14,7 +14,7 @@ export default class MusicCommand extends Command {
     const { music } = message.guild;
     if (!music.playing) return message.translate("cmd_music_notplaying");
     if (!volume) return message.send(`:speaker: | **Guild's Current Music Volume is:** ${music.volume}`);
-    if (volume <= 0 || volume >= 100) return message.send(`:x: **Volume can not be lower than 0 or higher than 100.**`);
+    if (volume <= 0 || volume > 100) return message.send(`:x: **Volume can not be lower than 0 or higher than 100.**`);
     
     await music.setVolume(volume);
 

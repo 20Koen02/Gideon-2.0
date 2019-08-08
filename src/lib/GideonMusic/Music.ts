@@ -77,7 +77,7 @@ export default class Music {
   }
 
   async destroy() {
-    this.queue = null;
+    this.queue = [];
     this.playing = null;
     this.paused = null;
     this.textChannel = null;
