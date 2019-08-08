@@ -32,6 +32,7 @@
 		"form-data": "^2.5.0",
 		"fs-nextra": "^0.4.5",
 		"klasa": "dirigeants/klasa#v1.0.0-alpha",
+		"klasa-dashboard-hooks": "dirigeants/klasa-dashboard-hooks#master",
 		"kurasuta": "^0.2.18",
 		"mathjs": "^6.0.3",
 		"messageformat": "^2.3.0",
