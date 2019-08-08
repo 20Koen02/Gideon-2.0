@@ -12,7 +12,7 @@ import { GideonEmbedManager } from "@lib/GideonEmbedManager/GideonEmbedManager";
   runIn: ["text"]
 })
 
-export default class PlayMusicCommand extends Command {
+export default class MusicCommand extends Command {
 
 	async run(message:KlasaMessage, [song]:[{tracks:Song[]}]) {
     if (!message.member.voice.channel) throw "I'm sorry but you need to be in a voice channel to play music!";

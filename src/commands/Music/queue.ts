@@ -9,7 +9,7 @@ import { GideonEmbedManager } from "@lib/GideonEmbedManager/GideonEmbedManager";
   runIn: ["text"]
 })
 
-export default class QueueMusicCommand extends Command {
+export default class MusicCommand extends Command {
 
 	async run(message:KlasaMessage) {
     const { music } = message.guild;

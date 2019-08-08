@@ -3,12 +3,12 @@ import { CommandOptions, Command, KlasaMessage } from "klasa";
 
 
 @applyOptions<CommandOptions>({
-  desc: (i18n) => i18n.get("desc_loop"),
+  desc: (i18n) => i18n.get("desc_volume"),
   usage: "[volume:integer]",
   runIn: ["text"]
 })
 
-export default class LoopMusicCommand extends Command {
+export default class MusicCommand extends Command {
 
 	async run(message:KlasaMessage, [volume]:[number?]) {
     const { music } = message.guild;

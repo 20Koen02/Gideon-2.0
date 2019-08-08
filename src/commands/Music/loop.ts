@@ -8,7 +8,7 @@ import { CommandOptions, Command, KlasaMessage } from "klasa";
   runIn: ["text"]
 })
 
-export default class LoopMusicCommand extends Command {
+export default class MusicCommand extends Command {
 
 	async run(message:KlasaMessage, [looptype = "song"]:["song"|"queue"]) {
     const { music } = message.guild;

@@ -8,7 +8,7 @@ import Music from "@lib/GideonMusic/Music";
   runIn: ["text"]
 })
 
-export default class SkipMusicCommand extends Command {
+export default class MusicCommand extends Command {
 
 	async run(message:KlasaMessage) {
     const { music } = message.guild;
