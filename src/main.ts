@@ -1,7 +1,6 @@
 import { SecretConfig } from "./config";
 import { GideonDatabase } from "./lib/GideonDatabase/GideonDatabase";
 import { i18nManager } from "@lib/GideonLanguage/i18nManager";
-import { GideonAPI } from "./lib/GideonAPI/GideonAPI";
 import { BaseCluster } from "kurasuta";
 
 import "@lib/prototypes/GideonGuild";
@@ -13,8 +12,7 @@ export default class extends BaseCluster {
     this.client.login(SecretConfig.token);
     new GideonDatabase(this.client, { url: SecretConfig.mongodb.url });
     this.client.i18nmanager = new i18nManager(this.client);
-    new GideonAPI(this.client);
-
+    
     if(SecretConfig.crowdin.enabled) {
       await this.client.i18nmanager.loadCodes();
       await this.client.i18nmanager.updateAll();

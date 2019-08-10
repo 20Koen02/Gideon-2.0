@@ -518,9 +518,9 @@ kareem@2.3.0:
   resolved "https://registry.yarnpkg.com/kareem/-/kareem-2.3.0.tgz#ef33c42e9024dce511eeaf440cd684f3af1fc769"
   integrity sha512-6hHxsp9e6zQU8nXsP+02HGWXwTkOEw6IROhF2ZA28cYbUk4eJ6QbtZvdqZOdD9YPKghG3apk5eOCvs+tLl3lRg==
 
-klasa-dashboard-hooks@dirigeants/klasa-dashboard-hooks#master:
+klasa-dashboard-hooks@dirigeants/klasa-dashboard-hooks#settings:
   version "0.0.1-dev"
-  resolved "https://codeload.github.com/dirigeants/klasa-dashboard-hooks/tar.gz/5b811da07e4712ee4b27ce93974e00f50ee4bdc4"
+  resolved "https://codeload.github.com/dirigeants/klasa-dashboard-hooks/tar.gz/39c5be557c75d3fdfe73d65db760ab0167bf425b"
   dependencies:
     node-fetch "^2.6.0"
 

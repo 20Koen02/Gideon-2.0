@@ -2,9 +2,7 @@ import { join, resolve } from "path";
 import { Canvas } from "canvas-constructor";
 import { ShardingManager } from "kurasuta";
 import { KlasaClient } from "klasa";
-import { i18n, BotConfig as BC } from "typings";
 import { BotConfig, SecretConfig, KlasaConfig } from "./config";
-import { PlayerManager } from "discord.js-lavalink";
 
 const TSModuleAlias = require("@momothepug/tsmodule-alias");
 
@@ -18,6 +16,8 @@ Canvas.registerFont(resolve(join(__dirname, '../assets/fonts/Ubuntu.ttf')), 'Ubu
 
 import MusicManager from "@lib/GideonMusic/MusicManager";
 
+
+KlasaClient.use(require("klasa-dashboard-hooks"));
 const sharder = new ShardingManager(join(__dirname, "main"), {
   client: class GideonClient extends KlasaClient {
     constructor() {
