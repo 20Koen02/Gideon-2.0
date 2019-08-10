@@ -53,7 +53,7 @@ export default class MusicLoader {
   }
 
   private async searchTrack(message:KlasaMessage, song:string) {
-    const data = await this.fetchTracks(song);
+    const data = await this.fetchTracks(`ytsearch:${song}`);
     if (!data || !data.tracks.length) throw "Music not found";
 
     const songs = data.tracks.slice(0, 5);
@@ -72,7 +72,6 @@ export default class MusicLoader {
   }
 
   private async fetchTracks(search:string) {
-    if(!search.startsWith("ytsearch:")) search = `ytsearch:${search}`;
     let result = await this.client.music.search(this.client.player.nodes.first(), `${search}`);
     if (result.loadType === "LOAD_FAILED") throw "There was an error trying to search for that song";
     return { tracks: result.tracks };
