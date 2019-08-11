@@ -7,16 +7,16 @@ export class GideonCommand extends Command {
   constructor(store: CommandStore, file: string[], directory: string, options: CommandOptions) {
     super(store, file, directory, options);
     this._desc = options.desc
+    this.description = this.desc1();
   }
 
   desc(lang:ILanguage<i18nStrings>) {
-    this.description = this.desc1();
     return (language = lang) => this._desc(language) as string;
   }
   private desc1() : string {
     let a: string;
-    let _a = (language = this.client.i18n[this.client.config.defaultLang]) => this._desc(language);
-    if(Array.isArray(_a)) a = _a.join(" "); else a = _a.toString();
+    let _a = this._desc(this.client.i18n[this.client.config.defaultLang]);
+    if(Array.isArray(_a)) a = _a.join(" "); else a = _a as string;
     return a;
   }
 }

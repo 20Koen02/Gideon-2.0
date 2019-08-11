@@ -9,9 +9,9 @@ import * as FormData from "form-data";
 const i18nfile = "bot.json";
 
 export class i18nManager {
-  client: Client;
-  lang_names: { [x:string]: string };
-  lang_codes: { [x:string]: string };
+  private client: Client;
+  private lang_names: { [x:string]: string };
+  private lang_codes: { [x:string]: string };
   constructor(client:Client) {
     this.client = client;
     this.lang_names = {};
@@ -70,7 +70,8 @@ export class i18nManager {
   async loadTranslation(file:string) {
     const lang = await readJSON(`./langs/${file}`) as i18nStrings;
     const locale = file.split(".json")[0];
-    this.client.i18n[locale] = new Language(this.client, locale, lang);
+    const langClass = new Language(this.client, locale, lang);
+    this.client.i18n[locale] = langClass;
     this.client.console.log(`[Languages] Loaded ${locale}.`);
   }
 }

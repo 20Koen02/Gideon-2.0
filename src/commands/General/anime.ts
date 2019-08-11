@@ -1,17 +1,17 @@
 import { searchAnime } from "@lib/Kitsu/Kitsu";
-import { Command } from "klasa";
 import { applyOptions } from "@lib/Util/Util";
 import { CommandOptions } from "klasa";
 import { KlasaMessage } from "klasa";
 import * as turl from "@lib/URLShortener";
 import { MessageEmbed } from "discord.js";
+import { GideonCommand } from "@lib/GideonCommand/GideonCommand";
 
 @applyOptions<CommandOptions>({
   desc: (i18n) => i18n.get("desc_anime"),
   usage: "<anime:string>"
 })
 
-export default class AnimeCommand extends Command {
+export default class AnimeCommand extends GideonCommand {
 
   async run(message: KlasaMessage, args: [string]) {
     const results = await searchAnime(args[0], 0)

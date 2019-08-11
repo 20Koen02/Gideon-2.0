@@ -7,7 +7,6 @@ import { GideonCommand } from "@lib/GideonCommand/GideonCommand";
 @applyOptions<CommandOptions>({
   aliases: ["commands"],
   guarded: true,
-  description: language => language.get("COMMAND_HELP_DESCRIPTION"),
   desc: (i18n) => i18n.get("desc_help"),
   usage: "(Command:command)"
 })
@@ -30,7 +29,7 @@ export default class HelpCommand extends GideonCommand {
                 .setDescription(
                     [
                         `_**Help**_ | __**${cmnd.name}**__`,
-                        cmnd.desc(msg.guild.i18n),
+                        cmnd.description,
                         ``,
                         "_**Command Usage**_",
                         `\`${this.client.options.prefix}${cmnd.usage}\``,

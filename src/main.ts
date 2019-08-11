@@ -5,6 +5,7 @@ import { BaseCluster } from "kurasuta";
 
 import "@lib/prototypes/GideonGuild";
 import "@lib/prototypes/GideonMessage";
+import "@lib/GideonCommand/GideonCommand";
 
 
 export default class extends BaseCluster {
