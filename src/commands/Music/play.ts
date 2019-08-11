@@ -36,7 +36,7 @@ export default class MusicCommand extends Command {
     } catch (error) {
       this.client.console.error(error);
       await music.destroy();
-      return music.textChannel.send(`There was an error: ${error}`);
+      return message.channel.send(`There was an error: ${error}`);
     }
   }
 

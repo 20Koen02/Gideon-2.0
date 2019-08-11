@@ -82,8 +82,7 @@ export default class Music {
     this.paused = null;
     this.textChannel = null;
     this.looping = null;
-
-    if (this.player) await this.player.destroy();
+    
     await this.leave();
     this.client.music.delete(this.guild.id);
   }
