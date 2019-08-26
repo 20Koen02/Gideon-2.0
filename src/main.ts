@@ -11,6 +11,8 @@ import "@lib/GideonCommand/GideonCommand";
 export default class extends BaseCluster {
   async launch() {
     this.client.login(SecretConfig.token);
+
+    if(SecretConfig.development) this.client.on("debug", (info) => console.log(info));
     new GideonDatabase(this.client, { url: SecretConfig.mongodb.url });
     this.client.i18nmanager = new i18nManager(this.client);
     

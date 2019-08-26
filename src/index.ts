@@ -27,7 +27,7 @@ const sharder = new ShardingManager(join(__dirname, "main"), {
       this.music = new MusicManager();
     }
   },
-  development: true,
+  development: SecretConfig.development,
   token: SecretConfig.token
 });
 sharder.spawn();

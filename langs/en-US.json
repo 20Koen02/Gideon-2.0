@@ -49,8 +49,13 @@
 
     "cmd_music_notplaying": "I am not playing any music",
     "cmd_music_loop_max": "The maximum queue size is 1000 songs, therefore we can't loop the queue",
-    "cmd_music_loop_start" : "🎧 {queuetype, select, queue {The whole queue will now repeat} other {Song looping is now {looping, select, enabled {enabled} disabled {disabled} other {undefined}}}}",
+    "cmd_music_loop_start" : "{queuetype, select, queue {The whole queue will now repeat} other {Song looping is now {looping, select, enabled {enabled} disabled {disabled} other {undefined}}}}",
     "cmd_music_no_songs": "The queue is empty",
+    "cmd_music_no_voice": "I'm sorry but you need to be in a voice channel to play music!",
+    "cmd_music_no_connect": "I do not have enough permissions to connect to your voice channel. I am missing the CONNECT permission.",
+    "cmd_music_no_speak": "I can connect... but not speak. Please turn on this permission so I can emit music.",
+    "cmd_music_added_songs": "**Queue:** Added **{songs}** songs to the queue.",
+    "cmd_music_empty_queue": "Stopped playing, the queue was empty",
 
     "service_unavailable": "503: Service Unavailable",
     "reactionhandler_prompt": "Which page would you like to jump to?",

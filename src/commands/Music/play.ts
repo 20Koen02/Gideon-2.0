@@ -15,10 +15,10 @@ import { GideonEmbedManager } from "@lib/GideonEmbedManager/GideonEmbedManager";
 export default class MusicCommand extends Command {
 
 	async run(message:KlasaMessage, [song]:[{tracks:Song[]}]) {
-    if (!message.member.voice.channel) throw "I'm sorry but you need to be in a voice channel to play music!";
+    if (!message.member.voice.channel) throw message.i18n.get("cmd_music_no_voice");
 
-    if (!message.member.voice.channel.joinable) throw "I do not have enough permissions to connect to your voice channel. I am missing the CONNECT permission.";
-    if (!message.member.voice.channel.speakable) throw "I can connect... but not speak. Please turn on this permission so I can emit music.";
+    if (!message.member.voice.channel.joinable) throw message.i18n.get("cmd_music_no_connect");
+    if (!message.member.voice.channel.speakable) throw message.i18n.get("cmd_music_no_speak");
 
     message.guild.music.textChannel = message.channel as TextChannel;
 
@@ -45,7 +45,7 @@ export default class MusicCommand extends Command {
     if (songs.tracks.length > 1) {
       const limitedSongs = songs.tracks.slice(0, 75);
       music.queue.push(...limitedSongs);
-      return message.send(`🎧 | **Queue:** Added **${limitedSongs.length}** songs to the queue.`);
+      return message.translate("cmd_music_added_songs", {songs: limitedSongs.length });
     } else {
       music.queue.push(...songs.tracks);
       if (!music.playing) return;
@@ -59,7 +59,7 @@ export default class MusicCommand extends Command {
 
     if (!song) {
         if (!music.textChannel || music.textChannel.deleted) return music.destroy();
-        await music.textChannel.send("Stopped playing");
+        await music.textChannel.send(music.guild.i18n.get("cmd_music_empty_queue"));
         return music.destroy();
     }
 
