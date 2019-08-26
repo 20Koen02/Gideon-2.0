@@ -1,0 +1,15 @@
+name: Auto-approve
+
+on:
+  pull_request:
+
+jobs:
+  autoapprove:
+    name: autoapprove
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Auto Approve
+      uses: hmarr/auto-approve-action@v1.0.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
