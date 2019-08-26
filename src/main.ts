@@ -15,6 +15,8 @@ export default class extends BaseCluster {
     if(SecretConfig.development) this.client.on("debug", (info) => console.log(info));
     new GideonDatabase(this.client, { url: SecretConfig.mongodb.url });
     this.client.i18nmanager = new i18nManager(this.client);
+
+    await this.client.i18nmanager.loadTranslation("en-US.json");
     
     if(SecretConfig.crowdin.enabled) {
       await this.client.i18nmanager.loadCodes();

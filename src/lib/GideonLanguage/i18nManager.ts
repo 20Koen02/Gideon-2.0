@@ -70,6 +70,7 @@ export class i18nManager {
   async loadTranslation(file:string) {
     const lang = await readJSON(`./langs/${file}`) as i18nStrings;
     const locale = file.split(".json")[0];
+    if(this.client.i18n[locale]) return;
     const langClass = new Language(this.client, locale, lang);
     this.client.i18n[locale] = langClass;
     this.client.console.log(`[Languages] Loaded ${locale}.`);
