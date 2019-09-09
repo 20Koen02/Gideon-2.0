@@ -24,9 +24,22 @@ export default class MusicCommand extends Command {
     const { lyrics } = await _lyrics.song(songs[0].id, { fetchLyrics: true, textFormat: "dom" }) as { lyrics: string};
 
     const rd = new RichDisplay();
-    
-    const array = lyrics.split("");
-    array.forEach(l => {
+    const array = lyrics.split("\n\n");
+    const lyricsArray = new Array;
+    array.forEach((verse, i) => {
+      if(verse.length > 2048) {
+        let s1 = verse.slice(0, Math.ceil(verse.length / 2));
+        let s2 = verse.slice(Math.ceil(verse.length / 2));
+
+        lyricsArray.push(s1, s2)
+      } else {
+        lyricsArray.push(verse)
+      }
+    });
+
+    console.log(lyricsArray)
+
+    lyricsArray.forEach(l => {
       rd.addPage(this.embed(l))
     });
     await rd.run(await message.send(`**Music lyrics**`) as KlasaMessage);
@@ -34,6 +47,6 @@ export default class MusicCommand extends Command {
   }
 
   private embed(lyrics:string) {
-    return new MessageEmbed();
+    return new MessageEmbed().setDescription(lyrics);
   }
 };
